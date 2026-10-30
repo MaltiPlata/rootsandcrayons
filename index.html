@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roots &amp; Crayons | Printable Armenian Flashcards for Little Ones</title>
-<meta name="description" content="Printable Eastern Armenian flashcards for little ones: the alphabet, everyday phrases, holidays and more, with an easy pronunciation guide on every card. Get the 12-card Feelings pack free.">
+<meta name="description" content="Printable Eastern Armenian flashcards for little ones: the alphabet, everyday phrases, dinosaurs, space, holidays and more, with an easy pronunciation guide on every card. Get the 12-card Feelings pack free.">
 <link rel="canonical" href="https://rootsandcrayons.com/">
 <meta name="theme-color" content="#FF6B5E">
 
@@ -314,16 +314,6 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 /* ===== Packs + prices ===== */
 .packs{background:var(--sky-tint)}
 .bundle{display:grid;grid-template-columns:minmax(0,1fr);gap:30px;align-items:center;background:var(--ink);color:#fff;border-radius:28px;padding:30px 22px 32px;margin-bottom:22px}
-.minis{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-bottom:clamp(52px,6vw,76px)}
-@media (min-width:760px){.minis{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
-.mini{display:flex;flex-direction:column;gap:14px;background:#fff;border-radius:24px;padding:22px 20px 22px;border:3px solid var(--c);box-shadow:0 6px 0 var(--c)}
-.mini__tiles{display:flex;flex-wrap:wrap;gap:7px}
-.mini__tiles .tile{--s:36px;--r:0deg}
-.mini__tiles .tile:nth-child(odd){--r:-4deg}
-.mini h3{font-size:1.45rem;font-weight:600}
-.mini p{margin-top:4px;color:var(--ink-2);font-size:1.02rem}
-.mini__buy{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:auto}
-.mini__was{font-weight:700;color:var(--ink-3)}
 @media (min-width:860px){.bundle{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;padding:42px 48px}}
 .bundle__title{font-size:clamp(1.85rem,1.4rem + 1.7vw,2.6rem);color:#fff}
 .bundle__text{margin-top:10px;color:#D9D8E3;max-width:46ch}
@@ -350,7 +340,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
   .pack .tile{--s:70px;margin-top:6px}
   .pack__more{grid-column:2}
 }
-.pack h3{font-size:1.45rem;font-weight:600;line-height:1.12}
+.pack h4{margin:0;font-family:var(--f-display);font-size:1.45rem;font-weight:600;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
 .pack__hy{margin-top:4px;font-family:var(--f-hy);font-weight:600;font-size:1.02rem;line-height:1.3;color:var(--deep)}
 .pack__say{font-weight:600;font-size:.9rem;color:var(--ink-3)}
 .pack__tags{display:flex;flex-wrap:wrap;gap:6px}
@@ -365,6 +355,28 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .word__say{font-weight:600;font-size:.8rem;color:var(--ink-3)}
 .word__en{font-weight:700;font-size:.82rem;color:var(--ink)}
 .pack__buy{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px}
+.pack__plus{display:flex;gap:8px;align-items:flex-start;margin-top:10px;font-weight:700;font-size:.95rem;line-height:1.4;color:var(--deep)}
+.pack__plus .shape{width:15px;height:15px;margin-top:3px}
+.word--feat .word__en{font-size:.95rem}
+/* Shelves: one per collection, each opening with its bundle */
+.shelf-nav{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(44px,5vw,64px) 0 clamp(30px,3.5vw,44px)}
+.shelf-nav button{font-family:var(--f-body);font-weight:700;font-size:.95rem;line-height:1.2;color:var(--ink-2);background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:9px 15px 6px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.shelf-nav button:hover{border-color:#A6A4B4}
+.shelf-nav button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.shelf-nav small{font-size:.8em;font-weight:800;margin-left:.4em;opacity:.65}
+.shelves{display:grid;gap:clamp(60px,7vw,92px)}
+.shelf__head{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:end;padding-bottom:24px;margin-bottom:34px;border-bottom:3px dashed color-mix(in srgb,var(--c) 55%,transparent)}
+@media (min-width:880px){.shelf__head{grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:36px}}
+.shelf__title{display:flex;align-items:center;gap:12px}
+.shelf__title .shape{width:26px;height:26px}
+.shelf__title h3{font-size:clamp(1.65rem,1.35rem + 1.1vw,2.15rem)}
+.shelf__blurb{margin-top:8px;color:var(--ink-2);font-size:1.06rem;max-width:58ch}
+.shelf__more{margin-top:8px;font-weight:800;font-size:.98rem;color:var(--deep)}
+.deal{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:#fff;border:3px solid var(--c);box-shadow:0 5px 0 var(--c);border-radius:20px;padding:15px 18px 16px}
+.deal__name{flex:1 1 100%;font-weight:800;font-size:1.02rem;line-height:1.25}
+.deal__name span{display:block;margin-top:2px;font-weight:600;font-size:.9rem;color:var(--ink-3)}
+.deal .price{font-size:1.5rem}
+.deal__was{font-weight:700;font-size:.95rem;color:var(--ink-3)}
 .extras{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:clamp(44px,5vw,64px)}
 @media (min-width:760px){.extras{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}}
 .extra{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:start;background:#fff;border-radius:22px;padding:20px 20px 22px}
@@ -498,7 +510,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .scene--hello .ctile > span{font-size:54cqi}
 .scene--cake svg{width:76%;height:auto}
 
-/* Founder note */
+/* Community note */
 .hello{background:var(--green-tint)}
 .hello__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:44px;align-items:center}
 @media (min-width:860px){.hello__grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:64px}}
@@ -593,7 +605,8 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   <symbol id="h-snow" viewBox="0 0 40 40"><path d="M20 20L20 4M24.3 6L20 10.5L15.7 6M20 20L33.9 12M34.3 16.7L28.2 15.2L30 9.3M20 20L33.9 28M30 30.7L28.2 24.8L34.3 23.3M20 20L20 36M15.7 34L20 29.5L24.3 34M20 20L6.1 28M5.7 23.3L11.8 24.8L10 30.7M20 20L6.1 12M10 9.3L11.8 15.2L5.7 16.7" style="fill:none;stroke:var(--c);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round"/></symbol>
   <symbol id="h-heart" viewBox="0 0 24 24"><path d="M12 21.1C5.3 16.3 1.8 12.6 1.8 8.4 1.8 5.2 4.2 2.8 7.2 2.8c2.1 0 3.8 1.2 4.8 3 1-1.8 2.7-3 4.8-3 3 0 5.4 2.4 5.4 5.6 0 4.2-3.5 7.9-10.2 12.7Z" style="fill:var(--c)"/></symbol>
   <symbol id="h-egg" viewBox="0 0 40 40"><path d="M20 3C12.6 3 7.5 14.6 7.5 23a12.5 12.5 0 0 0 25 0C32.5 14.6 27.4 3 20 3Z" style="fill:var(--c)"/><path d="M8.6 19.4l3.3 2.7 3.3-2.7 3.3 2.7 3.3-2.7 3.3 2.7 3.3-2.7 3.3 2.7" style="fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/><circle cx="14.5" cy="29" r="1.8" style="fill:#fff"/><circle cx="20" cy="31" r="1.8" style="fill:#fff"/><circle cx="25.5" cy="29" r="1.8" style="fill:#fff"/></symbol>
-  <symbol id="h-flower" viewBox="0 0 40 40"><circle cx='20' cy='11' r='7.4' style='fill:var(--c)'/><circle cx='28.6' cy='17.2' r='7.4' style='fill:var(--c)'/><circle cx='25.3' cy='27.3' r='7.4' style='fill:var(--c)'/><circle cx='14.7' cy='27.3' r='7.4' style='fill:var(--c)'/><circle cx='11.4' cy='17.2' r='7.4' style='fill:var(--c)'/><circle cx='20' cy='20' r='5.8' style='fill:var(--gold)'/></symbol>
+  <symbol id="h-leaf" viewBox="0 0 40 40"><path d="M34 5C19.2 5 8.5 13.6 8.5 25.3c0 2.9.8 5.5 2.2 7.5 2 1.4 4.6 2.2 7.5 2.2C29.9 35 34 20.1 34 5Z" style="fill:var(--c)"/><path d="M10.7 32.8 4.8 37.6" style="fill:none;stroke:var(--edge);stroke-width:3.2;stroke-linecap:round"/><path d="M13.4 30.1 28.6 12.4M18.6 24.1 17.9 18.2M23.4 18.5 23.2 13.4M18.6 24.1 24.4 23.9M23.4 18.5 28.4 18.3" style="fill:none;stroke:#fff;stroke-width:2.3;stroke-linecap:round"/></symbol>
+  <symbol id="h-pencil" viewBox="0 0 40 40"><path d="M6.8 26.9 23.8 10 30 16.2 13.1 33.2Z" style="fill:var(--c)"/><path d="M23.8 10 27.4 6.4a2.2 2.2 0 0 1 3.1 0l3.1 3.1a2.2 2.2 0 0 1 0 3.1L30 16.2Z" style="fill:var(--coral)"/><path d="M23.8 10 30 16.2" style="fill:none;stroke:#fff;stroke-width:2.2"/><path d="M6.8 26.9 13.1 33.2 4.6 35.4Z" style="fill:#FBE3BD"/><path d="M4.6 35.4 5.5 31.9 8.1 34.5Z" style="fill:var(--ink)"/><path d="M10 27.4 24.6 12.8" style="fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;opacity:.55"/></symbol>
   <symbol id="h-drop" viewBox="0 0 40 40"><path d="M20 3.5C15.6 11 9 17.2 9 24.5a11 11 0 0 0 22 0C31 17.2 24.4 11 20 3.5Z" style="fill:var(--c)"/><path d="M14.6 25.4a5.6 5.6 0 0 0 4.6 5.2" style="fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round"/></symbol>
   <symbol id="h-letter" viewBox="0 0 40 40"><rect x="3" y="6" width="34" height="32" rx="9" style="fill:var(--edge)"/><rect x="3" y="3" width="34" height="32" rx="9" style="fill:var(--c)"/><path transform="translate(8.6 27.6) scale(.0255 -.0255)" d="M362 -10Q270 -10 207.0 23.0Q144 56 112.0 115.5Q80 175 80 254V714H244V278Q244 193 274.5 159.5Q305 126 366 126Q410 126 436.5 142.5Q463 159 475.0 193.0Q487 227 487 281V714H651V252Q651 244 651 237Q655 237 659 238Q668 238 675 238Q757 238 799.5 196.0Q842 154 842 58V0H701V48Q701 88 688.5 102.5Q676 117 649 117Q639 117 628 116Q621 115 616 114Q585 59 524 26Q460 -10 362 -10Z" style="fill:#fff"/></symbol>
 
@@ -631,7 +644,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     <div class="hero__copy">
       <h1 id="hero-title">Armenian your whole family can say.</h1>
       <p class="hero__lead">Printable flashcards for little ones, with the meaning and an easy sound-it-out guide on every card. Start tonight, even if your Armenian is a little rusty.</p>
-      <p class="hero__more"><a href="#packs">Browse all <span data-fill="packs">11</span> packs, from <span data-fill="from">$5</span></a></p>
+      <p class="hero__more"><a href="#packs">Browse all <span data-fill="packs">30</span> packs, from <span data-fill="from">$3</span></a></p>
     </div>
 
     <div class="hero__form">
@@ -674,7 +687,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         </div>
         <div class="done" tabindex="-1">
           <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
-          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack. Peek in Promotions if you don't see it.</p>
+          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
           <a class="btn done__dl" href="#" hidden>Download it now</a>
           <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
         </div>
@@ -809,23 +822,22 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <section class="section packs" id="packs" aria-labelledby="packs-title">
   <div class="wrap">
     <div class="section__head">
-      <h2 id="packs-title">Eleven packs for the moments that fill your day</h2>
-      <p><span data-fill="cards">221</span> cards across the alphabet, feelings, family, food, bedtime and more. Every card shows the English, the Armenian and how to say it.</p>
+      <h2 id="packs-title"><span data-fill="packs">30</span> packs for the moments that fill your day</h2>
+      <p><span data-fill="cards">557</span> cards for mealtime and bedtime, the park and the beach, dinosaurs and dragons. Every card shows the English, the Armenian and how to say it, and every pack hides a different fun-fact coloring sheet.</p>
     </div>
 
     <div class="bundle" id="bundle">
       <div>
         <h3 class="bundle__title">Every pack in one download</h3>
-        <p class="bundle__text">All <span data-fill="packs">11</span> packs and <span data-fill="cards">221</span> cards, in full color and ink-saver. A sweet gift from Tatik and Papik, too.</p>
-        <p class="bundle__price"><span class="bundle__now" data-fill="bundle">$29</span><span class="bundle__was">One by one: <s data-fill="compare">$56</s></span></p>
+        <p class="bundle__text">All <span data-fill="packs">30</span> packs and <span data-fill="cards">557</span> cards, plus both workbooks, in full color and ink-saver. A sweet gift from Tatik and Papik, too.</p>
+        <p class="bundle__price"><span class="bundle__now" data-fill="bundle">$49</span><span class="bundle__was">One by one: <s data-fill="compare">$165</s></span></p>
         <a class="btn" id="bundleBuy" href="#">Get the bundle</a>
         <p class="bundle__soon" id="bundleSoon" hidden>Opening soon. Join the list and you'll hear the day it does.</p>
       </div>
       <div class="bundle__tiles" id="bundleTiles" aria-hidden="true"></div>
     </div>
-    <div class="minis" id="miniBundles"></div>
-
-    <ul class="packs__grid" id="packList"></ul>
+    <div class="shelf-nav" id="shelfNav" role="group" aria-label="Show packs from"></div>
+    <div class="shelves" id="shelves"></div>
     <noscript><p>Turn on JavaScript to see all the packs.</p></noscript>
 
     <div class="extras">
@@ -833,8 +845,8 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         <svg class="shape" aria-hidden="true"><use href="#s-pill"/></svg>
         <div>
           <h3>Teaching a class?</h3>
-          <p>The classroom license covers every pack for one classroom, Saturday school or tutoring group, with unlimited copies.</p>
-          <div class="extra__buy"><span class="price" data-fill="classroom">$49</span><a class="buy" id="classroomBuy" href="#">Get the classroom license</a></div>
+          <p>The classroom license covers every pack and both workbooks for one classroom, Saturday school or tutoring group, with unlimited copies.</p>
+          <div class="extra__buy"><span class="price" data-fill="classroom">$89</span><a class="buy" id="classroomBuy" href="#">Get the classroom license</a></div>
         </div>
       </div>
       <div class="extra c-pink">
@@ -854,7 +866,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   <div class="wrap">
     <div class="section__head">
       <h2 id="specials-title">Holiday and birthday specials</h2>
-      <p>Packs for the Armenian holidays all year long, plus printables for the big day. Subscribers hear first and get a launch discount.</p>
+      <p>Packs for the holidays all year long, plus printables for the big day. Subscribers hear first, with a free coloring sheet for every holiday.</p>
     </div>
     <ol class="hols" id="holList"></ol>
 
@@ -1047,20 +1059,20 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<!-- ============ FOUNDER NOTE (a draft: edit in your own words, or delete this section) ============ -->
+<!-- ============ COMMUNITY NOTE ============ -->
 <section class="section hello" id="hello" aria-labelledby="hello-title">
   <div class="wrap hello__grid">
-    <figure class="snap c-green" data-photo="founder" data-alt="Pamela, founder of Roots and Crayons">
+    <figure class="snap c-green" data-photo="table" data-alt="Armenian flashcards and crayons on a kitchen table">
       <div class="snap__frame">
-        <div class="scene scene--hello" aria-hidden="true"><span class="ctile c-green"><span lang="hy">Պ</span></span></div>
+        <div class="scene scene--hello" aria-hidden="true"><span class="ctile c-green"><span lang="hy">Հ</span></span></div>
         <span class="snap__spot"></span>
       </div>
     </figure>
     <div class="hello__copy">
-      <h2 id="hello-title">Hi, I'm Pamela</h2>
-      <p>I'm a designer and art director, and I'm learning Armenian right alongside my little one. I made these cards for our own kitchen table, so a grown-up who's still learning can read every word out loud with confidence.</p>
-      <p>Roots &amp; Crayons is for every family keeping Armenian close, wherever home is. Thank you for bringing these words into yours.</p>
-      <p class="hello__sig">Pamela<span>Founder, Roots &amp; Crayons</span></p>
+      <h2 id="hello-title">From one little Armenian community to another</h2>
+      <p>Roots &amp; Crayons started at a kitchen table, with a little one learning Armenian and a grown-up learning right alongside. Every card is made so anyone who's still learning can read each word out loud with confidence.</p>
+      <p>It's for every family keeping Armenian close, wherever home is. Thank you for bringing these words into yours.</p>
+      <p class="hello__sig">Roots &amp; Crayons<span>From our little Armenian community to yours</span></p>
     </div>
   </div>
 </section>
@@ -1074,7 +1086,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <details class="qa c-gold"><summary>Which Armenian is this?</summary><div class="qa__a"><p>Eastern Armenian, with pronunciations that follow how many Iranian-Armenian (Parskahayeren) families speak at home. If your family speaks Western Armenian, tell us when you sign up. We're counting requests for a Western edition.</p></div></details>
       <details class="qa c-sky"><summary>What size are the cards, and how do I laminate them?</summary><div class="qa__a"><p>Four cards fit on each US Letter page, and each card is about 3.6 × 4.9 inches. Print at actual size (100%). On A4 paper, choose “Fit to page.”</p><p>To laminate, cut the cards first, slide them into a pouch with a little space between them, run it through, then trim around each card. The sealed edges last much longer.</p></div></details>
       <details class="qa c-green"><summary>Will they print in black and white?</summary><div class="qa__a"><p>Yes. Every pack comes with an ink-saver version made for black-and-white printers. Each group keeps its own shape, so sorting still works without color, and the outlines double as coloring pages.</p></div></details>
-      <details class="qa c-purple"><summary>Can I use them in my classroom?</summary><div class="qa__a"><p>The family packs are for one household. For a classroom, Saturday school or tutoring group, the classroom license covers every pack with unlimited copies for your students.</p></div></details>
+      <details class="qa c-purple"><summary>Can I use them in my classroom?</summary><div class="qa__a"><p>The family packs are for one household. For a classroom, Saturday school or tutoring group, the classroom license covers every pack and both workbooks, with unlimited copies for your students.</p></div></details>
       <details class="qa c-pink"><summary>Is anything shipped?</summary><div class="qa__a"><p>No. Everything is an instant download, so you can print as many copies as your family needs, any time a card gets loved to pieces.</p><p data-contact hidden>Trouble with a download? Email <a data-contact-link href="#"></a> and we'll sort it out.</p></div></details>
     </div>
   </div>
@@ -1107,7 +1119,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         </div>
         <div class="done" tabindex="-1">
           <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
-          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack. Peek in Promotions if you don't see it.</p>
+          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
           <a class="btn done__dl" href="#" hidden>Download it now</a>
           <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
         </div>
@@ -1170,8 +1182,8 @@ const CONFIG = {
   MAILERLITE_ACTION: "",
 
   // 2. The line under the free-pack form. Set it to "" to hide it.
-  //    Create the matching code on Etsy (Marketing > Sales and discounts) and put it in Kit's confirmation email.
-  WELCOME_OFFER: "Plus 10% off your first order in your welcome email.",
+  //    The welcome gift is a fun-fact coloring sheet, on thank-you.html next to the Feelings pack.
+  WELCOME_OFFER: "Plus a fun-fact coloring sheet as your welcome gift.",
 
   // 3. Optional: a direct link to the free Feelings PDF, shown as a download button after signup.
   //    Leave it empty to keep the download inside Kit's confirmation email (stops fake signups).
@@ -1182,10 +1194,51 @@ const CONFIG = {
 
   // 5. BUY LINKS. Create each product in Kit (Earn > Products), then paste its link here.
   //    Etsy listing links work too. Empty ones fall back to your Etsy shop, then show "Coming soon".
+  //    The Shop Launch Kit builds this whole block for you as you list. Holiday packs show "Coming in ..." until they have a link.
   BUY_LINKS: {
-    alphabet: "", parent: "", family: "", food: "", animals: "",
-    colors: "", routine: "", manners: "", body: "", house: "",
-    "everything": "", "first-words": "", "everyday-talk": "", classroom: ""
+    alphabet: "",
+    "read-write": "",
+    "little-learners": "",
+    family: "",
+    body: "",
+    parent: "",
+    food: "",
+    routine: "",
+    manners: "",
+    house: "",
+    animals: "",
+    colors: "",
+    weather: "",
+    calendar: "",
+    numbers: "",
+    clothes: "",
+    grocery: "",
+    park: "",
+    library: "",
+    hiking: "",
+    camping: "",
+    beach: "",
+    space: "",
+    magic: "",
+    dinosaurs: "",
+    sea: "",
+    screen: "",
+    vehicles: "",
+    music: "",
+    birthday: "",
+    sayings: "",
+    thanksgiving: "",
+    winter: "",
+    spring: "",
+    school: "",
+    everything: "",
+    "start-reading": "",
+    "at-home": "",
+    "learning-basics": "",
+    "out-about": "",
+    imagine: "",
+    play: "",
+    classroom: ""
   },
 
   // 6. Your profiles. Anything left empty shows as "Coming soon".
@@ -1204,7 +1257,7 @@ const CONFIG = {
     routine:  "photos/routine.jpg",
     family:   "photos/family.jpg",
     coloring: "photos/coloring.jpg",
-    founder:  "photos/founder.jpg",
+    table:    "photos/table.jpg",
     birthday: "photos/birthday.jpg"
   },
 
@@ -1218,52 +1271,75 @@ const CONFIG = {
    ========================================================================== */
 const SHAPE_FOR = {coral:"circle", orange:"triangle", sky:"square", gold:"diamond", green:"pill", purple:"oval", pink:"heart", teal:"star"};
 
-// Bundles (the first one is the big "everything" banner) and the classroom license
+/* ==== PRODUCTS (from the pack builder: run site_data.py, don't edit by hand) ==== */
+// Shelves on the page, in order. A shelf's bundle is offered at the top of it.
+const COLLECTIONS = [
+  {"id": "letters", "title": "Letters & Reading", "color": "coral", "blurb": "Start here: the alphabet, then real words to read and write.", "bundle": "start-reading"},
+  {"id": "me", "title": "All About Me", "color": "pink", "blurb": "Feelings, family, and a face and body from head to toe.", "bundle": ""},
+  {"id": "home", "title": "At Home", "color": "gold", "blurb": "The words of an ordinary day: meals, routines and kind words.", "bundle": "at-home"},
+  {"id": "basics", "title": "Learning Basics", "color": "sky", "blurb": "What preschool and kindergarten cover: animals, colors, numbers, weather, clothes and the calendar.", "bundle": "learning-basics"},
+  {"id": "out", "title": "Out & About", "color": "green", "blurb": "Take the words along: to the store, the park, the library, the trail, the campsite and the beach.", "bundle": "out-about"},
+  {"id": "imagine", "title": "Big Imaginations", "color": "purple", "blurb": "Space, magic, dinosaurs and the deep blue sea: words for big dreamers.", "bundle": "imagine"},
+  {"id": "play", "title": "Play & Celebrate", "color": "orange", "blurb": "Wheels, music, shows and birthday parties: the words of fun.", "bundle": "play"},
+  {"id": "traditions", "title": "Traditions & Holidays", "color": "purple", "blurb": "Sayings, holidays and the stories behind them.", "bundle": "", "more": ["See the holiday packs", "#specials"]}
+];
+// Bundles (the first one is the big "everything" banner). packs lists packs and workbooks by id.
 const BUNDLES = [
-  {id:"everything", title:"Every pack in one download", price:29, packs:"all"},
-  {id:"first-words", title:"Letters & First Words", price:22, color:"teal",
-   packs:["alphabet","family","food","animals","colors","body","house"], blurb:"The alphabet plus the first nouns little ones learn."},
-  {id:"everyday-talk", title:"Everyday Talk", price:12, color:"pink",
-   packs:["parent","routine","manners","feelings"], blurb:"The words you say all day, from wake-up to goodnight."}
+  {"id": "everything", "title": "Everything Bundle", "price": 49, "color": "coral", "blurb": "Every pack and both workbooks in one download.", "packs": "all"},
+  {"id": "start-reading", "title": "Start Reading Bundle", "price": 13, "color": "coral", "blurb": "The alphabet cards and the Read & Write workbook: from first letters to first words.", "packs": ["alphabet", "read-write"]},
+  {"id": "at-home", "title": "At Home Bundle", "price": 18, "color": "gold", "blurb": "The words you say all day, from breakfast to bedtime.", "packs": ["parent", "food", "routine", "manners", "house"]},
+  {"id": "learning-basics", "title": "Learning Basics Bundle", "price": 20, "color": "sky", "blurb": "Animals, colors, numbers, weather, clothes and the calendar: the preschool basics.", "packs": ["animals", "colors", "weather", "calendar", "numbers", "clothes"]},
+  {"id": "out-about", "title": "Out & About Bundle", "price": 20, "color": "green", "blurb": "Take the words to the store, the park, the library, the trail, the campsite and the beach.", "packs": ["grocery", "park", "library", "hiking", "camping", "beach"]},
+  {"id": "imagine", "title": "Big Imaginations Bundle", "price": 14, "color": "purple", "blurb": "Space, magic, dinosaurs and the deep blue sea in one download.", "packs": ["space", "magic", "dinosaurs", "sea"]},
+  {"id": "play", "title": "Play & Celebrate Bundle", "price": 14, "color": "orange", "blurb": "Wheels, music, shows and birthday parties in one download.", "packs": ["vehicles", "music", "screen", "birthday"]}
 ];
-const CLASSROOM_PRICE = 49;
-
-// The product line. samples: [Armenian, how to say it, English]. Set url to the pack's Etsy listing.
+const CLASSROOM_PRICE = 89;
+// Every pack and workbook. samples: [Armenian, how to say it, English].
 const PACKS = [
-  {id:"alphabet", title:"Alphabet Flashcards", hy:"Այբուբեն", say:"ay-bu-BEN", tile:"ԱԲԳ", color:"teal", cards:39, price:8, url:"",
-   blurb:"All 39 letters, each with its name, its sound and a first word.",
-   samples:[["Արև","a-REV","sun"],["Բադ","bad","duck"],["Կատու","kah-TOO","cat"]]},
-  {id:"parent", title:"Everyday Parent Phrases", hy:"Ծնողի ամենօրյա խոսքերը", say:"tsuh-no-GHEE ah-men-or-YAH khos-keh-RUH", tile:"Ա", color:"coral", cards:40, price:8, url:"",
-   blurb:"40 phrases you already say every day, now in Armenian.",
-   samples:[["Արի՛ այստեղ","ari ays-TEGH","come here"],["Բռնի՛ր ձեռքս","br-NIR dzerks","hold my hand"],["Սիրում եմ քեզ","si-RUM em kez","I love you"]]},
-  {id:"feelings", title:"Feelings & Emotions", hy:"Զգացմունքներ", say:"zgats-moonk-NER", tile:"Զ", color:"gold", cards:12, price:0, free:true,
-   blurb:"Help little ones name the big feelings in Armenian.",
-   samples:[["Ուրախ","u-RAKH","happy"],["Տխուր","t-KHUR","sad"],["Հանգիստ","han-GIST","calm"]]},
-  {id:"family", title:"My Family", hy:"Իմ ընտանիքը", say:"eem un-ta-nee-KUH", tile:"Ը", color:"purple", cards:12, price:5, photos:true, url:"",
-   blurb:"The people around the table, from mama to papik.",
-   samples:[["Մայրիկ","MAY-rik","mom"],["Տատիկ","TA-tik","grandma"],["Պապիկ","PA-pik","grandpa"]]},
-  {id:"food", title:"Food & Mealtime", hy:"Ուտելիք ու ճաշ", say:"oo-te-LEEK oo chash", tile:"Ֆ", color:"coral", cards:20, price:5, photos:true, url:"",
-   blurb:"The foods on the plate and the words around the table.",
-   samples:[["Հաց","hats","bread"],["Ջուր","joor","water"],["Խնձոր","khn-DZOR","apple"]]},
-  {id:"animals", title:"Animals & Sounds", hy:"Կենդանիներ ու ձայներ", say:"ken-da-nee-NER oo dzayn-NER", tile:"Կ", color:"green", cards:18, price:5, photos:true, url:"",
-   blurb:"Name the animal, then make its sound the Armenian way.",
-   samples:[["Շուն","shoon","dog"],["Կատու","kah-TOO","cat"],["Կով","kov","cow"]]},
-  {id:"colors", title:"Colors & Shapes", hy:"Գույներ ու ձևեր", say:"gooy-NER oo tseh-VER", tile:"Գ", color:"orange", cards:16, price:5, url:"",
-   blurb:"Every color of the rainbow and the first shapes.",
-   samples:[["Կարմիր","kar-MIR","red"],["Կապույտ","ka-PUYT","blue"],["Աստղ","astgh","star"]]},
-  {id:"routine", title:"Daily Routine", hy:"Օրվա ընթացքը", say:"or-VAH uhn-tats-KUH", tile:"Օ", color:"gold", cards:16, price:5, url:"",
-   blurb:"Wake-up to bedtime, step by step.",
-   samples:[["Վե՛ր կաց","ver kats","wake up"],["Ճաշի՛ր","cha-SHIR","eat lunch"],["Բարի գիշեր","ba-ri gi-SHER","goodnight"]]},
-  {id:"manners", title:"Manners & Kind Words", hy:"Քաղաքավարություն", say:"kah-ghah-kah-vah-roo-TYOON", tile:"Շ", color:"purple", cards:12, price:5, url:"",
-   blurb:"The little words that make a big difference.",
-   samples:[["Խնդրում եմ","khn-DRUM em","please"],["Շնորհակալ եմ","shnor-ha-KAL em","thank you"],["Ապրե՛ս","ap-RES","well done"]]},
-  {id:"body", title:"My Body", hy:"Իմ մարմինը", say:"eem mar-mee-NUH", tile:"Մ", color:"pink", cards:16, price:5, photos:true, url:"",
-   blurb:"Point-and-name flashcards, head to toe.",
-   samples:[["Գլուխ","glukh","head"],["Քիթ","kit","nose"],["Ձեռք","dzerk","hand"]]},
-  {id:"house", title:"Around the House", hy:"Տան մեջ", say:"tan mej", tile:"Տ", color:"sky", cards:20, price:5, photos:true, url:"",
-   blurb:"The rooms and everyday things kids see all day.",
-   samples:[["Դուռ","door","door"],["Աթոռ","a-TOR","chair"],["Գիրք","girk","book"]]}
+  {"id": "alphabet", "kind": "pack", "collection": "letters", "title": "Alphabet Flashcards", "hy": "Այբուբեն", "say": "ay-bu-BEN", "tile": "Ա", "color": "teal", "cards": 39, "price": 8, "blurb": "All 39 letters, each with its name, its sound and a first word.", "samples": [["Արև", "a-REV", "sun"], ["Բադ", "bad", "duck"], ["Կատու", "kah-TOO", "cat"]]},
+  {"id": "read-write", "kind": "book", "collection": "letters", "title": "Read & Write: First Words", "tile": "Բ", "color": "coral", "price": 8, "blurb": "A phonics path: learn a few letters at a time, then read and write real words.", "tags": ["Workbook", "8 steps"], "hy": "Կարդում եմ, գրում եմ", "say": "kar-DOOM em, guh-ROOM em", "samples": [["տատ", "tat", "grandma"], ["հաց", "hats", "bread"], ["կով", "kov", "cow"]]},
+  {"id": "little-learners", "kind": "book", "collection": "letters", "title": "Little Learners Activity Pack", "tile": "Աա", "color": "green", "price": 8, "blurb": "Letter tracing, coloring pages and homework sheets for ages 0 to 5.", "tags": ["Ages 0 to 5", "Trace, color, homework"], "hy": "Գրենք ու ներկենք", "say": "guh-RENK oo ner-KENK", "feats": [["Trace", "every letter"], ["Color", "big pictures"], ["Homework", "match, count, paste"]]},
+  {"id": "feelings", "kind": "pack", "collection": "me", "title": "Feelings & Emotions", "hy": "Զգացմունքներ", "say": "zgats-moonk-NER", "tile": "Զ", "color": "gold", "cards": 12, "price": 0, "blurb": "Help little ones name the big feelings in Armenian.", "samples": [["Ուրախ", "u-RAKH", "happy"], ["Տխուր", "t-KHUR", "sad"], ["Հանգիստ", "han-GIST", "calm"]], "free": true},
+  {"id": "family", "kind": "pack", "collection": "me", "title": "My Family", "hy": "Իմ ընտանիքը", "say": "eem un-ta-nee-KUH", "tile": "Ը", "color": "purple", "cards": 12, "price": 5, "blurb": "The people around the table, from mama to papik.", "samples": [["Մայրիկ", "MAY-rik", "mom"], ["Տատիկ", "TA-tik", "grandma"], ["Պապիկ", "PA-pik", "grandpa"]], "photos": true},
+  {"id": "body", "kind": "pack", "collection": "me", "title": "My Body & Face", "hy": "Դեմք ու մարմին", "say": "demk oo mar-MEEN", "tile": "Մ", "color": "pink", "cards": 28, "price": 5, "blurb": "Point-and-name flashcards, from eyebrows to toes.", "samples": [["Հոնքեր", "hon-KER", "eyebrows"], ["Քիթ", "kit", "nose"], ["Ոտքի մատներ", "vot-KI mat-NER", "toes"]], "photos": true},
+  {"id": "parent", "kind": "pack", "collection": "home", "title": "Everyday Parent Phrases", "hy": "Ծնողի ամենօրյա խոսքերը", "say": "tsuh-no-GHEE ah-men-or-YAH khos-keh-RUH", "tile": "Ա", "color": "coral", "cards": 40, "price": 8, "blurb": "40 phrases you already say every day, now in Armenian.", "samples": [["Արի՛ այստեղ", "ari ays-TEGH", "come here"], ["Բռնի՛ր ձեռքս", "br-NIR dzerks", "hold my hand"], ["Սիրում եմ քեզ", "si-RUM em kez", "I love you"]]},
+  {"id": "food", "kind": "pack", "collection": "home", "title": "Food & Mealtime", "hy": "Ուտելիք ու ճաշ", "say": "oo-te-LEEK oo chash", "tile": "Ֆ", "color": "coral", "cards": 20, "price": 5, "blurb": "The foods on the plate and the words around the table.", "samples": [["Հաց", "hats", "bread"], ["Ջուր", "joor", "water"], ["Խնձոր", "khn-DZOR", "apple"]], "photos": true},
+  {"id": "routine", "kind": "pack", "collection": "home", "title": "Daily Routine", "hy": "Օրվա ընթացքը", "say": "or-VAH uhn-tats-KUH", "tile": "Օ", "color": "gold", "cards": 16, "price": 5, "blurb": "Wake-up to bedtime, step by step.", "samples": [["Վե՛ր կաց", "ver kats", "wake up"], ["Ճաշի՛ր", "cha-SHIR", "eat lunch"], ["Բարի գիշեր", "ba-ri gi-SHER", "goodnight"]]},
+  {"id": "manners", "kind": "pack", "collection": "home", "title": "Manners & Kind Words", "hy": "Քաղաքավարություն", "say": "kah-ghah-kah-vah-roo-TYOON", "tile": "Շ", "color": "purple", "cards": 12, "price": 5, "blurb": "The little words that make a big difference.", "samples": [["Խնդրում եմ", "khn-DRUM em", "please"], ["Շնորհակալ եմ", "shnor-ha-KAL em", "thank you"], ["Ապրե՛ս", "ap-RES", "well done"]]},
+  {"id": "house", "kind": "pack", "collection": "home", "title": "Around the House", "hy": "Տան մեջ", "say": "tan mej", "tile": "Տ", "color": "sky", "cards": 20, "price": 5, "blurb": "The rooms and everyday things kids see all day.", "samples": [["Դուռ", "door", "door"], ["Աթոռ", "a-TOR", "chair"], ["Գիրք", "girk", "book"]], "photos": true},
+  {"id": "animals", "kind": "pack", "collection": "basics", "title": "Animals & Sounds", "hy": "Կենդանիներ ու ձայներ", "say": "ken-da-nee-NER oo dzayn-NER", "tile": "Կ", "color": "green", "cards": 18, "price": 5, "blurb": "Name the animal, then make its sound in Armenian.", "samples": [["Շուն", "shoon", "dog"], ["Կատու", "kah-TOO", "cat"], ["Կով", "kov", "cow"]], "photos": true},
+  {"id": "colors", "kind": "pack", "collection": "basics", "title": "Colors & Shapes", "hy": "Գույներ ու ձևեր", "say": "gooy-NER oo tseh-VER", "tile": "Գ", "color": "orange", "cards": 16, "price": 5, "blurb": "Every color of the rainbow and the first shapes.", "samples": [["Կարմիր", "kar-MIR", "red"], ["Կապույտ", "ka-PUYT", "blue"], ["Աստղ", "astgh", "star"]]},
+  {"id": "weather", "kind": "pack", "collection": "basics", "title": "Weather & Seasons", "hy": "Եղանակ ու տարվա եղանակներ", "say": "ye-gha-NAK oo tar-VA ye-gha-nak-NER", "tile": "Ե", "color": "sky", "cards": 16, "price": 5, "blurb": "Sun, rain, snow and the four seasons. Fun fact: եղանակ means both weather and season!", "samples": [["Արև", "a-REV", "sun"], ["Անձրև", "an-dzuh-REV", "rain"], ["Ծիածան", "tsee-a-TSAN", "rainbow"]], "plus": "Plus a weather board and a weekly weather chart."},
+  {"id": "calendar", "kind": "pack", "collection": "basics", "title": "Days & Months", "hy": "Օրեր ու ամիսներ", "say": "o-RER oo a-mees-NER", "tile": "Հ", "color": "purple", "cards": 28, "price": 5, "blurb": "The days of the week, the twelve months, and today, yesterday and tomorrow.", "samples": [["Երկուշաբթի", "yer-koo-shap-TEE", "Monday"], ["Այսօր", "ays-OR", "today"], ["Վաղը", "VA-ghuh", "tomorrow"]], "plus": "Plus a Today board and a month calendar to fill in."},
+  {"id": "numbers", "kind": "pack", "collection": "basics", "title": "Numbers 1–20", "hy": "Թվեր", "say": "tuh-VER", "tile": "Թ", "color": "green", "cards": 20, "price": 5, "blurb": "Count to twenty in Armenian, with a ten frame on every card.", "samples": [["մեկ", "mek", "one"], ["երկու", "yer-KOO", "two"], ["երեք", "ye-REK", "three"]], "plus": "Plus a 1–20 number chart."},
+  {"id": "clothes", "kind": "pack", "collection": "basics", "title": "Clothes for Every Season", "hy": "Հագուստ", "say": "ha-GOOST", "tile": "Հ", "color": "purple", "cards": 16, "price": 5, "blurb": "T-shirts and sandals, jackets and mittens, raincoats and umbrellas: what to wear for every season.", "samples": [["Բաճկոն", "bach-KON", "jacket"], ["Սանդալներ", "san-dal-NER", "sandals"], ["Հովանոց", "ho-va-NOTS", "umbrella"]], "plus": "Plus a what-to-wear weather board."},
+  {"id": "grocery", "kind": "pack", "collection": "out", "title": "At the Grocery Store", "hy": "Խանութում", "say": "kha-noo-TOOM", "tile": "Խ", "color": "gold", "cards": 16, "price": 5, "blurb": "Cart, basket, scale and bag: the words for every trip to the store.", "samples": [["Սայլակ", "say-LAK", "cart"], ["Մրգեր", "muhr-GER", "fruit"], ["Ի՞նչ արժե", "eench ar-ZHE", "how much is it?"]], "plus": "Plus a store scavenger hunt and a try-something-new chart."},
+  {"id": "park", "kind": "pack", "collection": "out", "title": "Park & Playground", "hy": "Այգում", "say": "ay-GOOM", "tile": "Ճ", "color": "green", "cards": 16, "price": 5, "blurb": "Slide, swing, sand and a ball: playtime words for the park.", "samples": [["Սահարան", "sa-ha-RAN", "slide"], ["Ճոճանակ", "cho-cha-NAK", "swing"], ["Քո հերթն է", "ko HERTN e", "your turn"]], "plus": "Plus an I-spy sheet for the park."},
+  {"id": "library", "kind": "pack", "collection": "out", "title": "At the Library", "hy": "Գրադարանում", "say": "guh-ra-da-ra-NOOM", "tile": "Պ", "color": "purple", "cards": 16, "price": 5, "blurb": "Books, pages, stories and fairy tales: words for library day.", "samples": [["Գիրք", "geerk", "book"], ["Հեքիաթ", "he-kee-AT", "fairy tale"], ["Նորից կարդա՛", "no-REETS kar-DA", "read it again!"]], "plus": "Plus a library hunt and a reading log."},
+  {"id": "hiking", "kind": "pack", "collection": "out", "title": "Hiking & Nature", "hy": "Արշավ ու բնություն", "say": "ar-SHAV oo buh-noo-TYOON", "tile": "Ծ", "color": "teal", "cards": 16, "price": 5, "blurb": "Trails, rocks, rivers and squirrels: words for the great outdoors.", "samples": [["Սար", "sar", "mountain"], ["Գետ", "get", "river"], ["Սկյուռ", "skyoorr", "squirrel"]], "plus": "Plus nature bingo and nature letters to build with sticks and stones."},
+  {"id": "camping", "kind": "pack", "collection": "out", "title": "Camping", "hy": "Ճամբար", "say": "cham-BAR", "tile": "Ճ", "color": "green", "cards": 16, "price": 5, "blurb": "Tents, campfires, flashlights and owls, and khorovats on the fire.", "samples": [["Վրան", "vuh-RAN", "tent"], ["Խորոված", "kho-ro-VATS", "barbecue"], ["Լապտեր", "lap-TER", "flashlight"]], "plus": "Plus camping bingo."},
+  {"id": "beach", "kind": "pack", "collection": "out", "title": "Beach & Pool", "hy": "Լողափ ու լողավազան", "say": "lo-GHAP oo lo-gha-va-ZAN", "tile": "Լ", "color": "sky", "cards": 16, "price": 5, "blurb": "Sand castles, waves, surfing and swim rings: summer words for the beach and the pool.", "samples": [["Ավազե դղյակ", "a-va-ZE duh-GHYAK", "sand castle"], ["Ալիքներ", "a-leek-NER", "waves"], ["Սերֆինգ", "ser-FEENG", "surfing"]], "plus": "Plus beach bingo."},
+  {"id": "space", "kind": "pack", "collection": "imagine", "title": "Space & Stars", "hy": "Տիեզերք ու աստղեր", "say": "tee-ye-ZERK oo ast-GHER", "tile": "Տ", "color": "purple", "cards": 16, "price": 5, "blurb": "Rockets, planets and the Milky Way: words for little stargazers.", "samples": [["Հրթիռ", "hur-TEERR", "rocket"], ["Տիեզերագնաց", "tee-ye-ze-rag-NATS", "astronaut"], ["Երեք, երկու, մեկ... թռա՛նք", "ye-REK, yer-KOO, mek... tuh-RRANK", "3, 2, 1... blast off!"]], "plus": "Plus a poster of the planets, each with its name."},
+  {"id": "magic", "kind": "pack", "collection": "imagine", "title": "Magic & Fairy Tales", "hy": "Կախարդանք ու հեքիաթներ", "say": "ka-khar-DANK oo he-kyat-NER", "tile": "Կ", "color": "pink", "cards": 16, "price": 5, "blurb": "Unicorns, fairies, gnomes and dragons, and how Armenian fairy tales begin and end.", "samples": [["Միաեղջյուր", "mee-a-yegh-JYOOR", "unicorn"], ["Վիշապ", "vee-SHAP", "dragon"], ["Լինում է, չի լինում...", "lee-NOOM e, chee lee-NOOM", "once upon a time..."]], "plus": "Plus a make-your-own fairy tale page."},
+  {"id": "dinosaurs", "kind": "pack", "collection": "imagine", "title": "Dinosaurs", "hy": "Դինոզավրեր", "say": "dee-no-zav-RER", "tile": "Դ", "color": "green", "cards": 16, "price": 5, "blurb": "T. rex, triceratops, fossils and volcanoes: big words for dinosaur fans.", "samples": [["Տիրանոզավր", "tee-ra-no-ZAVR", "T. rex"], ["Հրաբուխ", "hra-BOOKH", "volcano"], ["Մռնչա՛ դինոզավրի պես", "muh-rruhn-CHA dee-no-zav-REE pes", "roar like a dinosaur!"]], "plus": "Plus dinosaur bingo."},
+  {"id": "sea", "kind": "pack", "collection": "imagine", "title": "Under the Sea", "hy": "Ծովի խորքում", "say": "tso-VEE khor-KOOM", "tile": "Ծ", "color": "teal", "cards": 16, "price": 5, "blurb": "Whales, octopuses, sharks and seahorses: a dive into the deep blue sea.", "samples": [["Կետ", "ket", "whale"], ["Ութոտնուկ", "oo-tot-NOOK", "octopus"], ["Ծովաձի", "tso-va-DZEE", "seahorse"]], "plus": "Plus ocean bingo."},
+  {"id": "screen", "kind": "pack", "collection": "play", "title": "Shows & Screen Time", "hy": "Մուլտեր ու ֆիլմեր", "say": "mool-TER oo feel-MER", "tile": "Մ", "color": "sky", "cards": 20, "price": 5, "blurb": "Cartoons, movies and the play, pause and stop buttons, plus the phrases that make screen time easy.", "samples": [["Միացրո՛ւ", "mee-ats-ROO", "play"], ["Կանգնեցրո՛ւ", "kang-nets-ROO", "pause"], ["Մի սերիա է՞լ", "mee SE-ree-a el", "one more episode?"]], "plus": "Plus screen time tickets to cut out."},
+  {"id": "vehicles", "kind": "pack", "collection": "play", "title": "Things That Go", "hy": "Տրանսպորտ", "say": "trans-PORT", "tile": "Մ", "color": "coral", "cards": 16, "price": 5, "blurb": "Cars, diggers, fire trucks and trains: everything with wheels, wings and engines.", "samples": [["Հրշեջ մեքենա", "hur-SHEJ me-ke-NA", "fire truck"], ["Էքսկավատոր", "eks-ka-va-TOR", "digger"], ["Ամրագոտիդ կապի՛ր", "am-ra-go-TEED ka-PEER", "buckle up!"]], "plus": "Plus road trip bingo."},
+  {"id": "music", "kind": "pack", "collection": "play", "title": "Music & Dance", "hy": "Երաժշտություն ու պար", "say": "ye-razh-shtoo-TYOON oo par", "tile": "Ե", "color": "orange", "cards": 16, "price": 5, "blurb": "Drums, songs and dancing, plus the duduk, the dhol, the kanun and the Kochari.", "samples": [["Դուդուկ", "doo-DOOK", "duduk"], ["Պար", "par", "dance"], ["Ծափ տո՛ւր", "tsap toor", "clap your hands!"]]},
+  {"id": "birthday", "kind": "pack", "collection": "play", "title": "Birthday Party", "hy": "Ծննդյան խնջույք", "say": "tsuh-nuhn-DYAN khuhn-JOOYK", "tile": "Ծ", "color": "gold", "cards": 16, "price": 5, "blurb": "Cake, candles and presents, the birthday words, and a Happy Birthday banner to hang.", "samples": [["Տորթ", "tort", "cake"], ["Մոմեր", "mo-MER", "candles"], ["Երազանք պահի՛ր", "ye-ra-ZANK pa-HEER", "make a wish!"]]},
+  {"id": "sayings", "kind": "pack", "collection": "traditions", "title": "Armenian Sayings", "hy": "Ասացվածքներ", "say": "a-sats-vatsk-NER", "tile": "Ս", "color": "teal", "cards": 16, "price": 3, "blurb": "Old proverbs and everyday blessings, the way grandparents say them.", "samples": [["Ձեռքդ դալար", "DZERR-kud da-LAR", "bless your hands"], ["Մի ձեռքը ծափ չի տա", "mee DZERR-kuh tsap chee ta", "one hand can't clap"], ["Կաթիլ-կաթիլ՝ լիճ կդառնա", "ka-TEEL ka-TEEL leech kuh-darr-NA", "drop by drop, a lake is made"]]}
 ];
+// Holiday packs, in calendar order. A buy button appears once its link is in BUY_LINKS (or url is set).
+const HOLIDAYS = [
+  {"id": "thanksgiving", "icon": "leaf", "color": "orange", "when": "November 26", "hy": "Գոհաբանության օր", "say": "go-ha-ba-noo-TYAN or", "title": "Thanksgiving", "price": 5, "blurb": "Turkey, pie, corn and ghapama, and the words for saying thank you around the table. Plus a thankful tree to fill in together.", "status": "Coming in November"},
+  {"id": "winter", "icon": "snow", "color": "sky", "when": "Dec 31 to Jan 6", "hy": "Ամանոր", "say": "a-ma-NOR", "title": "Winter Holidays", "price": 5, "blurb": "New Year and Christmas words, from Winter Grandpa to the holiday tree. Plus a New Year countdown and a letter to Winter Grandpa.", "status": "Coming in November"},
+  {"id": "trndez", "icon": "heart", "color": "pink", "when": "February 13 and 14", "hy": "Տրնդեզ", "say": "truhn-DEZ", "title": "Trndez: Love & Light", "price": 3, "blurb": "Armenian valentines to hand out at school, and a jump-over-the-fire coloring page for Trndez.", "status": "Coming in January"},
+  {"id": "spring", "icon": "egg", "color": "green", "when": "March 20 to April 7", "hy": "Գարնան տոներ", "say": "gar-NAN to-NER", "title": "Spring: Nowruz & Easter", "price": 5, "blurb": "Nowruz sprouts and goldfish, red Easter eggs and egg tapping: the spring holidays. Plus a sprout diary to fill in as your sprouts grow.", "status": "Coming in February"},
+  {"id": "vardavar", "icon": "drop", "color": "teal", "when": "Summer, 14 weeks after Easter", "hy": "Վարդավառ", "say": "var-da-VARR", "title": "Vardavar Water Festival", "price": 5, "blurb": "Splash-day words for the hottest day of summer, a water-balloon counting sheet and summer bingo.", "status": "Coming in May"},
+  {"id": "school", "icon": "pencil", "color": "gold", "when": "September 1", "hy": "Դպրոց", "say": "duh-PROTS", "title": "Back to School", "price": 5, "blurb": "Backpacks, crayons, teachers and friends, for preschool, kindergarten and the first day of school. Plus a first-day sign to hold up for the photo.", "status": "Coming in July"},
+  {"id": "alphabet-day", "icon": "letter", "color": "orange", "when": "Every October", "hy": "Թարգմանչաց տոն", "say": "targ-man-CHATS ton", "title": "Alphabet Day", "price": 0, "priceLabel": "Free page", "status": "Every October", "blurb": "Each October, Armenians honor Mesrop Mashtots and the translators who gave us the alphabet. We celebrate with a free letter-coloring page."}
+];
+/* ==== end of PRODUCTS ==== */
 
 // All 39 letters. Ա, Բ, Կ and Ծ match the alphabet deck; the rest are for review.
 // [capital, small, letter name, sounds like..., word, how to say it, meaning, optional note]
@@ -1315,34 +1391,21 @@ const DEMO_WORDS = [
   {en:"Hello",           hy:"Բարև",          say:"ba-REV",          label:"Kind words",    num:"05", color:"teal",   note:"when you greet someone"},
   {en:"I love you",      hy:"Սիրում եմ քեզ", say:"si-RUM em kez",   label:"Love",          num:"31", color:"pink",   note:"any time at all"},
   {en:"Let's go",        hy:"Գնա՛նք",        say:"gnank",           label:"Go & stop",     num:"02", color:"coral",  note:"heading out the door"},
+  {en:"Rocket",          hy:"Հրթիռ",         say:"hur-TEERR",       label:"In space",      num:"06", color:"purple", note:"count down from three"},
   {en:"Come eat",        hy:"Արի՛ կեր",      say:"ari ker",         label:"Routine",       num:"24", color:"green",  note:"the food is ready"},
   {en:"Hold my hand",    hy:"Բռնի՛ր ձեռքս",  say:"br-NIR dzerks",   label:"Safety",        num:"13", color:"sky",    note:"in a crowd or parking lot"},
+  {en:"Dragon",          hy:"Վիշապ",         say:"vee-SHAP",        label:"Magic",         num:"04", color:"pink",   note:"a fairy-tale favorite"},
   {en:"Calm down",       hy:"Հանգի՛ստ",      say:"han-GIST",        label:"Manners",       num:"30", color:"purple", note:"big feelings, deep breath"},
   {en:"Grab your things",hy:"Իրերդ վերցրո՛ւ",say:"i-RERD verts-RU", label:"Get ready",     num:"09", color:"orange", note:"packing up to leave"},
   {en:"Light of my eyes",hy:"Աչքիս լույս",   say:"ach-KIS luys",    label:"Traditional",   num:"38", color:"teal",   note:"my precious one"},
-  {en:"Look over there", hy:"Նայի՛ր այնտեղ", say:"na-YIR ayn-TEGH", label:"Look & listen", num:"17", color:"gold",   note:"pointing something out"}
+  {en:"Look over there", hy:"Նայի՛ր այնտեղ", say:"na-YIR ayn-TEGH", label:"Look & listen", num:"17", color:"gold",   note:"pointing something out"},
+  {en:"Pause",           hy:"Կանգնեցրո՛ւ",   say:"kang-nets-ROO",   label:"Press",         num:"11", color:"green",  note:"make it stop for now"}
 ];
 
-// Holiday packs, in calendar order. Change status to "Available now" and add url when a pack is listed.
-const HOLIDAYS = [
-  {icon:"snow",   color:"sky",    when:"Dec 31 to Jan 6", hy:"Ամանոր", say:"a-ma-NOR", title:"New Year & Christmas", price:7, status:"Coming in November", url:"",
-   blurb:"Count down to Ամանոր with a card a day, meet Ձմեռ Պապ (Grandpa Winter) and color your own tree."},
-  {icon:"heart",  color:"pink",   when:"February 13 and 14", hy:"Տրնդեզ", say:"truhn-DEZ", title:"Trndez & Valentine's", price:5, status:"Coming in January", url:"",
-   blurb:"Armenian valentines to hand out at school, plus a jump-over-the-fire coloring page for Trndez."},
-  {icon:"egg",    color:"gold",   when:"Easter Sunday", hy:"Զատիկ", say:"za-TIK", title:"Easter", price:6, status:"Coming in February", url:"",
-   blurb:"Egg-tapping game cards, eggs to color and spring words. Fun fact: Զատիկ also means ladybug."},
-  {icon:"flower", color:"coral",  when:"April 7 and May", hy:"Մայրության տոն", say:"may-roo-TYAN ton", title:"Mother's Day", price:5, status:"Coming in March", url:"",
-   blurb:"Color-and-give cards with the sweet things moms and tatiks say, like Ցավդ տանեմ."},
-  {icon:"drop",   color:"teal",   when:"Summer, 14 weeks after Easter", hy:"Վարդավառ", say:"var-da-VARR", title:"Vardavar water day", price:5, status:"Coming in May", url:"",
-   blurb:"Splash-day words, a water game for the backyard and a dove to color."},
-  {icon:"letter", color:"orange", when:"Every October", hy:"Թարգմանչաց տոն", say:"targ-man-CHATS ton", title:"Alphabet Day", price:0, priceLabel:"Free page", status:"Every October", url:"",
-   blurb:"Each October, Armenians honor Mesrop Mashtots and the translators who gave us the alphabet. We celebrate with a free letter-coloring page and an alphabet sale."}
-];
-
-// Birthday printables
+// Birthday printables. pack: the shop product it sells, so its price and link come from PACKS and BUY_LINKS.
 const BIRTHDAY = [
-  {title:"Birthday party pack", color:"pink", price:8, status:"Coming soon", url:"",
-   blurb:"A Ծնունդդ շնորհավոր banner to cut out, an “I am __ years old” sign, cupcake toppers from 1 to 10 and thank-you notes."},
+  {pack:"birthday", title:"Birthday Party pack", color:"pink",
+   blurb:"Sixteen party words and phrases, from cake to make a wish, plus a Ծնունդդ շնորհավոր banner to print and hang."},
   {title:"Their name in Armenian", color:"teal", price:12, status:"Coming soon", url:"", tiles:["Ա","Ն","Ի"],
    blurb:"We spell your child's name in Armenian letters, with name tiles, a tracing page and a door sign. Made to order."}
 ];
@@ -1350,11 +1413,13 @@ const BIRTHDAY = [
 // The message bar at the top changes itself by date. Dates are year-month-day.
 const SEASONS = [
   {from:"2026-10-01", to:"2026-10-31", color:"orange", html:'Pumpkin season! Pumpkin is <span lang="hy">Դդում</span>, duh-DOOM.', link:"Find Դ", href:"#alphabet", letter:"Դ"},
-  {from:"2026-11-01", to:"2027-01-06", color:"sky", html:'<span lang="hy">Ամանոր</span> is coming! Get the New Year pack first.', link:"Join the list", href:"#free"},
-  {from:"2027-01-07", to:"2027-02-14", color:"pink", html:'Armenian valentines for the whole class, in time for <span lang="hy">Տրնդեզ</span>.', link:"See specials", href:"#specials"},
-  {from:"2027-02-15", to:"2027-03-28", color:"gold", html:'<span lang="hy">Զատիկ</span> is March 28. Egg-tapping cards are coming.', link:"See specials", href:"#specials"},
-  {from:"2027-03-29", to:"2027-05-09", color:"coral", html:"Mother's Day cards for Mayrik and Tatik.", link:"See specials", href:"#specials"},
-  {from:"2027-06-01", to:"2027-07-04", color:"teal", html:'<span lang="hy">Վարդավառ</span> is July 4. Get ready to splash!', link:"See specials", href:"#specials"},
+  {from:"2026-11-01", to:"2026-11-26", color:"orange", html:'Thanksgiving is coming! Turkey is <span lang="hy">Հնդկահավ</span>, huhnd-ka-HAV.', link:"See the holiday packs", href:"#specials"},
+  {from:"2026-11-27", to:"2027-01-06", color:"sky", html:'<span lang="hy">Ամանոր</span> is coming! New Year and Christmas words for the whole family.', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-01-07", to:"2027-02-14", color:"pink", html:'Armenian valentines for the whole class, in time for <span lang="hy">Տրնդեզ</span>.', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-02-15", to:"2027-03-28", color:"green", html:'<span lang="hy">Նովրուզ</span> sprouts and red eggs for <span lang="hy">Զատիկ</span>, Easter, on March 28.', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-03-29", to:"2027-05-09", color:"coral", html:"Mother's Day is April 7 in Armenia. Mom, I love you: <span lang=\"hy\">Մայրիկ, ես քեզ սիրում եմ</span>.", link:"See the holiday packs", href:"#specials"},
+  {from:"2027-06-01", to:"2027-07-04", color:"teal", html:'<span lang="hy">Վարդավառ</span> is July 4. Get ready to splash!', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-08-01", to:"2027-09-01", color:"gold", html:'Back to school! School is <span lang="hy">Դպրոց</span>, duh-PROTS.', link:"See the holiday packs", href:"#specials"},
   {from:"2027-10-01", to:"2027-10-31", color:"orange", html:"October is alphabet month, with a free coloring page.", link:"Meet the letters", href:"#alphabet"}
 ];
 
@@ -1375,8 +1440,12 @@ const SEASONS = [
   const buyLabel = url => /etsy\./i.test(url) ? "Buy on Etsy" : "Buy now";
 
   /* ---- Totals that show up in the copy ---- */
-  fill("packs", PACKS.length);
-  fill("cards", PACKS.reduce((n, p) => n + p.cards, 0));
+  const cardPacks = PACKS.filter(p => p.kind !== "book");
+  const cardCount = cardPacks.reduce((n, p) => n + p.cards, 0);
+  const productById = Object.fromEntries(PACKS.map(p => [p.id, p]));
+  const bundleById = Object.fromEntries(BUNDLES.map(b => [b.id, b]));
+  fill("packs", cardPacks.length);
+  fill("cards", cardCount);
   fill("from", money(Math.min(...paid.map(p => p.price))));
   fill("compare", money(paid.reduce((n, p) => n + p.price, 0)));
   fill("bundle", money(BUNDLES[0].price));
@@ -1411,45 +1480,93 @@ const SEASONS = [
     span.className = "buy buy--soon"; span.textContent = soonText;
     a.replaceWith(span);
   }
+  const shapeSVG = color => `<svg class="shape" aria-hidden="true"><use href="#s-${SHAPE_FOR[color]}"/></svg>`;
 
-  /* ---- Packs ---- */
-  document.getElementById("packList").innerHTML = PACKS.map(p => `
-    <li class="pack c-${p.color}">
-      <span class="tile${p.tile.length > 1 ? " tile--multi" : ""}" aria-hidden="true">${esc(p.tile)}</span>
-      <div class="pack__head">
-        <h3>${esc(p.title)}</h3>
-        <p class="pack__hy" lang="hy">${esc(p.hy)}</p>
-        <p class="pack__say">${esc(p.say)}</p>
-      </div>
-      <div class="pack__more">
-        <div class="pack__tags">
-          ${p.free ? '<span class="tag tag--free">Free pack</span>' : ""}
-          <span class="tag">${p.cards} cards</span>
-          ${p.photos ? '<span class="tag">Add your own photos</span>' : ""}
+  /* ---- Packs, shelf by shelf ---- */
+  function packHTML(p) {
+    const tags = p.kind === "book"
+      ? (p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("")
+      : `${p.free ? '<span class="tag tag--free">Free pack</span>' : ""}<span class="tag">${p.cards} cards</span>${p.photos ? '<span class="tag">Add your own photos</span>' : ""}`;
+    const words = p.samples
+      ? p.samples.map(([w, say, en]) => `<li class="word"><span class="word__hy" lang="hy">${esc(w)}</span><span class="word__say">${esc(say)}</span><span class="word__en">${esc(en)}</span></li>`).join("")
+      : (p.feats || []).map(([what, how]) => `<li class="word word--feat"><span class="word__en">${esc(what)}</span><span class="word__say">${esc(how)}</span></li>`).join("");
+    return `
+      <li class="pack c-${p.color}">
+        <span class="tile${p.tile.length > 1 ? " tile--multi" : ""}" aria-hidden="true">${esc(p.tile)}</span>
+        <div class="pack__head">
+          <h4>${esc(p.title)}</h4>
+          ${p.hy ? `<p class="pack__hy" lang="hy">${esc(p.hy)}</p><p class="pack__say">${esc(p.say)}</p>` : ""}
         </div>
-        <p class="pack__blurb">${esc(p.blurb)}</p>
-        <ul class="words" aria-label="Sample words from ${esc(p.title)}">
-          ${p.samples.map(([w, say, en]) => `<li class="word"><span class="word__hy" lang="hy">${esc(w)}</span><span class="word__say">${esc(say)}</span><span class="word__en">${esc(en)}</span></li>`).join("")}
-        </ul>
-        <div class="pack__buy"><span class="price">${p.free ? "Free" : money(p.price)}</span>${buyHTML(buyLink(p.id) || p.url, p.free)}</div>
+        <div class="pack__more">
+          <div class="pack__tags">${tags}</div>
+          <p class="pack__blurb">${hy(p.blurb)}</p>
+          ${p.plus ? `<p class="pack__plus">${shapeSVG(p.color)}<span>${hy(p.plus)}</span></p>` : ""}
+          <ul class="words" aria-label="${p.samples ? "Sample words" : "What's inside"}: ${esc(p.title)}">${words}</ul>
+          <div class="pack__buy"><span class="price">${p.free ? "Free" : money(p.price)}</span>${buyHTML(buyLink(p.id) || p.url, p.free)}</div>
+        </div>
+      </li>`;
+  }
+  function dealHTML(b, shelfSize) {
+    const members = (b.packs === "all" ? PACKS : b.packs.map(id => productById[id])).filter(Boolean);
+    const compare = members.filter(p => !p.free).reduce((n, p) => n + p.price, 0);
+    const direct = buyLink(b.id), url = direct || shopFallback;
+    const what = members.length === shelfSize ? `All ${members.length} in one download` : members.map(p => p.title).join(" + ");
+    return `
+        <div class="deal c-${b.color}">
+          <p class="deal__name">${esc(b.title)}<span>${esc(what)}</span></p>
+          <span class="price">${money(b.price)}</span><span class="deal__was">One by one: <s>${money(compare)}</s></span>
+          ${url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${direct ? buyLabel(direct) : "Find it in the shop"}</a>` : '<span class="buy buy--soon">Coming soon</span>'}
+        </div>`;
+  }
+  const shelves = COLLECTIONS.map(c => Object.assign({}, c, {items: PACKS.filter(p => p.collection === c.id)})).filter(c => c.items.length);
+  const shelvesBox = document.getElementById("shelves");
+  shelvesBox.innerHTML = shelves.map(c => `
+    <section class="shelf c-${c.color}" id="shelf-${c.id}" data-shelf="${c.id}" aria-labelledby="shelf-${c.id}-t">
+      <div class="shelf__head">
+        <div>
+          <div class="shelf__title">${shapeSVG(c.color)}<h3 id="shelf-${c.id}-t">${esc(c.title)}</h3></div>
+          <p class="shelf__blurb">${hy(c.blurb)}</p>
+          ${c.more ? `<p class="shelf__more"><a href="${esc(c.more[1])}">${esc(c.more[0])}</a></p>` : ""}
+        </div>
+        ${c.bundle && bundleById[c.bundle] ? dealHTML(bundleById[c.bundle], c.items.length) : ""}
       </div>
-    </li>`).join("");
+      <ul class="packs__grid">${c.items.map(packHTML).join("")}</ul>
+    </section>`).join("");
+
+  // The shelf buttons show one shelf at a time, or all of them
+  const shelfNav = document.getElementById("shelfNav");
+  shelfNav.innerHTML = `<button type="button" data-show="all" aria-pressed="true">All packs</button>` +
+    shelves.map(c => `<button type="button" data-show="${c.id}" aria-pressed="false">${esc(c.title)}<small>${c.items.length}</small></button>`).join("");
+  shelfNav.addEventListener("click", e => {
+    const b = e.target.closest("button[data-show]");
+    if (!b) return;
+    const show = b.dataset.show;
+    shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = show !== "all" && el.dataset.shelf !== show; });
+  });
 
   // Links elsewhere on the page that point at one pack
   document.querySelectorAll("[data-pack-link]").forEach(a => {
-    const p = PACKS.find(x => x.id === a.dataset.packLink);
+    const p = productById[a.dataset.packLink];
     const url = p && (buyLink(p.id) || p.url || shopFallback);
     if (url) { a.href = url; external(a); }
   });
   document.querySelectorAll("[data-pack-price]").forEach(el => {
-    const p = PACKS.find(x => x.id === el.dataset.packPrice);
+    const p = productById[el.dataset.packPrice];
     if (p) el.textContent = p.free ? "Free" : money(p.price);
   });
 
-  /* ---- Bundle ---- */
-  document.getElementById("bundleTiles").innerHTML = PACKS.map(p =>
+  /* ---- The everything bundle: a tile from each shelf in turn, then the card count ---- */
+  const picks = [], usedTiles = new Set();
+  for (let round = 0; picks.length < 11 && round < 12; round++) {
+    shelves.forEach(c => {
+      const p = c.items.filter(x => x.kind !== "book")[round];
+      if (p && picks.length < 11 && !usedTiles.has(p.tile)) { picks.push(p); usedTiles.add(p.tile); }
+    });
+  }
+  document.getElementById("bundleTiles").innerHTML = picks.map(p =>
     `<span class="ctile c-${p.color}"><span${p.tile.length > 1 ? ' class="is-small"' : ""}>${esc(p.tile)}</span></span>`).join("") +
-    `<span class="ctile ctile--count"><span>${PACKS.reduce((n, p) => n + p.cards, 0)}<small>cards</small></span></span>`;
+    `<span class="ctile ctile--count"><span>${cardCount}<small>cards</small></span></span>`;
   const bundleBuy = document.getElementById("bundleBuy");
   const bundleUrl = buyLink("everything") || shopFallback;
   if (bundleUrl) { bundleBuy.href = bundleUrl; external(bundleBuy); }
@@ -1457,26 +1574,10 @@ const SEASONS = [
   const classroomUrl = buyLink("classroom") || (CONFIG.CONTACT_EMAIL ? "mailto:" + CONFIG.CONTACT_EMAIL + "?subject=Classroom%20license" : "");
   wireBuy(document.getElementById("classroomBuy"), classroomUrl, "Coming soon");
 
-  // Smaller bundles under the big one
-  document.getElementById("miniBundles").innerHTML = BUNDLES.slice(1).map(b => {
-    const packs = b.packs.map(id => PACKS.find(p => p.id === id)).filter(Boolean);
-    const compare = packs.filter(p => !p.free).reduce((n, p) => n + p.price, 0);
-    const cards = packs.reduce((n, p) => n + p.cards, 0);
-    const url = buyLink(b.id) || shopFallback;
-    return `
-    <div class="mini c-${b.color}">
-      <div class="mini__tiles" aria-hidden="true">${packs.map(p => `<span class="tile c-${p.color}${p.tile.length > 1 ? " tile--multi" : ""}">${esc(p.tile)}</span>`).join("")}</div>
-      <div>
-        <h3>${esc(b.title)} bundle</h3>
-        <p>${esc(b.blurb)} ${packs.length} packs, ${cards} cards.</p>
-      </div>
-      <div class="mini__buy"><span class="price">${money(b.price)}</span><span class="mini__was">One by one: <s>${money(compare)}</s></span>
-        ${url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>` : '<span class="buy buy--soon">Coming soon</span>'}</div>
-    </div>`;
-  }).join("");
-
   /* ---- Holidays + birthdays ---- */
-  document.getElementById("holList").innerHTML = HOLIDAYS.map(h => `
+  document.getElementById("holList").innerHTML = HOLIDAYS.map(h => {
+    const url = buyLink(h.id) || h.url;
+    return `
     <li class="hol c-${h.color}">
       <div class="hol__top">
         <span class="hol__art" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#h-${h.icon}"/></svg></span>
@@ -1488,16 +1589,22 @@ const SEASONS = [
       <p class="hol__blurb">${hy(h.blurb)}</p>
       <div class="hol__foot">
         <span class="price">${h.price ? money(h.price) : esc(h.priceLabel || "")}</span>
-        ${h.url ? `<a class="buy" href="${esc(h.url)}" target="_blank" rel="noopener">${/etsy\./i.test(h.url) ? "Buy on Etsy" : "Buy now"}</a>` : `<span class="status">${esc(h.status)}</span>`}
+        ${url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>` : `<span class="status">${esc(h.status)}</span>`}
       </div>
-    </li>`).join("");
-  document.getElementById("bdayItems").innerHTML = BIRTHDAY.map(b => `
+    </li>`;
+  }).join("");
+  document.getElementById("bdayItems").innerHTML = BIRTHDAY.map(b => {
+    const p = b.pack && productById[b.pack];
+    const buy = p ? buyHTML(buyLink(p.id) || p.url, false)
+      : (b.url ? `<a class="buy" href="${esc(b.url)}" target="_blank" rel="noopener">Order now</a>` : `<span class="status">${esc(b.status)}</span>`);
+    return `
     <li class="bday__item c-${b.color}">
       <h4>${esc(b.title)}</h4>
       <p>${hy(b.blurb)}</p>
       ${b.tiles ? `<div class="bday__name" aria-hidden="true">${b.tiles.map((t, i) => `<span class="ctile c-${["coral","teal","gold","purple","green"][i % 5]}"><span lang="hy">${esc(t)}</span></span>`).join("")}</div>` : ""}
-      <div class="bday__buy"><span class="price">${money(b.price)}</span>${b.url ? `<a class="buy" href="${esc(b.url)}" target="_blank" rel="noopener">Order now</a>` : `<span class="status">${esc(b.status)}</span>`}</div>
-    </li>`).join("");
+      <div class="bday__buy"><span class="price">${money(p ? p.price : b.price)}</span>${buy}</div>
+    </li>`;
+  }).join("");
 
   /* ---- Alphabet ---- */
   const tilesBox = document.getElementById("abcTiles");
