@@ -552,6 +552,9 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .foot .band{margin-bottom:clamp(56px,7vw,92px)}
 .foot :focus-visible{outline-color:#fff}
 .foot__hy{color:var(--gold)}
+.hello__hy{color:var(--green-deep);font-weight:700;margin-top:6px}
+.hello__hy [lang="hy"]{font-family:var(--f-hy)}
+.foot__say{font-size:.55em;font-weight:600;opacity:.85;white-space:nowrap}
 .foot__lead{margin-top:12px;color:#D9D8E3;max-width:50ch;font-size:1.12rem}
 .foot__lead b{color:#fff;font-weight:700}
 .social{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -808,7 +811,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 
       <div>
         <div class="abc__tiles" id="abcTiles" role="radiogroup" aria-label="Armenian alphabet"></div>
-        <p class="abc__tip c-teal"><svg class="shape" aria-hidden="true"><use href="#s-star"/></svg><span><b>Try the tissue trick.</b> Some letters come in pairs, one with a puff of air and one without, like Կ and Ք. Hold a tissue in front of your lips: only the puffy ones make it flutter.</span></p>
+        <p class="abc__tip c-teal"><svg class="shape" aria-hidden="true"><use href="#s-star"/></svg><span><b>Try the tissue trick.</b> Some letters come in pairs, one with a puff of air and one without, like Կ (ken) and Ք (ke). Hold a tissue in front of your lips: only the puffy ones make it flutter.</span></p>
         <div class="abc__cta">
           <a class="btn btn--ink" data-pack-link="alphabet" href="#packs">Print all 39 cards</a>
           <span class="price" data-pack-price="alphabet">$8</span>
@@ -884,7 +887,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
               <p class="bday__hy" lang="hy">Ծնունդդ շնորհավոր</p>
               <p class="bday__say">tsuh-NOON-duht shnor-ha-VOR, happy birthday!</p>
               <h3 class="bday__title">Birthdays, the Armenian way</h3>
-              <p class="bday__fact">Fun fact: the Armenian word for candle is <span lang="hy">մոմ</span>, said just like “mom.”</p>
+              <p class="bday__fact">Fun fact: the Armenian word for candle is <span lang="hy">մոմ</span> (mom), said just like “mom.”</p>
             </div>
           </div>
           <ul class="bday__items" id="bdayItems"></ul>
@@ -1001,9 +1004,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-sky" data-photo="ring" data-alt="Flashcards punched and clipped on a ring">
             <div class="snap__frame">
               <div class="scene scene--ring" aria-hidden="true">
-                <div class="card c-green"><div class="card__top"><svg class="shape"><use href="#s-pill"/></svg></div><div class="card__body"><p class="card__en">Dog</p><span class="card__rule"></span><p class="card__hy" lang="hy">Շուն</p></div></div>
-                <div class="card c-orange"><div class="card__top"><svg class="shape"><use href="#s-triangle"/></svg></div><div class="card__body"><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p></div></div>
-                <div class="card c-sky"><div class="card__top"><svg class="shape"><use href="#s-square"/></svg></div><div class="card__body"><p class="card__en">Door</p><span class="card__rule"></span><p class="card__hy" lang="hy">Դուռ</p></div></div>
+                <div class="card c-green"><div class="card__top"><svg class="shape"><use href="#s-pill"/></svg></div><div class="card__body"><p class="card__en">Dog</p><span class="card__rule"></span><p class="card__hy" lang="hy">Շուն</p><p class="card__say">shoon</p></div></div>
+                <div class="card c-orange"><div class="card__top"><svg class="shape"><use href="#s-triangle"/></svg></div><div class="card__body"><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p><p class="card__say">kar-MIR</p></div></div>
+                <div class="card c-sky"><div class="card__top"><svg class="shape"><use href="#s-square"/></svg></div><div class="card__body"><p class="card__en">Door</p><span class="card__rule"></span><p class="card__hy" lang="hy">Դուռ</p><p class="card__say">doorr</p></div></div>
                 <span class="ring"></span>
               </div>
               <span class="snap__spot"></span>
@@ -1035,7 +1038,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-purple" data-photo="family" data-alt="My Family cards with real family photos in the boxes">
             <div class="snap__frame">
               <div class="scene scene--family" aria-hidden="true">
-                <div class="card c-purple"><div class="card__top"><svg class="shape"><use href="#s-oval"/></svg><span class="card__label">Family</span></div><div class="card__body"><div class="card__photo"><svg><use href="#i-photo"/></svg></div><p class="card__en">Grandma</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տատիկ</p></div></div>
+                <div class="card c-purple"><div class="card__top"><svg class="shape"><use href="#s-oval"/></svg><span class="card__label">Family</span></div><div class="card__body"><div class="card__photo"><svg><use href="#i-photo"/></svg></div><p class="card__en">Grandma</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տատիկ</p><p class="card__say">TA-tik</p></div></div>
               </div>
               <span class="snap__spot"></span>
             </div>
@@ -1046,7 +1049,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-teal" data-photo="coloring" data-alt="A child coloring an ink-saver flashcard with crayons">
             <div class="snap__frame">
               <div class="scene scene--coloring is-ink" aria-hidden="true">
-                <div class="card c-gold"><div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Colors</span></div><div class="card__body"><div class="card__swatch" style="--sw:#fff"><span>color me in</span></div><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p></div></div>
+                <div class="card c-gold"><div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Colors</span></div><div class="card__body"><div class="card__swatch" style="--sw:#fff"><span>color me in</span></div><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p><p class="card__say">kar-MIR</p></div></div>
                 <svg class="crayon" viewBox="0 0 120 24"><path d="M18 3h90a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H18Z" style="fill:var(--coral)"/><rect x="44" y="3" width="38" height="18" style="fill:var(--coral-edge)"/><path d="M18 3 3 12l15 9Z" style="fill:#FFB3AB"/><path d="M8.2 8.9 3 12l5.2 3.1Z" style="fill:var(--coral)"/></svg>
               </div>
               <span class="snap__spot"></span>
@@ -1069,9 +1072,11 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       </div>
     </figure>
     <div class="hello__copy">
-      <h2 id="hello-title">From one little Armenian community to another</h2>
-      <p>Roots &amp; Crayons started at a kitchen table, with a little one learning Armenian and a grown-up learning right alongside. Every card is made so anyone who's still learning can read each word out loud with confidence.</p>
-      <p>It's for every family keeping Armenian close, wherever home is. Thank you for bringing these words into yours.</p>
+      <h2 id="hello-title">From our family table to yours</h2>
+      <p class="hello__hy"><span lang="hy">Մեր պատմությունը</span> (mer pat-moo-TYOO-nuh), our story</p>
+      <p>When I married into an Armenian family, I also married into its legacy: a culture shaped by resilience and scattered across a global diaspora. It was not the heritage I was born into, but I felt a deep responsibility to help keep it alive for our child.</p>
+      <p>I created these cards to learn right alongside my little one. They are designed so anyone, whether you are reconnecting with your roots or learning for the very first time, can speak each word with confidence.</p>
+      <p>What started as a promise in our home is now a gift for families everywhere, helping this culture thrive for generations to come. Thank you for welcoming these words into yours.</p>
       <p class="hello__sig">Roots &amp; Crayons<span>From our little Armenian community to yours</span></p>
     </div>
   </div>
@@ -1151,7 +1156,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <footer class="foot" id="follow" aria-labelledby="follow-title">
   <div class="band" aria-hidden="true"></div>
   <div class="wrap">
-    <h2 id="follow-title">Come say <span class="foot__hy" lang="hy">Բարև</span></h2>
+    <h2 id="follow-title">Come say <span class="foot__hy" lang="hy">Բարև</span> <span class="foot__say">(ba-REV), hello</span></h2>
     <p class="foot__lead"><b>ba-REV</b> means hello. Follow along for new packs and easy ways to use them at home.</p>
     <ul class="social">
       <li><a class="soc c-pink" data-link="instagram" href="#"><svg class="shape" aria-hidden="true"><use href="#s-heart"/></svg><span class="soc__name">Instagram</span><span class="soc__desc">Sneak peeks and little lessons</span><span class="soc__soon">Coming soon</span></a></li>
@@ -1309,7 +1314,7 @@ const PACKS = [
   {"id": "house", "kind": "pack", "collection": "home", "title": "Around the House", "hy": "Տան մեջ", "say": "tan mej", "tile": "Տ", "color": "sky", "cards": 20, "price": 5, "blurb": "The rooms and everyday things kids see all day.", "samples": [["Դուռ", "door", "door"], ["Աթոռ", "a-TOR", "chair"], ["Գիրք", "girk", "book"]], "photos": true},
   {"id": "animals", "kind": "pack", "collection": "basics", "title": "Animals & Sounds", "hy": "Կենդանիներ ու ձայներ", "say": "ken-da-nee-NER oo dzayn-NER", "tile": "Կ", "color": "green", "cards": 18, "price": 5, "blurb": "Name the animal, then make its sound in Armenian.", "samples": [["Շուն", "shoon", "dog"], ["Կատու", "kah-TOO", "cat"], ["Կով", "kov", "cow"]], "photos": true},
   {"id": "colors", "kind": "pack", "collection": "basics", "title": "Colors & Shapes", "hy": "Գույներ ու ձևեր", "say": "gooy-NER oo tseh-VER", "tile": "Գ", "color": "orange", "cards": 16, "price": 5, "blurb": "Every color of the rainbow and the first shapes.", "samples": [["Կարմիր", "kar-MIR", "red"], ["Կապույտ", "ka-PUYT", "blue"], ["Աստղ", "astgh", "star"]]},
-  {"id": "weather", "kind": "pack", "collection": "basics", "title": "Weather & Seasons", "hy": "Եղանակ ու տարվա եղանակներ", "say": "ye-gha-NAK oo tar-VA ye-gha-nak-NER", "tile": "Ե", "color": "sky", "cards": 16, "price": 5, "blurb": "Sun, rain, snow and the four seasons. Fun fact: եղանակ means both weather and season!", "samples": [["Արև", "a-REV", "sun"], ["Անձրև", "an-dzuh-REV", "rain"], ["Ծիածան", "tsee-a-TSAN", "rainbow"]], "plus": "Plus a weather board and a weekly weather chart."},
+  {"id": "weather", "kind": "pack", "collection": "basics", "title": "Weather & Seasons", "hy": "Եղանակ ու տարվա եղանակներ", "say": "ye-gha-NAK oo tar-VA ye-gha-nak-NER", "tile": "Ե", "color": "sky", "cards": 16, "price": 5, "blurb": "Sun, rain, snow and the four seasons. Fun fact: եղանակ (ye-gha-NAK) means both weather and season!", "samples": [["Արև", "a-REV", "sun"], ["Անձրև", "an-dzuh-REV", "rain"], ["Ծիածան", "tsee-a-TSAN", "rainbow"]], "plus": "Plus a weather board and a weekly weather chart."},
   {"id": "calendar", "kind": "pack", "collection": "basics", "title": "Days & Months", "hy": "Օրեր ու ամիսներ", "say": "o-RER oo a-mees-NER", "tile": "Հ", "color": "purple", "cards": 28, "price": 5, "blurb": "The days of the week, the twelve months, and today, yesterday and tomorrow.", "samples": [["Երկուշաբթի", "yer-koo-shap-TEE", "Monday"], ["Այսօր", "ays-OR", "today"], ["Վաղը", "VA-ghuh", "tomorrow"]], "plus": "Plus a Today board and a month calendar to fill in."},
   {"id": "numbers", "kind": "pack", "collection": "basics", "title": "Numbers 1–20", "hy": "Թվեր", "say": "tuh-VER", "tile": "Թ", "color": "green", "cards": 20, "price": 5, "blurb": "Count to twenty in Armenian, with a ten frame on every card.", "samples": [["մեկ", "mek", "one"], ["երկու", "yer-KOO", "two"], ["երեք", "ye-REK", "three"]], "plus": "Plus a 1–20 number chart."},
   {"id": "clothes", "kind": "pack", "collection": "basics", "title": "Clothes for Every Season", "hy": "Հագուստ", "say": "ha-GOOST", "tile": "Հ", "color": "purple", "cards": 16, "price": 5, "blurb": "T-shirts and sandals, jackets and mittens, raincoats and umbrellas: what to wear for every season.", "samples": [["Բաճկոն", "bach-KON", "jacket"], ["Սանդալներ", "san-dal-NER", "sandals"], ["Հովանոց", "ho-va-NOTS", "umbrella"]], "plus": "Plus a what-to-wear weather board."},
@@ -1405,7 +1410,7 @@ const DEMO_WORDS = [
 // Birthday printables. pack: the shop product it sells, so its price and link come from PACKS and BUY_LINKS.
 const BIRTHDAY = [
   {pack:"birthday", title:"Birthday Party pack", color:"pink",
-   blurb:"Sixteen party words and phrases, from cake to make a wish, plus a Ծնունդդ շնորհավոր banner to print and hang."},
+   blurb:"Sixteen party words and phrases, from cake to make a wish, plus a Ծնունդդ շնորհավոր (tsuh-NOON-duht shnor-ha-VOR), happy birthday, banner to print and hang."},
   {title:"Their name in Armenian", color:"teal", price:12, status:"Coming soon", url:"", tiles:["Ա","Ն","Ի"],
    blurb:"We spell your child's name in Armenian letters, with name tiles, a tracing page and a door sign. Made to order."}
 ];
@@ -1414,11 +1419,11 @@ const BIRTHDAY = [
 const SEASONS = [
   {from:"2026-10-01", to:"2026-10-31", color:"orange", html:'Pumpkin season! Pumpkin is <span lang="hy">Դդում</span>, duh-DOOM.', link:"Find Դ", href:"#alphabet", letter:"Դ"},
   {from:"2026-11-01", to:"2026-11-26", color:"orange", html:'Thanksgiving is coming! Turkey is <span lang="hy">Հնդկահավ</span>, huhnd-ka-HAV.', link:"See the holiday packs", href:"#specials"},
-  {from:"2026-11-27", to:"2027-01-06", color:"sky", html:'<span lang="hy">Ամանոր</span> is coming! New Year and Christmas words for the whole family.', link:"See the holiday packs", href:"#specials"},
-  {from:"2027-01-07", to:"2027-02-14", color:"pink", html:'Armenian valentines for the whole class, in time for <span lang="hy">Տրնդեզ</span>.', link:"See the holiday packs", href:"#specials"},
-  {from:"2027-02-15", to:"2027-03-28", color:"green", html:'<span lang="hy">Նովրուզ</span> sprouts and red eggs for <span lang="hy">Զատիկ</span>, Easter, on March 28.', link:"See the holiday packs", href:"#specials"},
-  {from:"2027-03-29", to:"2027-05-09", color:"coral", html:"Mother's Day is April 7 in Armenia. Mom, I love you: <span lang=\"hy\">Մայրիկ, ես քեզ սիրում եմ</span>.", link:"See the holiday packs", href:"#specials"},
-  {from:"2027-06-01", to:"2027-07-04", color:"teal", html:'<span lang="hy">Վարդավառ</span> is July 4. Get ready to splash!', link:"See the holiday packs", href:"#specials"},
+  {from:"2026-11-27", to:"2027-01-06", color:"sky", html:'<span lang="hy">Ամանոր</span> (a-ma-NOR), New Year, is coming! New Year and Christmas words for the whole family.', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-01-07", to:"2027-02-14", color:"pink", html:'Armenian valentines for the whole class, in time for <span lang="hy">Տրնդեզ</span> (truhn-DEZ).', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-02-15", to:"2027-03-28", color:"green", html:'<span lang="hy">Նովրուզ</span> (nov-ROOZ) sprouts and red eggs for <span lang="hy">Զատիկ</span> (za-TEEK), Easter, on March 28.', link:"See the holiday packs", href:"#specials"},
+  {from:"2027-03-29", to:"2027-05-09", color:"coral", html:"Mother's Day is April 7 in Armenia. Mom, I love you: <span lang=\"hy\">Մայրիկ, ես քեզ սիրում եմ</span> (MAY-rik, yes kez see-ROOM em).", link:"See the holiday packs", href:"#specials"},
+  {from:"2027-06-01", to:"2027-07-04", color:"teal", html:'<span lang="hy">Վարդավառ</span> (var-da-VARR), the water festival, is July 4. Get ready to splash!', link:"See the holiday packs", href:"#specials"},
   {from:"2027-08-01", to:"2027-09-01", color:"gold", html:'Back to school! School is <span lang="hy">Դպրոց</span>, duh-PROTS.', link:"See the holiday packs", href:"#specials"},
   {from:"2027-10-01", to:"2027-10-31", color:"orange", html:"October is alphabet month, with a free coloring page.", link:"Meet the letters", href:"#alphabet"}
 ];
