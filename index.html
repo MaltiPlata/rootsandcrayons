@@ -1331,7 +1331,6 @@ const CONFIG = {
     vehicles: "",
     music: "",
     birthday: "",
-    sayings: "",
     thanksgiving: "",
     winter: "",
     spring: "",
@@ -1398,7 +1397,7 @@ const BUNDLES = [
   {"id": "out-about", "title": "Out & About Bundle", "price": 20, "color": "green", "blurb": "Take the words to the store, the park, the library, the trail, the campsite and the beach.", "packs": ["grocery", "park", "library", "hiking", "camping", "beach"]},
   {"id": "imagine", "title": "Big Imaginations Bundle", "price": 14, "color": "purple", "blurb": "Space, magic, dinosaurs and the deep blue sea in one download.", "packs": ["space", "magic", "dinosaurs", "sea"]},
   {"id": "play", "title": "Play & Celebrate Bundle", "price": 14, "color": "orange", "blurb": "Wheels, music, shows and birthday parties in one download.", "packs": ["vehicles", "music", "screen", "birthday"]},
-  {"id": "traditions", "title": "Traditions & Holidays Bundle", "price": 18, "color": "purple", "blurb": "Sayings, New Year, Nowruz and Easter, Thanksgiving and the first day of school: the whole year of traditions.", "packs": ["sayings", "winter", "spring", "thanksgiving", "school"]}
+  {"id": "traditions", "title": "Traditions & Holidays Bundle", "price": 15, "color": "purple", "blurb": "New Year, Nowruz and Easter, Thanksgiving and the first day of school: the holidays families actually keep.", "packs": ["winter", "spring", "thanksgiving", "school"]}
 ];
 const CLASSROOM_PRICE = 89;
 // Every pack and workbook. samples: [Armenian, how to say it, English].
@@ -1433,8 +1432,7 @@ const PACKS = [
   {"id": "screen", "kind": "pack", "collection": "play", "title": "Shows & Screen Time", "hy": "Մուլտեր ու ֆիլմեր", "say": "mool-TER oo feel-MER", "tile": "Մ", "color": "sky", "cards": 20, "price": 5, "blurb": "Cartoons, movies and the play, pause and stop buttons, plus the phrases that make screen time easy.", "samples": [["Միացրո՛ւ", "mee-ats-ROO", "play"], ["Կանգնեցրո՛ւ", "kang-nets-ROO", "pause"], ["Մի սերիա է՞լ", "mee SE-ree-a el", "one more episode?"]], "plus": "Plus screen time tickets to cut out."},
   {"id": "vehicles", "kind": "pack", "collection": "play", "title": "Things That Go", "hy": "Տրանսպորտ", "say": "trans-PORT", "tile": "Մ", "color": "coral", "cards": 16, "price": 5, "blurb": "Cars, diggers, fire trucks and trains: everything with wheels, wings and engines.", "samples": [["Հրշեջ մեքենա", "hur-SHEJ me-ke-NA", "fire truck"], ["Էքսկավատոր", "eks-ka-va-TOR", "digger"], ["Ամրագոտիդ կապի՛ր", "am-ra-go-TEED ka-PEER", "buckle up!"]], "plus": "Plus road trip bingo."},
   {"id": "music", "kind": "pack", "collection": "play", "title": "Music & Dance", "hy": "Երաժշտություն ու պար", "say": "ye-razh-shtoo-TYOON oo par", "tile": "Ե", "color": "orange", "cards": 16, "price": 5, "blurb": "Drums, songs and dancing, plus the duduk, the dhol, the kanun and the Kochari.", "samples": [["Դուդուկ", "doo-DOOK", "duduk"], ["Պար", "par", "dance"], ["Ծափ տո՛ւր", "tsap toor", "clap your hands!"]]},
-  {"id": "birthday", "kind": "pack", "collection": "play", "title": "Birthday Party", "hy": "Ծննդյան խնջույք", "say": "tsuh-nuhn-DYAN khuhn-JOOYK", "tile": "Ծ", "color": "gold", "cards": 16, "price": 5, "blurb": "Cake, candles and presents, the birthday words, and a Happy Birthday banner to hang.", "samples": [["Տորթ", "tort", "cake"], ["Մոմեր", "mo-MER", "candles"], ["Երազանք պահի՛ր", "ye-ra-ZANK pa-HEER", "make a wish!"]]},
-  {"id": "sayings", "kind": "pack", "collection": "traditions", "title": "Armenian Sayings", "hy": "Ասացվածքներ", "say": "a-sats-vatsk-NER", "tile": "Ս", "color": "teal", "cards": 16, "price": 5, "blurb": "Old proverbs and everyday blessings, the way grandparents say them.", "samples": [["Ձեռքդ դալար", "DZERR-kud da-LAR", "bless your hands"], ["Մի ձեռքը ծափ չի տա", "mee DZERR-kuh tsap chee ta", "one hand can't clap"], ["Կաթիլ-կաթիլ՝ լիճ կդառնա", "ka-TEEL ka-TEEL leech kuh-darr-NA", "drop by drop, a lake is made"]]}
+  {"id": "birthday", "kind": "pack", "collection": "play", "title": "Birthday Party", "hy": "Ծննդյան խնջույք", "say": "tsuh-nuhn-DYAN khuhn-JOOYK", "tile": "Ծ", "color": "gold", "cards": 16, "price": 5, "blurb": "Cake, candles and presents, the birthday words, and a Happy Birthday banner to hang.", "samples": [["Տորթ", "tort", "cake"], ["Մոմեր", "mo-MER", "candles"], ["Երազանք պահի՛ր", "ye-ra-ZANK pa-HEER", "make a wish!"]]}
 ];
 // Holiday packs, in calendar order. A buy button appears once its link is in BUY_LINKS (or url is set).
 const HOLIDAYS = [
