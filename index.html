@@ -715,7 +715,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     <div class="wrap">
       <label class="sr-only" for="siteSearch">Search the packs</label>
       <input id="siteSearch" class="field" type="search" autocomplete="off"
-             placeholder="Try animals, colors, holidays, or an Armenian word">
+             placeholder="Try animals, colors, dinosaurs or a holiday">
       <p class="searchbar__count" id="searchCount" role="status" aria-live="polite"></p>
     </div>
   </div>
@@ -1644,8 +1644,14 @@ const SEASONS = [
 
   // The shelf buttons show one shelf at a time, or all of them
   const shelfNav = document.getElementById("shelfNav");
-  shelfNav.innerHTML = `<button type="button" data-show="all" aria-pressed="true">All packs</button>` +
-    shelves.map(c => `<button type="button" data-show="${c.id}" aria-pressed="false">${esc(c.title)}<small>${c.items.length}</small></button>`).join("");
+  // The shelf area opens on one shelf, not all of them: 34 packs at once is what made this page
+  // feel endless. Learning Basics first, because that is what a shopper compares on.
+  const FIRST_SHELF = shelves.some(c => c.id === "basics") ? "basics" : (shelves[0] && shelves[0].id);
+  const ordered = shelves.slice().sort((a, b) => (a.id === FIRST_SHELF ? -1 : 0) - (b.id === FIRST_SHELF ? -1 : 0));
+  shelfNav.innerHTML = ordered.map(c =>
+      `<button type="button" data-show="${c.id}" aria-pressed="${String(c.id === FIRST_SHELF)}">${esc(c.title)}<small>${c.items.length}</small></button>`).join("")
+    + `<button type="button" data-show="all" aria-pressed="false">Show all ${PACKS.length}</button>`;
+  shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = el.dataset.shelf !== FIRST_SHELF; });
   shelfNav.addEventListener("click", e => {
     const b = e.target.closest("button[data-show]");
     if (!b) return;
@@ -1697,15 +1703,17 @@ const SEASONS = [
   function runSearch() {
     const q = searchInput.value.trim().toLowerCase();
     const cards = shelvesBox.querySelectorAll(".pack");
+    const hols = document.querySelectorAll("#holList .hol");
     if (!q) {
       cards.forEach(el => { el.hidden = false; });
-      shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = false; });
-      shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.show === "all")));
+      hols.forEach(el => { el.hidden = false; });
+      shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = el.dataset.shelf !== FIRST_SHELF; });
+      shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.show === FIRST_SHELF)));
       searchCount.textContent = "";
       return;
     }
     let hits = 0;
-    cards.forEach(el => {
+    [...cards, ...hols].forEach(el => {
       const match = (el.dataset.find || "").indexOf(q) > -1;
       el.hidden = !match;
       if (match) hits++;
@@ -1715,7 +1723,7 @@ const SEASONS = [
     });
     shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", "false"));
     searchCount.textContent = hits === 0 ? "Nothing matches that yet. Try animals, food or a holiday."
-      : hits === 1 ? "1 pack matches" : hits + " packs match";
+      : (hits === 1 ? "1 pack matches" : hits + " packs match") + ". Scroll down to see them.";
   }
 
   if (searchBtn) {
@@ -1770,8 +1778,9 @@ const SEASONS = [
   /* ---- Holidays + birthdays ---- */
   document.getElementById("holList").innerHTML = HOLIDAYS.map(h => {
     const url = buyLink(h.id) || h.url;
+    const find = [h.title, h.hy, h.say, h.blurb, h.when].filter(Boolean).join(" ").toLowerCase();
     return `
-    <li class="hol c-${h.color}">
+    <li class="hol c-${h.color}" data-find="${esc(find)}">
       <div class="hol__top">
         <span class="hol__art" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#h-${h.icon}"/></svg></span>
         <p class="hol__when">${esc(h.when)}</p>
