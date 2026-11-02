@@ -40,6 +40,10 @@
   --sky:#4DB6E8;    --sky-deep:#186C9C;    --sky-tint:#E9F6FC;    --sky-edge:#2E90C0;
   --purple:#A97BE0; --purple-deep:#7A4FC0; --purple-tint:#F4EEFB; --purple-edge:#8355C0;
   --pink:#EF7BAA;   --pink-deep:#A93A6B;   --pink-tint:#FDEEF4;   --pink-edge:#D0588A;
+  /* Washes: strong enough to tell two sections apart at a glance, light enough for dark text.
+     The -tint values stay for cards and chips sitting inside a washed section. */
+  --coral-wash:#FFD9D4; --orange-wash:#FCE3CB; --gold-wash:#F7E7BF;  --green-wash:#D6F0DC;
+  --teal-wash:#CDEFEC;  --sky-wash:#D5EBF8;    --purple-wash:#E6DAF7; --pink-wash:#FAD9E7;
   --f-display:"Fredoka","Noto Sans Armenian","Baloo 2",system-ui,sans-serif;
   --f-body:"Baloo 2","Noto Sans Armenian",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-hy:"Noto Sans Armenian","Baloo 2",system-ui,sans-serif;
@@ -122,12 +126,44 @@ a.buy:hover{background:var(--ink);color:#fff}
 /* ===== Header ===== */
 .top{position:relative;z-index:3;padding:18px 0 6px}
 .top__in{display:flex;align-items:center;justify-content:space-between;gap:16px}
-/* The mark and the wordmark always sit together, at the same ratio, so the brand is recognised
-   the same way on the site, on a pin, on a cover and in a browser tab. */
-.brand{display:flex;align-items:center;gap:.5em;color:var(--ink);text-decoration:none;line-height:0}
-.brand__mark{width:clamp(34px,3.6vw,42px);height:auto;flex:none}
-.brand__wm{width:clamp(96px,10vw,120px);height:auto;flex:none}
-.top__nav{display:flex;align-items:center;gap:22px}
+/* The wordmark stands alone. Anything beside it reads as part of the logo, which it is not.
+   The Ա badge is the browser tab icon only, where there is no wordmark next to it. */
+.brand{display:block;width:clamp(116px,12vw,146px);color:var(--ink);text-decoration:none;line-height:0}
+.brand__wm{width:100%;height:auto}
+.top__nav{display:flex;align-items:center;gap:12px}
+/* Browse dropdown: a plain details element, so it opens with a tap or the keyboard and needs no script */
+.menu{position:relative}
+.menu__btn{display:flex;align-items:center;gap:8px;font-family:var(--f-body);font-weight:700;font-size:1rem;color:var(--ink);
+  background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:9px 16px 7px;cursor:pointer;list-style:none;white-space:nowrap}
+.menu__btn::-webkit-details-marker{display:none}
+.menu__btn svg{width:12px;height:8px;transition:transform .15s}
+.menu[open] .menu__btn{background:var(--ink);border-color:var(--ink);color:#fff}
+.menu[open] .menu__btn svg{transform:rotate(180deg)}
+.menu__btn:hover{border-color:#A6A4B4}
+.menu__panel{position:absolute;right:0;top:calc(100% + 10px);z-index:40;min-width:270px;display:grid;
+  background:#fff;border:2px solid var(--ink);border-radius:20px;box-shadow:0 10px 0 rgba(43,43,58,.1);padding:8px;overflow:hidden}
+.menu__panel a{font-weight:700;font-size:1rem;color:var(--ink);text-decoration:none;padding:11px 14px 9px;border-radius:13px}
+.menu__panel a:hover,.menu__panel a:focus-visible{background:var(--coral-tint);color:var(--coral-deep)}
+.searchbtn{display:flex;align-items:center;gap:8px;font-family:var(--f-body);font-weight:700;font-size:1rem;color:var(--ink);
+  background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap}
+.searchbtn:hover{border-color:#A6A4B4}
+.searchbtn svg{width:19px;height:19px;flex:none}
+.searchbtn[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.searchbar{background:var(--coral-tint);border-top:2px solid var(--coral);border-bottom:2px solid var(--coral);padding:14px 0}
+.searchbar .field{width:100%;max-width:560px}
+.searchbar__count{margin-top:8px;font-weight:700;color:var(--coral-deep);min-height:1.2em}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:719px){
+  .top__in{flex-wrap:wrap;row-gap:12px}
+  .top__nav{width:100%;gap:8px;flex-wrap:wrap}
+  .top__nav .btn--sm{margin-left:auto}
+  .menu__panel{left:0;right:auto}
+}
+/* On a narrow phone the search button is the magnifier alone, so all three still fit on one row */
+@media (max-width:520px){
+  .searchbtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .searchbtn{padding:8px 11px}
+}
 .top__link{font-weight:700;font-size:1rem;color:var(--ink-2);text-decoration:none}
 .top__link:hover{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 @media (max-width:799px){.top__link{display:none}}
@@ -203,10 +239,10 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .stage{grid-area:stage;position:relative;justify-self:center;width:100%;max-width:540px;padding:30px 0 0}
 .deck{--w:min(68vw,300px);position:relative;width:var(--w);height:calc(var(--w)*700/520);margin:0 auto;perspective:1400px}
 @media (min-width:720px) and (max-width:999px){
-  .deck{--w:min(29vw,270px)}.stage{align-self:center;padding-top:20px}
+  .deck{--w:min(31vw,300px)}.stage{align-self:start;padding-top:0}
   .stage .t1{--s:56px;left:2%}.stage .t2{--s:44px}.stage .t3{--s:48px}.stage .t4{--s:40px}
 }
-@media (min-width:1000px){.deck{--w:392px}.stage{align-self:center;padding-top:0}}
+@media (min-width:1000px){.deck{--w:430px}.stage{align-self:start;padding-top:0;max-width:600px}}
 .deck .card{position:absolute;inset:0}
 .card--b1{transform:translate(-7%,5%) rotate(-8deg);pointer-events:none}
 .card--b2{transform:translate(6%,-3%) rotate(6deg);pointer-events:none}
@@ -256,6 +292,9 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 
 /* ===== Sections ===== */
 .section{padding:clamp(64px,8vw,112px) 0}
+.who{background:var(--coral-wash)}
+.specials{background:var(--gold-wash)}
+.print{background:var(--teal-wash)}
 .section__head{max-width:680px;margin-bottom:clamp(32px,4vw,52px)}
 .section__head h2,.closer h2,.foot h2,.ink__copy h2,.hello h2{font-size:clamp(2.1rem,1.45rem + 2.6vw,3.3rem)}
 .section__head p{margin-top:14px;font-size:1.15rem;color:var(--ink-2);max-width:56ch}
@@ -273,7 +312,25 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .who__item .body{margin-top:10px;color:var(--ink-2)}
 
 /* ===== Alphabet explorer ===== */
-.abc{background:var(--purple-tint)}
+.abc{background:var(--purple-wash)}
+/* The six starter sets, with a photo of the real cards on each one */
+.basics{background:var(--teal-wash)}
+.basics__eyebrow{font-weight:800;font-size:.82rem;letter-spacing:.17em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:10px}
+.starter{list-style:none;margin:clamp(30px,4vw,44px) 0 0;padding:0;display:grid;gap:18px;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.starter__item{background:#fff;border:3px solid var(--c);border-radius:24px;box-shadow:0 7px 0 var(--c);overflow:hidden;display:flex;flex-direction:column}
+.starter__shot{aspect-ratio:1;background:var(--tint);border-bottom:3px solid var(--c)}
+.starter__shot img{width:100%;height:100%;object-fit:cover;display:block}
+.starter__body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.starter__step{font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.starter__item h3{font-size:1.2rem;line-height:1.15}
+.starter__hy{font-family:var(--f-hy);font-weight:600;font-size:1.05rem;color:var(--deep);line-height:1.3}
+.starter__say{font-weight:600;font-size:.92rem;color:var(--ink-3);margin-top:-4px}
+.starter__why{font-size:.98rem;color:var(--ink-2);flex:1}
+.starter__buy{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
+.starter__foot{margin-top:clamp(24px,3vw,34px)}
+.starter__after{margin-top:20px;font-size:1.03rem;color:var(--ink-2)}
+.starter__after a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--teal)}
 .abc__layout{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start}
 @media (min-width:1000px){.abc__layout{grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:56px}}
 .abc__show{position:sticky;top:10px;z-index:2}
@@ -315,7 +372,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .abc__cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:24px}
 
 /* ===== Packs + prices ===== */
-.packs{background:var(--sky-tint)}
+.packs{background:var(--sky-wash)}
 .bundle{display:grid;grid-template-columns:minmax(0,1fr);gap:30px;align-items:center;background:var(--ink);color:#fff;border-radius:28px;padding:30px 22px 32px;margin-bottom:22px}
 @media (min-width:860px){.bundle{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;padding:42px 48px}}
 .bundle__title{font-size:clamp(1.85rem,1.4rem + 1.7vw,2.6rem);color:#fff}
@@ -514,7 +571,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .scene--cake svg{width:76%;height:auto}
 
 /* Community note */
-.hello{background:var(--green-tint)}
+.hello{background:var(--green-wash)}
 .hello__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:44px;align-items:center}
 @media (min-width:860px){.hello__grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:64px}}
 .hello .snap{--r:-3deg;width:min(70%,320px);margin-inline:auto}
@@ -538,7 +595,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .qa__a p + p{margin-top:8px}
 
 /* Closing CTA */
-.closer{background:var(--gold-tint)}
+.closer{background:var(--pink-wash)}
 .closer__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:center}
 @media (min-width:960px){.closer__grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
 .closer h2{max-width:14ch}
@@ -631,15 +688,36 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <header class="top">
   <div class="wrap top__in">
     <a class="brand" href="/" aria-label="Roots and Crayons, home">
-      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark" width="64" height="64"/></svg>
       <svg class="brand__wm" viewBox="0 0 1104 527" style="fill:currentColor"><use href="#logo" width="1104" height="527"/></svg>
     </a>
     <nav class="top__nav" aria-label="Main">
-      <a class="top__link" href="#alphabet">Alphabet</a>
-      <a class="top__link" href="#packs">The packs</a>
-      <a class="top__link" href="#specials">Holidays</a>
+      <details class="menu" id="menu">
+        <summary class="menu__btn">Browse<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+        <div class="menu__panel">
+          <a href="#basics">Start with the basics</a>
+          <a href="#packs">All the packs</a>
+          <a href="#bundle">Bundles and savings</a>
+          <a href="#alphabet">The alphabet, letter by letter</a>
+          <a href="#specials">Holiday sets</a>
+          <a href="#print">How printing works</a>
+          <a href="#hello">Our story</a>
+          <a href="#faq">Questions</a>
+        </div>
+      </details>
+      <button class="searchbtn" type="button" id="searchBtn" aria-expanded="false" aria-controls="searchBar" aria-label="Search the packs">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span>Search</span>
+      </button>
       <a class="btn btn--sm" href="#free">Get the free pack</a>
     </nav>
+  </div>
+  <div class="searchbar" id="searchBar" hidden>
+    <div class="wrap">
+      <label class="sr-only" for="siteSearch">Search the packs</label>
+      <input id="siteSearch" class="field" type="search" autocomplete="off"
+             placeholder="Try animals, colors, holidays, or an Armenian word">
+      <p class="searchbar__count" id="searchCount" role="status" aria-live="polite"></p>
+    </div>
   </div>
 </header>
 
@@ -777,6 +855,23 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         <p class="body">Glendale, Watertown, Montreal, Marseille, Beirut, Buenos Aires. Download, print at home and keep Armenian close. The cards are Eastern Armenian, written the way families really talk.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ============ START WITH THE BASICS ============ -->
+<section class="section basics" id="basics" aria-labelledby="basics-title">
+  <div class="wrap">
+    <div class="section__head c-teal">
+      <p class="basics__eyebrow">Start here</p>
+      <h2 id="basics-title">The six to buy first</h2>
+      <p class="section__hy"><span lang="hy">Առաջին գիտելիքներ</span><span>a-ra-JEEN gee-te-leek-NER, first things to know</span></p>
+      <p>These are the sets every flashcard shop sells, so you can compare ours side by side. Ours
+        spell out how to say every word, which is the part that usually goes missing.</p>
+    </div>
+    <ul class="starter" id="starterGrid"></ul>
+    <div class="starter__foot" id="starterDeal"></div>
+    <p class="starter__after">Once these are on the fridge, add the ones your child already loves:
+      <a href="#packs">dinosaurs, space, the beach, birthdays and the rest</a>.</p>
   </div>
 </section>
 
@@ -1502,8 +1597,10 @@ const SEASONS = [
     const words = p.samples
       ? p.samples.map(([w, say, en]) => `<li class="word"><span class="word__hy" lang="hy">${esc(w)}</span><span class="word__say">${esc(say)}</span><span class="word__en">${esc(en)}</span></li>`).join("")
       : (p.feats || []).map(([what, how]) => `<li class="word word--feat"><span class="word__en">${esc(what)}</span><span class="word__say">${esc(how)}</span></li>`).join("");
+    const find = [p.title, p.hy, p.say, p.blurb, (p.samples || []).map(x => x.join(" ")).join(" "),
+                  (p.tags || []).join(" ")].filter(Boolean).join(" ").toLowerCase();
     return `
-      <li class="pack c-${p.color}">
+      <li class="pack c-${p.color}" data-find="${esc(find)}">
         <span class="tile${p.tile.length > 1 ? " tile--multi" : ""}" aria-hidden="true">${esc(p.tile)}</span>
         <div class="pack__head">
           <h4>${esc(p.title)}</h4>
@@ -1556,6 +1653,90 @@ const SEASONS = [
     shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
     shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = show !== "all" && el.dataset.shelf !== show; });
   });
+
+  /* ---- The six starter sets: the ones a shopper compares with every other flashcard seller ---- */
+  const STARTER = [
+    ["alphabet", "Step 1", "39 letters, each with its name, its sound and a first word. The set everybody looks for first."],
+    ["feelings", "Free", "Twelve big feelings. It costs nothing, so you can see how the cards work before you spend."],
+    ["numbers",  "Step 2", "Count to twenty, with a ten frame on every card so the number has something to hold onto."],
+    ["colors",   "Step 3", "Every color of the rainbow and the first shapes, the two things a preschooler names earliest."],
+    ["animals",  "Step 4", "Name the animal, then make its sound. The pack children ask for again and again."],
+    ["family",   "Step 5", "Mama to papik. You can drop in photos of your own family, so the faces are the real ones."]
+  ];
+  const starterGrid = document.getElementById("starterGrid");
+  if (starterGrid) {
+    starterGrid.innerHTML = STARTER.map(([id, step, why]) => {
+      const x = productById[id];
+      if (!x) return "";
+      const url = buyLink(x.id) || x.url;
+      return `
+        <li class="starter__item c-${x.color}">
+          <div class="starter__shot"><img src="shop/${id}-cover.jpg" alt="The ${esc(x.title)} cards"
+               loading="lazy" width="440" height="440"></div>
+          <div class="starter__body">
+            <span class="starter__step">${esc(step)}</span>
+            <h3>${esc(x.title)}</h3>
+            ${x.hy ? `<p class="starter__hy" lang="hy">${esc(x.hy)}</p><p class="starter__say">${esc(x.say)}</p>` : ""}
+            <p class="starter__why">${esc(why)}</p>
+            <div class="starter__buy"><span class="price">${x.free ? "Free" : money(x.price)}</span>${buyHTML(url, x.free)}</div>
+          </div>
+        </li>`;
+    }).join("");
+    const deal = bundleById["learning-basics"];
+    const dealBox = document.getElementById("starterDeal");
+    if (deal && dealBox) dealBox.innerHTML = dealHTML(deal, (deal.packs || []).length);
+  }
+
+  /* ---- Search: filters every pack on the page, across all shelves ---- */
+  const searchBtn = document.getElementById("searchBtn");
+  const searchBar = document.getElementById("searchBar");
+  const searchInput = document.getElementById("siteSearch");
+  const searchCount = document.getElementById("searchCount");
+  const menu = document.getElementById("menu");
+
+  function runSearch() {
+    const q = searchInput.value.trim().toLowerCase();
+    const cards = shelvesBox.querySelectorAll(".pack");
+    if (!q) {
+      cards.forEach(el => { el.hidden = false; });
+      shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = false; });
+      shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.show === "all")));
+      searchCount.textContent = "";
+      return;
+    }
+    let hits = 0;
+    cards.forEach(el => {
+      const match = (el.dataset.find || "").indexOf(q) > -1;
+      el.hidden = !match;
+      if (match) hits++;
+    });
+    shelvesBox.querySelectorAll(".shelf").forEach(sh => {
+      sh.hidden = !sh.querySelector(".pack:not([hidden])");
+    });
+    shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", "false"));
+    searchCount.textContent = hits === 0 ? "Nothing matches that yet. Try animals, food or a holiday."
+      : hits === 1 ? "1 pack matches" : hits + " packs match";
+  }
+
+  if (searchBtn) {
+    searchBtn.addEventListener("click", () => {
+      const open = searchBar.hidden;
+      searchBar.hidden = !open;
+      searchBtn.setAttribute("aria-expanded", String(open));
+      if (open) { searchInput.focus(); }
+      else { searchInput.value = ""; runSearch(); }
+    });
+    searchInput.addEventListener("input", runSearch);
+    searchInput.addEventListener("keydown", e => {
+      if (e.key === "Escape") { searchInput.value = ""; runSearch(); searchBtn.click(); }
+    });
+  }
+  // the Browse menu closes when you pick something or click away
+  if (menu) {
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { menu.open = false; }));
+    document.addEventListener("click", e => { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") menu.open = false; });
+  }
 
   // Links elsewhere on the page that point at one pack
   document.querySelectorAll("[data-pack-link]").forEach(a => {
