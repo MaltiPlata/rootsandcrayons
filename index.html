@@ -321,13 +321,15 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .bgphoto::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--bg-img,none) center/cover no-repeat;filter:saturate(1.08) sepia(.1);pointer-events:none}
 .bgphoto::after{content:"";position:absolute;inset:0;z-index:-1;background:color-mix(in srgb,var(--wash) 88%,transparent);pointer-events:none}
 .who{--wash:var(--coral-wash)}
+.basics{--wash:var(--teal-wash)}
+.basics.bgphoto::after{background:color-mix(in srgb,var(--wash) 74%,transparent)}
 .specials{--wash:var(--gold-wash)}
 .print{--wash:var(--teal-wash)}
 .hello{--wash:var(--paper)}
 .closer{--wash:var(--pink-wash)}
 /* The hero: photo on the right, paper wash on the left where the words sit */
 .hero.bgphoto{--wash:#FFF8F2}
-.hero.bgphoto::before{filter:saturate(1.1) sepia(.12)}
+.hero.bgphoto::before{filter:saturate(1.1) sepia(.12);background-position:center 62%}
 .hero.bgphoto::after{background:linear-gradient(90deg,color-mix(in srgb,var(--wash) 97%,transparent) 0%,color-mix(in srgb,var(--wash) 88%,transparent) 42%,color-mix(in srgb,var(--wash) 30%,transparent) 100%)}
 @media (max-width:999px){
   .hero.bgphoto::after{background:linear-gradient(180deg,color-mix(in srgb,var(--wash) 82%,transparent) 0%,color-mix(in srgb,var(--wash) 93%,transparent) 45%,var(--wash) 80%)}
@@ -794,7 +796,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero bgphoto" data-bg="table" aria-labelledby="hero-title">
+<section class="hero bgphoto" data-bg="ararat" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
 
     <div class="hero__copy">
@@ -912,7 +914,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <div class="band" aria-hidden="true"></div>
 
 <!-- ============ WHO IT'S FOR ============ -->
-<section class="section who bgphoto" data-bg="fridge" aria-labelledby="who-title">
+<section class="section who bgphoto" data-bg="balconies" aria-labelledby="who-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="who-title">Made for every Armenian home</h2>
@@ -944,7 +946,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </section>
 
 <!-- ============ START WITH THE BASICS ============ -->
-<section class="section basics" id="basics" aria-labelledby="basics-title">
+<section class="section basics bgphoto" data-bg="flags" id="basics" aria-labelledby="basics-title">
   <div class="wrap">
     <div class="section__head c-teal">
       <p class="basics__eyebrow">Start here</p>
@@ -1056,7 +1058,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <h2 id="specials-title">Holiday and birthday specials</h2>
       <p>Packs for the holidays all year long, plus printables for the big day. Subscribers hear first, with a free coloring sheet for every holiday.</p>
     </div>
-    <ul class="starter starter--hols" id="holList"></ul>
+    <ol class="hols" id="holList"></ol>
 
     <div class="bday" id="birthdays">
       <div class="bday__grid">
@@ -1452,6 +1454,9 @@ const CONFIG = {
   // 7. Photos. Drop files with these names into the photos folder and they appear on their own.
   //    Add ?photos to the page address (rootsandcrayons.com/?photos) to see where each one goes.
   PHOTOS: {
+    ararat:   "photos/culture/ararat-yerevan-sunset.jpg",
+    balconies:"photos/culture/yerevan-balconies.jpg",
+    flags:    "photos/culture/armenian-flags.jpg",
     fridge:   "photos/fridge.jpg",
     ring:     "photos/ring.jpg",
     routine:  "photos/routine.jpg",
@@ -1732,7 +1737,7 @@ const SEASONS = [
         </div>
         ${c.bundle && bundleById[c.bundle] ? dealHTML(bundleById[c.bundle], c.items.length) : ""}
       </div>
-      <ul class="packs__grid ${["basics", "imagine"].includes(c.id) ? "starter starter--shelf" : ""}">${c.items.map(p => ["basics", "imagine"].includes(c.id) ? cardPack(p) : packHTML(p)).join("")}</ul>
+      <ul class="packs__grid">${c.items.map(packHTML).join("")}</ul>
     </section>`).join("");
 
   // The shelf buttons show one shelf at a time, or all of them
@@ -1935,13 +1940,21 @@ const SEASONS = [
   document.getElementById("holList").innerHTML = HOLIDAYS.map(h => {
     const url = buyLink(h.id) || h.url;
     const find = [h.title, h.hy, h.say, h.blurb, h.when].filter(Boolean).join(" ").toLowerCase();
-    return gcardHTML({
-      cls: "hol", color: h.color, find, step: h.when, cover: `shop/${h.id}-cover.jpg`,
-      art: `<svg viewBox="0 0 40 40"><use href="#h-${h.icon}"/></svg>`,
-      title: h.title, hy: h.hy, say: h.say, why: hy(h.blurb),
-      price: h.price ? money(h.price) : esc(h.priceLabel || ""),
-      action: url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>` : `<span class="status">${esc(h.status)}</span>`
-    });
+    return `
+    <li class="hol c-${h.color}" data-find="${esc(find)}">
+      <div class="hol__top">
+        <span class="hol__art" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#h-${h.icon}"/></svg></span>
+        <p class="hol__when">${esc(h.when)}</p>
+      </div>
+      <p class="hol__hy" lang="hy">${esc(h.hy)}</p>
+      <p class="hol__say">${esc(h.say)}</p>
+      <h3>${esc(h.title)}</h3>
+      <p class="hol__blurb">${hy(h.blurb)}</p>
+      <div class="hol__foot">
+        <span class="price">${h.price ? money(h.price) : esc(h.priceLabel || "")}</span>
+        ${url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>` : `<span class="status">${esc(h.status)}</span>`}
+      </div>
+    </li>`;
   }).join("");
   document.getElementById("bdayItems").innerHTML = BIRTHDAY.map(b => {
     const p = b.pack && productById[b.pack];
