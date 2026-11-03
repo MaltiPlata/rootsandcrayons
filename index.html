@@ -365,6 +365,14 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .starter__item{background:#fff;border:3px solid var(--c);border-radius:24px;box-shadow:0 7px 0 var(--c);overflow:hidden;display:flex;flex-direction:column}
 .starter__shot{aspect-ratio:1;background:var(--tint);border-bottom:3px solid var(--c)}
 .starter__shot img{width:100%;height:100%;object-fit:cover;display:block}
+.packs__grid.starter .starter__item.pack{display:flex;flex-direction:column;align-items:stretch;row-gap:0;column-gap:0}
+.packs__grid.starter .starter__item .starter__body{padding:16px 18px 18px}
+.starter__tile{display:grid;place-items:center;text-align:center;min-height:128px;padding:18px;background:var(--tint);border-bottom:3px solid var(--c)}
+.starter__tile span{font-family:var(--f-hy);font-weight:700;font-size:clamp(1.45rem,1.2rem + .9vw,1.85rem);line-height:1.15;color:var(--deep);overflow-wrap:anywhere}
+.next{background:var(--paper)}
+.next__in{text-align:center}
+.next p{font-size:1.2rem;color:var(--ink-2);max-width:46ch;margin:0 auto}
+.next a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--coral)}
 .starter__art{display:none}
 .starter__shot.is-art .starter__art{display:grid;place-items:center;height:100%;background:var(--tint)}
 .starter__art svg{width:46%;height:46%}
@@ -789,7 +797,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
 <section class="hero bgphoto" data-bg="balconies" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
 
@@ -907,39 +914,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 
 <div class="band" aria-hidden="true"></div>
 
-<!-- ============ WHO IT'S FOR ============ -->
-<section class="section who bgphoto" data-bg="ararat" aria-labelledby="who-title">
-  <div class="wrap">
-    <div class="section__head">
-      <h2 id="who-title">Made for every Armenian home</h2>
-    </div>
-    <div class="who__grid">
-      <article class="who__item c-pink">
-        <span class="tile" aria-hidden="true">Մ</span>
-        <p class="who__hy" lang="hy">Մայրիկ ու Հայրիկ</p>
-        <p class="who__say">MAY-rik oo HAY-rik</p>
-        <h3>Parents who understand more than they speak</h3>
-        <p class="body">Maybe Armenian skipped a generation, or it only comes out at Tatik's table. Every card spells out how to say the word, so you learn right alongside your kids.</p>
-      </article>
-      <article class="who__item c-sky">
-        <span class="tile" aria-hidden="true">Տ</span>
-        <p class="who__hy" lang="hy">Տատիկ ու Պապիկ</p>
-        <p class="who__say">TA-tik oo PA-pik</p>
-        <h3>Grandparents who carry the words</h3>
-        <p class="body">Tatik and Papik already know every word. The cards turn them into a little game for every visit, and the My Family cards hold real photos of the real Tatik.</p>
-      </article>
-      <article class="who__item c-green">
-        <span class="tile" aria-hidden="true">Ը</span>
-        <p class="who__hy" lang="hy">Ընտանիք</p>
-        <p class="who__say">yn-ta-NIK</p>
-        <h3>Families wherever home is</h3>
-        <p class="body">Glendale, Watertown, Montreal, Marseille, Beirut, Buenos Aires. Download, print at home and keep Armenian close. The cards are Eastern Armenian, written the way families really talk.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ START WITH THE BASICS ============ -->
 <section class="section basics bgphoto" data-bg="flags" id="basics" aria-labelledby="basics-title">
   <div class="wrap">
     <div class="section__head c-teal">
@@ -951,58 +925,15 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     </div>
     <ul class="starter" id="starterGrid"></ul>
     <div class="starter__foot" id="starterDeal"></div>
-    <p class="starter__after">Once these are on the fridge, add the ones your child already loves:
-      <a href="#packs">dinosaurs, space, the beach, birthdays and the rest</a>.</p>
   </div>
 </section>
 
-<!-- ============ ALPHABET ============ -->
-<section class="section abc" id="alphabet" aria-labelledby="abc-title">
-  <div class="wrap">
-    <div class="section__head c-purple">
-      <h2 id="abc-title">Meet all 39 letters</h2>
-      <p class="section__hy"><span lang="hy">Այբուբեն</span><span>ay-bu-BEN, the alphabet</span></p>
-      <p>Tap a letter to see what it's called, how it sounds and a first word to go with it.</p>
-    </div>
-
-    <div class="abc__layout">
-      <div class="abc__show">
-        <article class="abc-card c-coral" id="abcCard" aria-live="polite" aria-atomic="true">
-          <div class="abc-card__top">
-            <svg class="shape" aria-hidden="true"><use href="#s-circle" data-abc="shape"/></svg>
-            <span class="abc-card__label">Alphabet</span>
-            <span class="abc-card__num" data-abc="num">01 of 39</span>
-          </div>
-          <div class="abc-card__body">
-            <p class="abc-card__glyph" lang="hy"><span data-abc="up">Ա</span><span class="low" data-abc="low">ա</span></p>
-            <div>
-              <p class="abc-card__name" data-abc="name">Called <b>ayb</b></p>
-              <p class="abc-card__sound" data-abc="sound">Sounds like the a in father</p>
-            </div>
-            <p class="abc-card__word"><span class="abc-card__hy" lang="hy" data-abc="word">Արև</span><span class="abc-card__say" data-abc="say">a-REV</span><span class="abc-card__en" data-abc="en">sun</span></p>
-            <p class="abc-card__note" data-abc="note"></p>
-          </div>
-        </article>
-        <div class="abc__controls">
-          <button class="pill" type="button" id="abcPrev">Back</button>
-          <button class="pill" type="button" id="abcNext">Next letter</button>
-          <button class="pill" type="button" id="abcHear" hidden>Hear it</button>
-        </div>
-      </div>
-
-      <div>
-        <div class="abc__tiles" id="abcTiles" role="radiogroup" aria-label="Armenian alphabet"></div>
-        <p class="abc__tip c-teal"><svg class="shape" aria-hidden="true"><use href="#s-star"/></svg><span><b>Try the tissue trick.</b> Some letters come in pairs, one with a puff of air and one without, like Կ (ken) and Ք (ke). Hold a tissue in front of your lips: only the puffy ones make it flutter.</span></p>
-        <div class="abc__cta">
-          <a class="btn btn--ink" data-pack-link="alphabet" href="#packs">Print all 39 cards</a>
-          <span class="price" data-pack-price="alphabet">$8</span>
-        </div>
-      </div>
-    </div>
+<section class="section next" aria-label="More packs">
+  <div class="wrap next__in">
+    <p>Once these are on the fridge, add the ones your child already loves: <a href="#packs">dinosaurs, space, the beach, birthdays and the rest</a>.</p>
   </div>
 </section>
 
-<!-- ============ PACKS + PRICES ============ -->
 <section class="section packs" id="packs" aria-labelledby="packs-title">
   <div class="wrap">
     <div class="section__head">
@@ -1045,7 +976,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<!-- ============ HOLIDAY + BIRTHDAY SPECIALS ============ -->
 <section class="section specials bgphoto" data-bg="fridge" id="specials" aria-labelledby="specials-title">
   <div class="wrap">
     <div class="section__head">
@@ -1107,9 +1037,51 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<div class="band" aria-hidden="true"></div>
+<section class="section abc" id="alphabet" aria-labelledby="abc-title">
+  <div class="wrap">
+    <div class="section__head c-purple">
+      <h2 id="abc-title">Meet all 39 letters</h2>
+      <p class="section__hy"><span lang="hy">Այբուբեն</span><span>ay-bu-BEN, the alphabet</span></p>
+      <p>Tap a letter to see what it's called, how it sounds and a first word to go with it.</p>
+    </div>
 
-<!-- ============ HOW IT WORKS + INK-SAVER + PHOTOS ============ -->
+    <div class="abc__layout">
+      <div class="abc__show">
+        <article class="abc-card c-coral" id="abcCard" aria-live="polite" aria-atomic="true">
+          <div class="abc-card__top">
+            <svg class="shape" aria-hidden="true"><use href="#s-circle" data-abc="shape"/></svg>
+            <span class="abc-card__label">Alphabet</span>
+            <span class="abc-card__num" data-abc="num">01 of 39</span>
+          </div>
+          <div class="abc-card__body">
+            <p class="abc-card__glyph" lang="hy"><span data-abc="up">Ա</span><span class="low" data-abc="low">ա</span></p>
+            <div>
+              <p class="abc-card__name" data-abc="name">Called <b>ayb</b></p>
+              <p class="abc-card__sound" data-abc="sound">Sounds like the a in father</p>
+            </div>
+            <p class="abc-card__word"><span class="abc-card__hy" lang="hy" data-abc="word">Արև</span><span class="abc-card__say" data-abc="say">a-REV</span><span class="abc-card__en" data-abc="en">sun</span></p>
+            <p class="abc-card__note" data-abc="note"></p>
+          </div>
+        </article>
+        <div class="abc__controls">
+          <button class="pill" type="button" id="abcPrev">Back</button>
+          <button class="pill" type="button" id="abcNext">Next letter</button>
+          <button class="pill" type="button" id="abcHear" hidden>Hear it</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="abc__tiles" id="abcTiles" role="radiogroup" aria-label="Armenian alphabet"></div>
+        <p class="abc__tip c-teal"><svg class="shape" aria-hidden="true"><use href="#s-star"/></svg><span><b>Try the tissue trick.</b> Some letters come in pairs, one with a puff of air and one without, like Կ (ken) and Ք (ke). Hold a tissue in front of your lips: only the puffy ones make it flutter.</span></p>
+        <div class="abc__cta">
+          <a class="btn btn--ink" data-pack-link="alphabet" href="#packs">Print all 39 cards</a>
+          <span class="price" data-pack-price="alphabet">$8</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section print bgphoto" data-bg="routine" id="print" aria-labelledby="how-title">
   <div class="wrap">
     <div class="section__head">
@@ -1170,7 +1142,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <div class="ways__head"><h2>Ways families use them</h2></div>
       <ul class="snaps">
         <li>
-          <figure class="snap c-coral" data-photo="fridge" data-alt="Everyday Parent Phrases cards held to a fridge with magnets">
+          <figure class="snap c-coral" data-alt="Everyday Parent Phrases cards held to a fridge with magnets">
             <div class="snap__frame">
               <div class="scene scene--fridge" aria-hidden="true">
                 <span class="magnet"></span>
@@ -1182,7 +1154,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           </figure>
         </li>
         <li>
-          <figure class="snap c-sky" data-photo="ring" data-alt="Flashcards punched and clipped on a ring">
+          <figure class="snap c-sky" data-alt="Flashcards punched and clipped on a ring">
             <div class="snap__frame">
               <div class="scene scene--ring" aria-hidden="true">
                 <div class="card c-green"><div class="card__top"><svg class="shape"><use href="#s-pill"/></svg></div><div class="card__body"><p class="card__en">Dog</p><span class="card__rule"></span><p class="card__hy" lang="hy">Շուն</p><p class="card__say">shoon</p></div></div>
@@ -1196,7 +1168,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           </figure>
         </li>
         <li>
-          <figure class="snap c-gold" data-photo="routine" data-alt="Daily Routine cards lined up as a chart on a wall">
+          <figure class="snap c-gold" data-alt="Daily Routine cards lined up as a chart on a wall">
             <div class="snap__frame">
               <div class="scene scene--routine" aria-hidden="true">
                 <div class="row">
@@ -1216,7 +1188,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           </figure>
         </li>
         <li>
-          <figure class="snap c-purple" data-photo="family" data-alt="My Family cards with real family photos in the boxes">
+          <figure class="snap c-purple" data-alt="My Family cards with real family photos in the boxes">
             <div class="snap__frame">
               <div class="scene scene--family" aria-hidden="true">
                 <div class="card c-purple"><div class="card__top"><svg class="shape"><use href="#s-oval"/></svg><span class="card__label">Family</span></div><div class="card__body"><div class="card__photo"><svg><use href="#i-photo"/></svg></div><p class="card__en">Grandma</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տատիկ</p><p class="card__say">TA-tik</p></div></div>
@@ -1227,7 +1199,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           </figure>
         </li>
         <li>
-          <figure class="snap c-teal" data-photo="coloring" data-alt="A child coloring an ink-saver flashcard with crayons">
+          <figure class="snap c-teal" data-alt="A child coloring an ink-saver flashcard with crayons">
             <div class="snap__frame">
               <div class="scene scene--coloring is-ink" aria-hidden="true">
                 <div class="card c-gold"><div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Colors</span></div><div class="card__body"><div class="card__swatch" style="--sw:#fff"><span>color me in</span></div><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p><p class="card__say">kar-MIR</p></div></div>
@@ -1243,10 +1215,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<!-- ============ COMMUNITY NOTE ============ -->
 <section class="section hello" id="hello" aria-labelledby="hello-title">
   <div class="wrap hello__grid">
-    <figure class="snap c-green" data-photo="table" data-alt="Armenian flashcards and crayons on a kitchen table">
+    <figure class="snap c-green" data-photo="family" data-alt="A grandmother and a little one in Armenia">
       <div class="snap__frame">
         <div class="scene scene--hello" aria-hidden="true"><span class="ctile c-green"><span lang="hy">Հ</span></span></div>
         <span class="snap__spot"></span>
@@ -1263,7 +1234,37 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
+<section class="section who bgphoto" data-bg="ararat" aria-labelledby="who-title">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 id="who-title">Made for every Armenian home</h2>
+    </div>
+    <div class="who__grid">
+      <article class="who__item c-pink">
+        <span class="tile" aria-hidden="true">Մ</span>
+        <p class="who__hy" lang="hy">Մայրիկ ու Հայրիկ</p>
+        <p class="who__say">MAY-rik oo HAY-rik</p>
+        <h3>Parents who understand more than they speak</h3>
+        <p class="body">Maybe Armenian skipped a generation, or it only comes out at Tatik's table. Every card spells out how to say the word, so you learn right alongside your kids.</p>
+      </article>
+      <article class="who__item c-sky">
+        <span class="tile" aria-hidden="true">Տ</span>
+        <p class="who__hy" lang="hy">Տատիկ ու Պապիկ</p>
+        <p class="who__say">TA-tik oo PA-pik</p>
+        <h3>Grandparents who carry the words</h3>
+        <p class="body">Tatik and Papik already know every word. The cards turn them into a little game for every visit, and the My Family cards hold real photos of the real Tatik.</p>
+      </article>
+      <article class="who__item c-green">
+        <span class="tile" aria-hidden="true">Ը</span>
+        <p class="who__hy" lang="hy">Ընտանիք</p>
+        <p class="who__say">yn-ta-NIK</p>
+        <h3>Families wherever home is</h3>
+        <p class="body">Glendale, Watertown, Montreal, Marseille, Beirut, Buenos Aires. Download, print at home and keep Armenian close. The cards are Eastern Armenian, written the way families really talk.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section faq" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="section__head"><h2 id="faq-title">Questions families ask</h2></div>
@@ -1278,7 +1279,68 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<!-- ============ CLOSING CTA ============ -->
+<section class="section closer" aria-labelledby="closer-title">
+  <div class="wrap closer__grid">
+    <div>
+      <h2 id="closer-title">Start with 12 free cards tonight</h2>
+      <p class="closer__lead">The whole Feelings pack, in color and ink-saver, straight to your inbox. Print it after dinner and play before bed.</p>
+      <form class="signup" data-signup="pack" novalidate>
+        <div class="signup__fields">
+          <div class="signup__row">
+            <label class="sr" for="email-closer">Email address</label>
+            <input class="field" id="email-closer" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-closer" required>
+            <button class="btn" type="submit">Send my free pack</button>
+          </div>
+          <p class="signup__msg" id="msg-closer" role="alert"></p>
+          <fieldset class="dialect">
+            <legend>Which Armenian does your family speak? <span class="opt">(optional)</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="dialect" value="eastern"><span>Eastern</span></label>
+              <label class="chip"><input type="radio" name="dialect" value="western"><span>Western</span></label>
+              <label class="chip"><input type="radio" name="dialect" value="not-sure"><span>Not sure</span></label>
+            </div>
+          </fieldset>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="signup__fine">No spam. Unsubscribe anytime.</p>
+        </div>
+        <div class="done" tabindex="-1">
+          <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
+          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
+          <a class="btn done__dl" href="#" hidden>Download it now</a>
+          <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
+        </div>
+      </form>
+    </div>
+    <div class="fan" aria-hidden="true">
+      <div class="card c-sky">
+        <div class="card__top"><svg class="shape"><use href="#s-square"/></svg><span class="card__label">Feelings</span><span class="card__num">02</span></div>
+        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-sad"/></svg><p class="card__en">Sad</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տխուր</p><p class="card__say">t-KHUR</p></div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
+      </div>
+      <div class="card c-gold">
+        <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Feelings</span><span class="card__num">01</span></div>
+        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-happy"/></svg><p class="card__en">Happy</p><span class="card__rule"></span><p class="card__hy" lang="hy">Ուրախ</p><p class="card__say">u-RAKH</p></div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
+      </div>
+      <div class="card c-coral">
+        <div class="card__top"><svg class="shape"><use href="#s-circle"/></svg><span class="card__label">Feelings</span><span class="card__num">12</span></div>
+        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-loved"/></svg><p class="card__en">Loved</p><span class="card__rule"></span><p class="card__hy" lang="hy">Սիրված</p><p class="card__say">sir-VATS</p></div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
 </main>
 
@@ -1670,7 +1732,7 @@ const SEASONS = [
         </div>
         ${c.bundle && bundleById[c.bundle] ? dealHTML(bundleById[c.bundle], c.items.length) : ""}
       </div>
-      <ul class="packs__grid">${c.items.map(packHTML).join("")}</ul>
+      <ul class="packs__grid ${c.id === "basics" ? "starter starter--shelf" : ""}">${c.items.map(p => c.id === "basics" ? cardPack(p) : packHTML(p)).join("")}</ul>
     </section>`).join("");
 
   // The shelf buttons show one shelf at a time, or all of them
@@ -1695,10 +1757,7 @@ const SEASONS = [
   function gcardHTML(o) {
     return `
     <li class="starter__item ${o.cls || ""} c-${o.color}"${o.find ? ` data-find="${esc(o.find)}"` : ""}>
-      <div class="starter__shot${o.cover ? "" : " is-art"}">
-        ${o.cover ? `<img src="${esc(o.cover)}" alt="" loading="lazy" width="440" height="440" onerror="this.parentNode.classList.add('is-art');this.remove()">` : ""}
-        <span class="starter__art" aria-hidden="true">${o.art || ""}</span>
-      </div>
+      <div class="starter__tile" lang="hy"><span>${esc(o.tile || o.title)}</span></div>
       <div class="starter__body">
         ${o.step ? `<span class="starter__step">${esc(o.step)}</span>` : ""}
         <h3>${esc(o.title)}</h3>
@@ -1712,7 +1771,7 @@ const SEASONS = [
   function cardPack(p) {
     const url = buyLink(p.id) || p.url;
     return gcardHTML({
-      cls: "pack", color: p.color, cover: `shop/${p.id}-cover.jpg`,
+      cls: "pack", color: p.color, tile: p.hy || p.title,
       find: [p.title, p.hy, p.say, p.blurb].filter(Boolean).join(" ").toLowerCase(),
       title: p.title, hy: p.hy, say: p.say, why: hy(p.blurb || ""),
       price: p.free ? "Free" : money(p.price), action: buyHTML(url, p.free)
@@ -1739,7 +1798,7 @@ const SEASONS = [
         ? `<a class="buy" href="#alphabet">Meet the letters</a>`
         : buyHTML(buyLink(x.id) || x.url, x.free);
       return gcardHTML({
-        color: x.color, step, cover: `shop/${id}-cover.jpg`, title: x.title, hy: x.hy, say: x.say,
+        color: x.color, step, tile: x.hy || x.title, title: x.title, say: x.say,
         why: esc(why), price: x.free ? "Free" : money(x.price), action
       });
     }).join("");
