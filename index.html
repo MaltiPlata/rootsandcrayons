@@ -341,9 +341,9 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 /* The hero: photo on the right, paper wash on the left where the words sit */
 .hero.bgphoto{--wash:#FFF8F2}
 .hero.bgphoto::before{filter:saturate(1.1) sepia(.12);background-position:center 62%}
-.hero.bgphoto::after{background:linear-gradient(90deg,color-mix(in srgb,var(--wash) 97%,transparent) 0%,color-mix(in srgb,var(--wash) 88%,transparent) 42%,color-mix(in srgb,var(--wash) 30%,transparent) 100%)}
+.hero.bgphoto::after{background:linear-gradient(90deg,color-mix(in srgb,var(--wash) 80%,transparent) 0%,color-mix(in srgb,var(--wash) 48%,transparent) 44%,color-mix(in srgb,var(--wash) 6%,transparent) 100%)}
 @media (max-width:999px){
-  .hero.bgphoto::after{background:linear-gradient(180deg,color-mix(in srgb,var(--wash) 82%,transparent) 0%,color-mix(in srgb,var(--wash) 93%,transparent) 45%,var(--wash) 80%)}
+  .hero.bgphoto::after{background:linear-gradient(180deg,color-mix(in srgb,var(--wash) 55%,transparent) 0%,color-mix(in srgb,var(--wash) 86%,transparent) 42%,var(--wash) 78%)}
 }
 
 /* ===== Sections ===== */
@@ -369,6 +369,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 
 /* ===== Alphabet explorer ===== */
 .abc{background:var(--purple-wash)}
+.abc{--wash:var(--purple-wash)}
 /* The six starter sets, with a photo of the real cards on each one */
 .basics{background:var(--teal-wash)}
 .basics__eyebrow{font-weight:800;font-size:.82rem;letter-spacing:.17em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:10px}
@@ -810,7 +811,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </nav>
 
-<section class="hero bgphoto" data-bg="balconies" aria-labelledby="hero-title">
+<section class="hero bgphoto" data-bg="araratSheep" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
 
     <div class="hero__copy">
@@ -948,7 +949,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </section>
 
 
-<section class="section specials bgphoto" data-bg="fridge" id="specials" aria-labelledby="specials-title">
+<section class="section specials bgphoto" data-bg="rugs" id="specials" aria-labelledby="specials-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="specials-title">Holiday and birthday specials</h2>
@@ -1009,7 +1010,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section abc" id="alphabet" aria-labelledby="abc-title">
+<section class="section abc bgphoto" data-bg="stoneScript" id="alphabet" aria-labelledby="abc-title">
   <div class="wrap">
     <div class="section__head c-purple">
       <h2 id="abc-title">Meet all 39 letters</h2>
@@ -1054,7 +1055,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section print bgphoto" data-bg="routine" id="print" aria-labelledby="how-title">
+<section class="section print bgphoto" data-bg="coffeePots" id="print" aria-labelledby="how-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="how-title">Print, cut, play</h2>
@@ -1248,7 +1249,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section who bgphoto" data-bg="ararat" aria-labelledby="who-title">
+<section class="section who bgphoto" data-bg="coffeeRug" aria-labelledby="who-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="who-title">Made for every Armenian home</h2>
@@ -1463,6 +1464,11 @@ const CONFIG = {
   // 7. Photos. Drop files with these names into the photos folder and they appear on their own.
   //    Add ?photos to the page address (rootsandcrayons.com/?photos) to see where each one goes.
   PHOTOS: {
+    araratSheep: "photos/culture/ararat-sheep.jpg",
+    coffeeRug:   "photos/culture/coffee-rug.jpg",
+    coffeePots:  "photos/culture/coffee-pots.jpg",
+    stoneScript: "photos/culture/stone-script.jpg",
+    rugs:        "photos/culture/rugs.jpg",
     ararat:   "photos/culture/ararat-yerevan-sunset.jpg",
     balconies:"photos/culture/yerevan-balconies.jpg",
     flags:    "photos/culture/armenian-flags.jpg",
