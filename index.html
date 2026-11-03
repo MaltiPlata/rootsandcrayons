@@ -325,7 +325,6 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .basics.bgphoto::after{background:color-mix(in srgb,var(--wash) 74%,transparent)}
 .specials{--wash:var(--gold-wash)}
 .print{--wash:var(--teal-wash)}
-.hello{--wash:var(--paper)}
 .closer{--wash:var(--pink-wash)}
 /* The hero: photo on the right, paper wash on the left where the words sit */
 .hero.bgphoto{--wash:#FFF8F2}
@@ -380,12 +379,6 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .starter__buy{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}
 .starter__foot{margin-top:clamp(24px,3vw,34px)}
 .starter__after{margin-top:20px;font-size:1.03rem;color:var(--ink-2)}
-/* Our story in pictures: the culture photos, kept as part of the story */
-.story-title{font-size:clamp(1.5rem,1.3rem + .8vw,1.9rem);line-height:1.15;margin-top:clamp(48px,6vw,80px);text-wrap:balance}
-.story-photos{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
-.story-photos figure{margin:0;background:#fff;border:3px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:0 5px 0 var(--ink);max-width:100%}
-.story-photos img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
-.story-photos figcaption{padding:9px 12px 10px;font-weight:700;font-size:.9rem;line-height:1.3;color:var(--ink-2)}
 .starter__after a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--teal)}
 .abc__layout{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start}
 @media (min-width:1000px){.abc__layout{grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:56px}}
@@ -797,7 +790,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero bgphoto" data-bg="ararat" aria-labelledby="hero-title">
+<section class="hero bgphoto" data-bg="balconies" aria-labelledby="hero-title">
   <div class="wrap hero__grid">
 
     <div class="hero__copy">
@@ -915,7 +908,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <div class="band" aria-hidden="true"></div>
 
 <!-- ============ WHO IT'S FOR ============ -->
-<section class="section who bgphoto" data-bg="balconies" aria-labelledby="who-title">
+<section class="section who bgphoto" data-bg="ararat" aria-labelledby="who-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="who-title">Made for every Armenian home</h2>
@@ -1251,7 +1244,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </section>
 
 <!-- ============ COMMUNITY NOTE ============ -->
-<section class="section hello bgphoto" data-bg="family" id="hello" aria-labelledby="hello-title">
+<section class="section hello" id="hello" aria-labelledby="hello-title">
   <div class="wrap hello__grid">
     <figure class="snap c-green" data-photo="table" data-alt="Armenian flashcards and crayons on a kitchen table">
       <div class="snap__frame">
@@ -1267,18 +1260,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <p>What started as a promise in our home is now a gift for families everywhere, helping this culture thrive for generations to come. Thank you for welcoming these words into yours.</p>
       <p class="hello__sig">Roots &amp; Crayons<span>From our little Armenian community to yours</span></p>
     </div>
-  </div>
-  <div class="wrap">
-    <h3 class="story-title">Our story in pictures</h3>
-    <ul class="story-photos">
-      <figure><img src="photos/culture/ararat-window.jpg" alt="Mount Ararat, seen from a window in Yerevan" loading="lazy"><figcaption>Mount Ararat, seen from a window in Yerevan</figcaption></figure>
-      <figure><img src="photos/culture/ararat-yerevan.jpg" alt="Ararat over the city on a clear day" loading="lazy"><figcaption>Ararat over the city on a clear day</figcaption></figure>
-      <figure><img src="photos/culture/grandmother.jpg" alt="A grandmother and a little one, the people who carry the words" loading="lazy"><figcaption>A grandmother and a little one, the people who carry the words</figcaption></figure>
-      <figure><img src="photos/culture/mezze.jpg" alt="Mezze on the table, the way family eats together" loading="lazy"><figcaption>Mezze on the table, the way family eats together</figcaption></figure>
-      <figure><img src="photos/culture/pomegranate.jpg" alt="Pomegranate, bright and sweet, on the table" loading="lazy"><figcaption>Pomegranate, bright and sweet, on the table</figcaption></figure>
-      <figure><img src="photos/culture/coffee-sweets.jpg" alt="Coffee, sweets and an old family photo" loading="lazy"><figcaption>Coffee, sweets and an old family photo</figcaption></figure>
-      <figure><img src="photos/culture/yerevan-blocks.jpg" alt="Everyday Yerevan, balconies and laundry" loading="lazy"><figcaption>Everyday Yerevan, balconies and laundry</figcaption></figure>
-    </ul>
   </div>
 </section>
 
@@ -1298,57 +1279,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </section>
 
 <!-- ============ CLOSING CTA ============ -->
-<section class="section closer bgphoto" data-bg="ring" aria-labelledby="closer-title">
-  <div class="wrap closer__grid">
-    <div>
-      <h2 id="closer-title">Start with 12 free cards tonight</h2>
-      <p class="closer__lead">The whole Feelings pack, in color and ink-saver, straight to your inbox. Print it after dinner and play before bed.</p>
-      <form class="signup" data-signup="pack" novalidate>
-        <div class="signup__fields">
-          <div class="signup__row">
-            <label class="sr" for="email-closer">Email address</label>
-            <input class="field" id="email-closer" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-closer" required>
-            <button class="btn" type="submit">Send my free pack</button>
-          </div>
-          <p class="signup__msg" id="msg-closer" role="alert"></p>
-          <fieldset class="dialect">
-            <legend>Which Armenian does your family speak? <span class="opt">(optional)</span></legend>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="dialect" value="eastern"><span>Eastern</span></label>
-              <label class="chip"><input type="radio" name="dialect" value="western"><span>Western</span></label>
-              <label class="chip"><input type="radio" name="dialect" value="not-sure"><span>Not sure</span></label>
-            </div>
-          </fieldset>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <p class="signup__fine">No spam. Unsubscribe anytime.</p>
-        </div>
-        <div class="done" tabindex="-1">
-          <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
-          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
-          <a class="btn done__dl" href="#" hidden>Download it now</a>
-          <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
-        </div>
-      </form>
-    </div>
-    <div class="fan" aria-hidden="true">
-      <div class="card c-sky">
-        <div class="card__top"><svg class="shape"><use href="#s-square"/></svg><span class="card__label">Feelings</span><span class="card__num">02</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-sad"/></svg><p class="card__en">Sad</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տխուր</p><p class="card__say">t-KHUR</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-      <div class="card c-gold">
-        <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Feelings</span><span class="card__num">01</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-happy"/></svg><p class="card__en">Happy</p><span class="card__rule"></span><p class="card__hy" lang="hy">Ուրախ</p><p class="card__say">u-RAKH</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-      <div class="card c-coral">
-        <div class="card__top"><svg class="shape"><use href="#s-circle"/></svg><span class="card__label">Feelings</span><span class="card__num">12</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-loved"/></svg><p class="card__en">Loved</p><span class="card__rule"></span><p class="card__hy" lang="hy">Սիրված</p><p class="card__say">sir-VATS</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-    </div>
-  </div>
-</section>
 
 </main>
 
