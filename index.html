@@ -381,7 +381,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .starter__foot{margin-top:clamp(24px,3vw,34px)}
 .starter__after{margin-top:20px;font-size:1.03rem;color:var(--ink-2)}
 /* Our story in pictures: the culture photos, kept as part of the story */
-.story-photos{list-style:none;margin:clamp(30px,4vw,44px) 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.story-title{font-size:clamp(1.5rem,1.3rem + .8vw,1.9rem);line-height:1.15;margin-top:clamp(48px,6vw,80px);text-wrap:balance}
+.story-photos{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
 .story-photos figure{margin:0;background:#fff;border:3px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:0 5px 0 var(--ink);max-width:100%}
 .story-photos img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
 .story-photos figcaption{padding:9px 12px 10px;font-weight:700;font-size:.9rem;line-height:1.3;color:var(--ink-2)}
@@ -1052,7 +1053,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </section>
 
 <!-- ============ HOLIDAY + BIRTHDAY SPECIALS ============ -->
-<section class="section specials bgphoto" data-bg="birthday" id="specials" aria-labelledby="specials-title">
+<section class="section specials bgphoto" data-bg="fridge" id="specials" aria-labelledby="specials-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="specials-title">Holiday and birthday specials</h2>
@@ -1116,7 +1117,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <div class="band" aria-hidden="true"></div>
 
 <!-- ============ HOW IT WORKS + INK-SAVER + PHOTOS ============ -->
-<section class="section print bgphoto" data-bg="coloring" id="print" aria-labelledby="how-title">
+<section class="section print bgphoto" data-bg="routine" id="print" aria-labelledby="how-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="how-title">Print, cut, play</h2>
@@ -1265,17 +1266,19 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <p>I created these cards to learn right alongside my little one. They are designed so anyone, whether you are reconnecting with your roots or learning for the very first time, can speak each word with confidence.</p>
       <p>What started as a promise in our home is now a gift for families everywhere, helping this culture thrive for generations to come. Thank you for welcoming these words into yours.</p>
       <p class="hello__sig">Roots &amp; Crayons<span>From our little Armenian community to yours</span></p>
+    </div>
+  </div>
+  <div class="wrap">
     <h3 class="story-title">Our story in pictures</h3>
     <ul class="story-photos">
-      <figure><img src="photos/culture/ararat-window.jpg" alt="Mount Ararat, seen from a window in Yerevan" loading="lazy" width="400" height="500"><figcaption>Mount Ararat, seen from a window in Yerevan</figcaption></figure>
-      <figure><img src="photos/culture/ararat-yerevan.jpg" alt="Ararat over the city on a clear day" loading="lazy" width="400" height="500"><figcaption>Ararat over the city on a clear day</figcaption></figure>
-      <figure><img src="photos/culture/grandmother.jpg" alt="A grandmother and a little one, the people who carry the words" loading="lazy" width="400" height="500"><figcaption>A grandmother and a little one, the people who carry the words</figcaption></figure>
-      <figure><img src="photos/culture/mezze.jpg" alt="Mezze on the table, the way family eats together" loading="lazy" width="400" height="500"><figcaption>Mezze on the table, the way family eats together</figcaption></figure>
-      <figure><img src="photos/culture/pomegranate.jpg" alt="Pomegranate, bright and sweet, on the table" loading="lazy" width="400" height="500"><figcaption>Pomegranate, bright and sweet, on the table</figcaption></figure>
-      <figure><img src="photos/culture/coffee-sweets.jpg" alt="Coffee, sweets and an old family photo" loading="lazy" width="400" height="500"><figcaption>Coffee, sweets and an old family photo</figcaption></figure>
-      <figure><img src="photos/culture/yerevan-blocks.jpg" alt="Everyday Yerevan, balconies and laundry" loading="lazy" width="400" height="500"><figcaption>Everyday Yerevan, balconies and laundry</figcaption></figure>
+      <figure><img src="photos/culture/ararat-window.jpg" alt="Mount Ararat, seen from a window in Yerevan" loading="lazy"><figcaption>Mount Ararat, seen from a window in Yerevan</figcaption></figure>
+      <figure><img src="photos/culture/ararat-yerevan.jpg" alt="Ararat over the city on a clear day" loading="lazy"><figcaption>Ararat over the city on a clear day</figcaption></figure>
+      <figure><img src="photos/culture/grandmother.jpg" alt="A grandmother and a little one, the people who carry the words" loading="lazy"><figcaption>A grandmother and a little one, the people who carry the words</figcaption></figure>
+      <figure><img src="photos/culture/mezze.jpg" alt="Mezze on the table, the way family eats together" loading="lazy"><figcaption>Mezze on the table, the way family eats together</figcaption></figure>
+      <figure><img src="photos/culture/pomegranate.jpg" alt="Pomegranate, bright and sweet, on the table" loading="lazy"><figcaption>Pomegranate, bright and sweet, on the table</figcaption></figure>
+      <figure><img src="photos/culture/coffee-sweets.jpg" alt="Coffee, sweets and an old family photo" loading="lazy"><figcaption>Coffee, sweets and an old family photo</figcaption></figure>
+      <figure><img src="photos/culture/yerevan-blocks.jpg" alt="Everyday Yerevan, balconies and laundry" loading="lazy"><figcaption>Everyday Yerevan, balconies and laundry</figcaption></figure>
     </ul>
-    </div>
   </div>
 </section>
 
@@ -1797,7 +1800,8 @@ const SEASONS = [
   ];
   const starterGrid = document.getElementById("starterGrid");
   if (starterGrid) {
-    starterGrid.innerHTML = STARTER.map(([id, step, why]) => {
+    const priceOf = id => (productById[id] && productById[id].free ? 0 : (productById[id] ? productById[id].price : 0));
+    starterGrid.innerHTML = STARTER.slice().sort((a, b) => priceOf(a[0]) - priceOf(b[0])).map(([id, step, why]) => {
       const x = productById[id];
       if (!x) return "";
       // The alphabet is bought in its own section below, so its card only points there
