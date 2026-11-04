@@ -393,12 +393,11 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .starter__shot img{width:100%;height:100%;object-fit:cover;display:block}
 .packs__grid.starter .starter__item.pack{display:flex;flex-direction:column;align-items:stretch;row-gap:0;column-gap:0}
 .packs__grid.starter .starter__item .starter__body{padding:16px 18px 18px}
-.starter__tile{display:grid;place-items:center;text-align:center;min-height:128px;padding:18px;background:var(--tint);border-bottom:3px solid var(--c)}
-.starter__tile span{font-family:var(--f-hy);font-weight:700;font-size:clamp(1.45rem,1.2rem + .9vw,1.85rem);line-height:1.15;color:var(--deep);overflow-wrap:anywhere}
-.next{background:var(--paper)}
-.next__in{text-align:center}
-.next p{font-size:1.2rem;color:var(--ink-2);max-width:46ch;margin:0 auto}
-.next a{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--coral)}
+.starter__tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;min-height:138px;padding:18px 16px;background:var(--tint);border-bottom:3px solid var(--c)}
+.st-hy{font-family:var(--f-hy);font-weight:700;font-size:clamp(1.3rem,1.08rem + .85vw,1.7rem);line-height:1.12;color:var(--deep);overflow-wrap:anywhere}
+.st-say{font-weight:600;font-size:.86rem;color:var(--deep);opacity:.72}
+.st-en{margin-top:5px;font-family:var(--f-display);font-weight:600;font-size:1.12rem;line-height:1.08;color:var(--ink)}
+.bonus{background:var(--purple-wash)}
 .starter__art{display:none}
 .starter__shot.is-art .starter__art{display:grid;place-items:center;height:100%;background:var(--tint)}
 .starter__art svg{width:46%;height:46%}
@@ -685,7 +684,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .hello::before{content:"";position:absolute;inset:0;z-index:-2;background:url("photos/culture/coffee-rug.jpg") center/cover no-repeat}
 .hello::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,22,18,.92) 0%,rgba(28,22,18,.74) 48%,rgba(28,22,18,.34) 100%)}
 @media (max-width:760px){.hello::after{background:linear-gradient(180deg,rgba(28,22,18,.72) 0%,rgba(28,22,18,.9) 70%)}}
-.hello__in{max-width:600px}
+.hello__in{text-align:left}
+.hello__copy{max-width:620px}
 .hello__copy p{margin-top:14px;font-size:1.15rem;color:#F3E9DD;max-width:52ch}
 .hello__sig{margin-top:24px!important;font-family:var(--f-display);font-weight:600;font-size:1.45rem!important;color:#fff!important}
 .hello__sig span{display:block;font-family:var(--f-body);font-weight:600;font-size:.95rem;color:#D8CBBB}
@@ -921,21 +921,19 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 
 <div class="band" aria-hidden="true"></div>
 
-<section class="section free2" id="free" aria-labelledby="free-title">
-  <div class="wrap free2__grid">
-    <div class="free2__copy">
-      <span class="free2__pill">Feelings pack · Free</span>
-      <h2 id="free-title">Get 12 feelings cards free</h2>
-      <p class="free2__text">Help little ones name big feelings, from happy to silly. We'll email the full pack in color and ink-saver.</p>
-      <p class="panel__offer" data-fill="offer" hidden></p>
+<section class="section closer" id="free" aria-labelledby="closer-title">
+  <div class="wrap closer__grid">
+    <div>
+      <h2 id="closer-title">Start with 12 free cards tonight</h2>
+      <p class="closer__lead">The whole Feelings pack, in color and ink-saver, straight to your inbox. Print it after dinner and play before bed.</p>
       <form class="signup" data-signup="pack" novalidate>
         <div class="signup__fields">
           <div class="signup__row">
-            <label class="sr" for="email-hero">Email address</label>
-            <input class="field" id="email-hero" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-hero" required>
+            <label class="sr" for="email-closer">Email address</label>
+            <input class="field" id="email-closer" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-closer" required>
             <button class="btn" type="submit">Send my free pack</button>
           </div>
-          <p class="signup__msg" id="msg-hero" role="alert"></p>
+          <p class="signup__msg" id="msg-closer" role="alert"></p>
           <fieldset class="dialect">
             <legend>Which Armenian does your family speak? <span class="opt">(optional)</span></legend>
             <div class="chips">
@@ -955,16 +953,22 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         </div>
       </form>
     </div>
-    <div class="free2__preview">
-      <div class="feelgrid" aria-hidden="true">
-        <div class="feel c-gold"><svg viewBox="0 0 100 100"><use href="#f-happy"/></svg><b>Happy</b><span lang="hy">Ուրախ</span><i>u-RAKH</i></div>
-        <div class="feel c-sky"><svg viewBox="0 0 100 100"><use href="#f-sad"/></svg><b>Sad</b><span lang="hy">Տխուր</span><i>t-KHUR</i></div>
-        <div class="feel c-green"><svg viewBox="0 0 100 100"><use href="#f-silly"/></svg><b>Silly</b><span lang="hy">Ծիծաղկոտ</span><i>tsi-tsagh-KOT</i></div>
-        <div class="feel c-pink"><svg viewBox="0 0 100 100"><use href="#f-loved"/></svg><b>Loved</b><span lang="hy">Սիրված</span><i>sir-VATS</i></div>
-        <div class="feel feel--q"><span class="feel__q">?</span><b>Hungry? Shy?</b></div>
-        <div class="feel feel--more"><span class="feel__plus">+8</span><b>more in your inbox</b></div>
+    <div class="fan" aria-hidden="true">
+      <div class="card c-sky">
+        <div class="card__top"><svg class="shape"><use href="#s-square"/></svg><span class="card__label">Feelings</span><span class="card__num">02</span></div>
+        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-sad"/></svg><p class="card__en">Sad</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տխուր</p><p class="card__say">t-KHUR</p></div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
       </div>
-      <p class="free2__note">A sneak peek. All 12 come in color and ink-saver.</p>
+      <div class="card c-gold">
+        <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Feelings</span><span class="card__num">01</span></div>
+        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-happy"/></svg><p class="card__en">Happy</p><span class="card__rule"></span><p class="card__hy" lang="hy">Ուրախ</p><p class="card__say">u-RAKH</p></div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
+      </div>
+      <div class="card c-coral">
+        <div class="card__top"><svg class="shape"><use href="#s-circle"/></svg><span class="card__label">Feelings</span><span class="card__num">12</span></div>
+        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-loved"/></svg><p class="card__en">Loved</p><span class="card__rule"></span><p class="card__hy" lang="hy">Սիրված</p><p class="card__say">sir-VATS</p></div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
+      </div>
     </div>
   </div>
 </section>
@@ -983,9 +987,15 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section next" aria-label="More packs">
-  <div class="wrap next__in">
-    <p>Once these are on the fridge, add the ones your child already loves: <a href="#packs">dinosaurs, space, the beach, birthdays and the rest</a>.</p>
+<section class="section bonus" id="bonus" aria-labelledby="bonus-title">
+  <div class="wrap">
+    <div class="section__head c-purple">
+      <p class="basics__eyebrow">Bonus add-ons</p>
+      <h2 id="bonus-title">For the things they're wild about</h2>
+      <p class="section__hy"><span lang="hy">Հավելումներ</span><span>ha-ve-loom-NER, add-ons</span></p>
+      <p>Small themed packs to add to any order: dinosaurs, space, the deep blue sea, magic and birthday parties, in the same card style.</p>
+    </div>
+    <ul class="packs__grid starter starter--shelf" id="bonusGrid"></ul>
   </div>
 </section>
 
@@ -1330,57 +1340,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section closer" aria-labelledby="closer-title">
-  <div class="wrap closer__grid">
-    <div>
-      <h2 id="closer-title">Start with 12 free cards tonight</h2>
-      <p class="closer__lead">The whole Feelings pack, in color and ink-saver, straight to your inbox. Print it after dinner and play before bed.</p>
-      <form class="signup" data-signup="pack" novalidate>
-        <div class="signup__fields">
-          <div class="signup__row">
-            <label class="sr" for="email-closer">Email address</label>
-            <input class="field" id="email-closer" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-closer" required>
-            <button class="btn" type="submit">Send my free pack</button>
-          </div>
-          <p class="signup__msg" id="msg-closer" role="alert"></p>
-          <fieldset class="dialect">
-            <legend>Which Armenian does your family speak? <span class="opt">(optional)</span></legend>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="dialect" value="eastern"><span>Eastern</span></label>
-              <label class="chip"><input type="radio" name="dialect" value="western"><span>Western</span></label>
-              <label class="chip"><input type="radio" name="dialect" value="not-sure"><span>Not sure</span></label>
-            </div>
-          </fieldset>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <p class="signup__fine">No spam. Unsubscribe anytime.</p>
-        </div>
-        <div class="done" tabindex="-1">
-          <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
-          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
-          <a class="btn done__dl" href="#" hidden>Download it now</a>
-          <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
-        </div>
-      </form>
-    </div>
-    <div class="fan" aria-hidden="true">
-      <div class="card c-sky">
-        <div class="card__top"><svg class="shape"><use href="#s-square"/></svg><span class="card__label">Feelings</span><span class="card__num">02</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-sad"/></svg><p class="card__en">Sad</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տխուր</p><p class="card__say">t-KHUR</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-      <div class="card c-gold">
-        <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Feelings</span><span class="card__num">01</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-happy"/></svg><p class="card__en">Happy</p><span class="card__rule"></span><p class="card__hy" lang="hy">Ուրախ</p><p class="card__say">u-RAKH</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-      <div class="card c-coral">
-        <div class="card__top"><svg class="shape"><use href="#s-circle"/></svg><span class="card__label">Feelings</span><span class="card__num">12</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-loved"/></svg><p class="card__en">Loved</p><span class="card__rule"></span><p class="card__hy" lang="hy">Սիրված</p><p class="card__say">sir-VATS</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
@@ -1706,7 +1665,7 @@ const SEASONS = [
   fill("compare", money(paid.reduce((n, p) => n + p.price, 0)));
   fill("bundle", money(BUNDLES[0].price));
   fill("classroom", money(CLASSROOM_PRICE));
-  if (CONFIG.WELCOME_OFFER) { const o = document.querySelector('[data-fill="offer"]'); o.textContent = CONFIG.WELCOME_OFFER; o.hidden = false; }
+  if (CONFIG.WELCOME_OFFER) { const o = document.querySelector('[data-fill="offer"]'); if (o) { o.textContent = CONFIG.WELCOME_OFFER; o.hidden = false; } }
   document.getElementById("year").textContent = new Date().getFullYear();
 
   /* ---- Social and shop links: fill from CONFIG, or show "Coming soon" ---- */
@@ -1813,12 +1772,14 @@ const SEASONS = [
   function gcardHTML(o) {
     return `
     <li class="starter__item ${o.cls || ""} c-${o.color}"${o.find ? ` data-find="${esc(o.find)}"` : ""}>
-      <div class="starter__tile" lang="hy"><span>${esc(o.tile || o.title)}</span></div>
+      <div class="starter__tile">
+        <span class="st-hy" lang="hy">${esc(o.tile || o.title)}</span>
+        ${o.say ? `<span class="st-say">${esc(o.say)}</span>` : ""}
+        ${o.tile ? `<h3 class="st-en">${esc(o.title)}</h3>` : ""}
+      </div>
       <div class="starter__body">
         ${o.step ? `<span class="starter__step">${esc(o.step)}</span>` : ""}
-        <h3>${esc(o.title)}</h3>
-        ${o.hy ? `<p class="starter__hy" lang="hy">${esc(o.hy)}</p>` : ""}
-        ${o.say ? `<p class="starter__say">${esc(o.say)}</p>` : ""}
+        ${o.tile ? "" : `<h3>${esc(o.title)}</h3>`}
         <p class="starter__why">${o.why || ""}</p>
         <div class="starter__buy"><span class="price">${o.price || ""}</span>${o.action || ""}</div>
       </div>
@@ -1862,6 +1823,11 @@ const SEASONS = [
     const dealBox = document.getElementById("starterDeal");
     if (deal && dealBox) dealBox.innerHTML = dealHTML(deal, (deal.packs || []).length);
   }
+
+  /* ---- Bonus add-ons: the packs kids are wild about ---- */
+  const BONUS = ["dinosaurs", "space", "sea", "magic", "beach", "birthday"];
+  const bonusGrid = document.getElementById("bonusGrid");
+  if (bonusGrid) bonusGrid.innerHTML = BONUS.map(id => productById[id]).filter(Boolean).map(cardPack).join("");
 
   /* ---- Search: filters every pack on the page, across all shelves ---- */
   const searchInputs = ["siteSearch", "siteSearchTop", "siteSearchSheet"].map(id => document.getElementById(id)).filter(Boolean);
