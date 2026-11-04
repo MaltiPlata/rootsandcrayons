@@ -202,7 +202,6 @@ section[id]{scroll-margin-top:64px}
   .hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-areas:"copy stage";column-gap:clamp(40px,5vw,80px);row-gap:32px;align-items:center}
 }
 .hero__copy{grid-area:copy}
-.hero__form{grid-area:form}
 .hero h1{font-size:clamp(2.65rem,1.55rem + 4.4vw,4.75rem);line-height:.97;letter-spacing:-.022em;max-width:11.5ch}
 .hero__lead{margin-top:18px;font-size:clamp(1.125rem,1.02rem + .35vw,1.3rem);color:var(--ink-2);max-width:36ch}
 .hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:22px}
@@ -222,28 +221,7 @@ section[id]{scroll-margin-top:64px}
 .panel__title{font-weight:600;font-size:clamp(1.5rem,1.3rem + .8vw,1.8rem);line-height:1.1}
 .panel__text{margin-top:8px;color:var(--ink-2);font-size:1.03rem;max-width:46ch}
 .panel__offer{margin-top:6px;font-weight:700;font-size:1rem;color:var(--gold-deep)}
-/* Free pack: its own full-width band, so the feelings grid has room to breathe */
-.free2{background:var(--gold-wash)}
-.free2__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center}
-@media (min-width:900px){.free2__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(40px,5vw,72px)}}
-.free2__pill{align-self:flex-start;display:inline-block;background:var(--ink);color:var(--gold);font-family:var(--f-body);font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:14px}
-.free2__copy h2{font-size:clamp(2rem,1.5rem + 2vw,3.1rem);line-height:1.06}
-.free2__text{margin-top:12px;font-size:1.15rem;color:var(--ink-2);max-width:48ch}
-.free2 .signup{margin-top:20px;max-width:560px}
-.free2__note{margin-top:16px;font-weight:600;font-size:.95rem;color:var(--ink-2);text-align:center}
 
-/* Feelings preview: a peek at real cards (word, Armenian and how to say it), from the Site A concept */
-.feelgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0}
-.feel{background:#fff;border:2.5px solid var(--c);border-radius:16px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center;box-shadow:0 4px 0 var(--c)}
-.feel svg{width:42px;height:42px;margin-bottom:4px}
-.feel b{font-family:var(--f-display);font-weight:600;font-size:.95rem;color:var(--ink);line-height:1.1}
-.feel [lang="hy"]{font-family:var(--f-hy);font-weight:700;font-size:.92rem;color:var(--deep);line-height:1.2}
-.feel i{font-style:normal;font-weight:600;font-size:.72rem;color:var(--ink-3)}
-.feel--q{border-style:dashed;border-color:var(--ink);box-shadow:none;background:rgba(255,255,255,.5);justify-content:center;gap:4px}
-.feel--q .feel__q{font-family:var(--f-display);font-weight:700;font-size:2.4rem;line-height:1;color:var(--coral-deep)}
-.feel--more{background:var(--ink);border-color:var(--ink);box-shadow:none;justify-content:center;gap:2px}
-.feel--more .feel__plus{font-family:var(--f-display);font-weight:700;font-size:2rem;line-height:1;color:var(--gold)}
-.feel--more b{color:#fff;font-size:.78rem;line-height:1.25}
 
 /* Signup forms */
 .signup__row{display:flex;flex-wrap:wrap;gap:12px}
@@ -1747,7 +1725,7 @@ const SEASONS = [
         </div>
         ${c.bundle && bundleById[c.bundle] ? dealHTML(bundleById[c.bundle], c.items.length) : ""}
       </div>
-      <ul class="packs__grid ${c.id === "basics" ? "starter starter--shelf" : ""}">${c.items.map(p => c.id === "basics" ? cardPack(p) : packHTML(p)).join("")}</ul>
+      <ul class="packs__grid starter starter--shelf">${c.items.map(cardPack).join("")}</ul>
     </section>`).join("");
 
   // The shelf buttons show one shelf at a time, or all of them
@@ -1825,7 +1803,7 @@ const SEASONS = [
   }
 
   /* ---- Bonus add-ons: the packs kids are wild about ---- */
-  const BONUS = ["dinosaurs", "space", "sea", "magic", "beach", "birthday"];
+  const BONUS = ["dinosaurs", "space", "sea", "magic", "beach"];
   const bonusGrid = document.getElementById("bonusGrid");
   if (bonusGrid) bonusGrid.innerHTML = BONUS.map(id => productById[id]).filter(Boolean).map(cardPack).join("");
 
