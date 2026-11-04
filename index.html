@@ -194,18 +194,20 @@ section[id]{scroll-margin-top:64px}
 
 /* ===== Hero ===== */
 .hero{position:relative;padding:clamp(20px,4vw,48px) 0 clamp(48px,6vw,84px);overflow-x:clip}
-.hero__grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "form" "stage";row-gap:30px}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "stage";row-gap:30px}
 @media (min-width:720px) and (max-width:999px){
-  .hero__grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);grid-template-areas:"copy copy" "form stage";column-gap:24px;align-items:start}
+  .hero__grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);grid-template-areas:"copy stage";column-gap:24px;align-items:center}
 }
 @media (min-width:1000px){
-  .hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-areas:"copy stage" "form stage";column-gap:clamp(40px,5vw,80px);row-gap:32px;align-items:start}
+  .hero__grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);grid-template-areas:"copy stage";column-gap:clamp(40px,5vw,80px);row-gap:32px;align-items:center}
 }
 .hero__copy{grid-area:copy}
 .hero__form{grid-area:form}
 .hero h1{font-size:clamp(2.65rem,1.55rem + 4.4vw,4.75rem);line-height:.97;letter-spacing:-.022em;max-width:11.5ch}
 .hero__lead{margin-top:18px;font-size:clamp(1.125rem,1.02rem + .35vw,1.3rem);color:var(--ink-2);max-width:36ch}
-.hero__more{margin-top:14px;font-weight:700;font-size:1.05rem}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:22px}
+.btn--lg{font-size:1.1rem;padding:15px 28px}
+.hero__more{font-weight:700;font-size:1.05rem}
 .hero__more a{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--coral)}
 .hero__more a:hover{text-decoration-color:var(--ink)}
 
@@ -220,8 +222,18 @@ section[id]{scroll-margin-top:64px}
 .panel__title{font-weight:600;font-size:clamp(1.5rem,1.3rem + .8vw,1.8rem);line-height:1.1}
 .panel__text{margin-top:8px;color:var(--ink-2);font-size:1.03rem;max-width:46ch}
 .panel__offer{margin-top:6px;font-weight:700;font-size:1rem;color:var(--gold-deep)}
+/* Free pack: its own full-width band, so the feelings grid has room to breathe */
+.free2{background:var(--gold-wash)}
+.free2__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center}
+@media (min-width:900px){.free2__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(40px,5vw,72px)}}
+.free2__pill{align-self:flex-start;display:inline-block;background:var(--ink);color:var(--gold);font-family:var(--f-body);font-weight:800;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:14px}
+.free2__copy h2{font-size:clamp(2rem,1.5rem + 2vw,3.1rem);line-height:1.06}
+.free2__text{margin-top:12px;font-size:1.15rem;color:var(--ink-2);max-width:48ch}
+.free2 .signup{margin-top:20px;max-width:560px}
+.free2__note{margin-top:16px;font-weight:600;font-size:.95rem;color:var(--ink-2);text-align:center}
+
 /* Feelings preview: a peek at real cards (word, Armenian and how to say it), from the Site A concept */
-.feelgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0 20px}
+.feelgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0}
 .feel{background:#fff;border:2.5px solid var(--c);border-radius:16px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center;box-shadow:0 4px 0 var(--c)}
 .feel svg{width:42px;height:42px;margin-bottom:4px}
 .feel b{font-family:var(--f-display);font-weight:600;font-size:.95rem;color:var(--ink);line-height:1.1}
@@ -859,55 +871,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         </div>
         <p class="searchbar__count" id="searchCount" role="status" aria-live="polite"></p>
       </div>
-      <p class="hero__more"><a href="#packs">Browse all <span data-fill="packs">30</span> packs, from <span data-fill="from">$3</span></a></p>
-    </div>
-
-    <div class="hero__form">
-      <div class="panel c-gold" id="free">
-        <div class="panel__top">
-          <svg class="shape" aria-hidden="true"><use href="#s-diamond"/></svg>
-          <span class="panel__label">Feelings pack</span>
-          <span class="panel__count">Free</span>
-        </div>
-        <div class="panel__body">
-          <h2 class="panel__title">Get 12 feelings cards free</h2>
-          <p class="panel__text">Help little ones name big feelings, from happy to silly. We'll email the full pack in color and ink-saver.</p>
-          <p class="panel__offer" data-fill="offer" hidden></p>
-          <div class="feelgrid" aria-hidden="true">
-            <div class="feel c-gold"><svg viewBox="0 0 100 100"><use href="#f-happy"/></svg><b>Happy</b><span lang="hy">Ուրախ</span><i>u-RAKH</i></div>
-            <div class="feel c-sky"><svg viewBox="0 0 100 100"><use href="#f-sad"/></svg><b>Sad</b><span lang="hy">Տխուր</span><i>t-KHUR</i></div>
-            <div class="feel c-green"><svg viewBox="0 0 100 100"><use href="#f-silly"/></svg><b>Silly</b><span lang="hy">Ծիծաղկոտ</span><i>tsi-tsagh-KOT</i></div>
-            <div class="feel c-pink"><svg viewBox="0 0 100 100"><use href="#f-loved"/></svg><b>Loved</b><span lang="hy">Սիրված</span><i>sir-VATS</i></div>
-            <div class="feel feel--q"><span class="feel__q">?</span><b>Hungry? Shy?</b></div>
-            <div class="feel feel--more"><span class="feel__plus">+8</span><b>more in your inbox</b></div>
-          </div>
-          <form class="signup" data-signup="pack" novalidate>
-        <div class="signup__fields">
-          <div class="signup__row">
-            <label class="sr" for="email-hero">Email address</label>
-            <input class="field" id="email-hero" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-hero" required>
-            <button class="btn" type="submit">Send my free pack</button>
-          </div>
-          <p class="signup__msg" id="msg-hero" role="alert"></p>
-          <fieldset class="dialect">
-            <legend>Which Armenian does your family speak? <span class="opt">(optional)</span></legend>
-            <div class="chips">
-              <label class="chip"><input type="radio" name="dialect" value="eastern"><span>Eastern</span></label>
-              <label class="chip"><input type="radio" name="dialect" value="western"><span>Western</span></label>
-              <label class="chip"><input type="radio" name="dialect" value="not-sure"><span>Not sure</span></label>
-            </div>
-          </fieldset>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <p class="signup__fine">No spam. Unsubscribe anytime.</p>
-        </div>
-        <div class="done" tabindex="-1">
-          <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
-          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
-          <a class="btn done__dl" href="#" hidden>Download it now</a>
-          <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
-        </div>
-      </form>
-        </div>
+      <div class="hero__cta">
+        <a class="btn btn--lg" href="#free">Get 12 cards free</a>
+        <a class="hero__more" href="#packs">Browse all <span data-fill="packs">30</span> packs, from <span data-fill="from">$3</span></a>
       </div>
     </div>
 
@@ -955,7 +921,55 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 
 <div class="band" aria-hidden="true"></div>
 
-<section class="section basics bgphoto" data-bg="flags" id="basics" aria-labelledby="basics-title">
+<section class="section free2" id="free" aria-labelledby="free-title">
+  <div class="wrap free2__grid">
+    <div class="free2__copy">
+      <span class="free2__pill">Feelings pack · Free</span>
+      <h2 id="free-title">Get 12 feelings cards free</h2>
+      <p class="free2__text">Help little ones name big feelings, from happy to silly. We'll email the full pack in color and ink-saver.</p>
+      <p class="panel__offer" data-fill="offer" hidden></p>
+      <form class="signup" data-signup="pack" novalidate>
+        <div class="signup__fields">
+          <div class="signup__row">
+            <label class="sr" for="email-hero">Email address</label>
+            <input class="field" id="email-hero" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-hero" required>
+            <button class="btn" type="submit">Send my free pack</button>
+          </div>
+          <p class="signup__msg" id="msg-hero" role="alert"></p>
+          <fieldset class="dialect">
+            <legend>Which Armenian does your family speak? <span class="opt">(optional)</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="dialect" value="eastern"><span>Eastern</span></label>
+              <label class="chip"><input type="radio" name="dialect" value="western"><span>Western</span></label>
+              <label class="chip"><input type="radio" name="dialect" value="not-sure"><span>Not sure</span></label>
+            </div>
+          </fieldset>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="signup__fine">No spam. Unsubscribe anytime.</p>
+        </div>
+        <div class="done" tabindex="-1">
+          <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
+          <p class="done__text">That means &ldquo;well done.&rdquo; Now check your inbox and tap the button in our email to get your Feelings pack and your welcome coloring sheet. Peek in Promotions if you don't see it.</p>
+          <a class="btn done__dl" href="#" hidden>Download it now</a>
+          <p class="done__note" hidden>Preview mode: nothing was sent. Paste your Kit form address into CONFIG to start collecting emails.</p>
+        </div>
+      </form>
+    </div>
+    <div class="free2__preview">
+      <div class="feelgrid" aria-hidden="true">
+        <div class="feel c-gold"><svg viewBox="0 0 100 100"><use href="#f-happy"/></svg><b>Happy</b><span lang="hy">Ուրախ</span><i>u-RAKH</i></div>
+        <div class="feel c-sky"><svg viewBox="0 0 100 100"><use href="#f-sad"/></svg><b>Sad</b><span lang="hy">Տխուր</span><i>t-KHUR</i></div>
+        <div class="feel c-green"><svg viewBox="0 0 100 100"><use href="#f-silly"/></svg><b>Silly</b><span lang="hy">Ծիծաղկոտ</span><i>tsi-tsagh-KOT</i></div>
+        <div class="feel c-pink"><svg viewBox="0 0 100 100"><use href="#f-loved"/></svg><b>Loved</b><span lang="hy">Սիրված</span><i>sir-VATS</i></div>
+        <div class="feel feel--q"><span class="feel__q">?</span><b>Hungry? Shy?</b></div>
+        <div class="feel feel--more"><span class="feel__plus">+8</span><b>more in your inbox</b></div>
+      </div>
+      <p class="free2__note">A sneak peek. All 12 come in color and ink-saver.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section basics" id="basics" aria-labelledby="basics-title">
   <div class="wrap">
     <div class="section__head c-teal">
       <p class="basics__eyebrow">Start here</p>
@@ -976,7 +990,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 </section>
 
 
-<section class="section specials bgphoto" data-bg="rugs" id="specials" aria-labelledby="specials-title">
+<section class="section specials" id="specials" aria-labelledby="specials-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="specials-title">Holiday and birthday specials</h2>
@@ -1038,7 +1052,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section abc bgphoto" data-bg="stoneScript" id="alphabet" aria-labelledby="abc-title">
+<section class="section abc" id="alphabet" aria-labelledby="abc-title">
   <div class="wrap">
     <div class="section__head c-purple">
       <h2 id="abc-title">Meet all 39 letters</h2>
@@ -1083,7 +1097,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section print bgphoto" data-bg="coffeePots" id="print" aria-labelledby="how-title">
+<section class="section print" id="print" aria-labelledby="how-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="how-title">Print, cut, play</h2>
@@ -1271,7 +1285,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   </div>
 </section>
 
-<section class="section who bgphoto" data-bg="balconies" aria-labelledby="who-title">
+<section class="section who" aria-labelledby="who-title">
   <div class="wrap">
     <div class="section__head">
       <h2 id="who-title">Made for every Armenian home</h2>
