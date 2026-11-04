@@ -1751,13 +1751,12 @@ const SEASONS = [
     return `
     <li class="starter__item ${o.cls || ""} c-${o.color}"${o.find ? ` data-find="${esc(o.find)}"` : ""}>
       <div class="starter__tile">
-        <span class="st-hy" lang="hy">${esc(o.tile || o.title)}</span>
+        ${o.tile ? `<span class="st-hy" lang="hy">${esc(o.tile)}</span>` : ""}
         ${o.say ? `<span class="st-say">${esc(o.say)}</span>` : ""}
-        ${o.tile ? `<h3 class="st-en">${esc(o.title)}</h3>` : ""}
+        <h3 class="st-en">${esc(o.title)}</h3>
       </div>
       <div class="starter__body">
         ${o.step ? `<span class="starter__step">${esc(o.step)}</span>` : ""}
-        ${o.tile ? "" : `<h3>${esc(o.title)}</h3>`}
         <p class="starter__why">${o.why || ""}</p>
         <div class="starter__buy"><span class="price">${o.price || ""}</span>${o.action || ""}</div>
       </div>
@@ -1766,7 +1765,7 @@ const SEASONS = [
   function cardPack(p) {
     const url = buyLink(p.id) || p.url;
     return gcardHTML({
-      cls: "pack", color: p.color, tile: p.hy || p.title,
+      cls: "pack", color: p.color, tile: p.hy || "",
       find: [p.title, p.hy, p.say, p.blurb].filter(Boolean).join(" ").toLowerCase(),
       title: p.title, hy: p.hy, say: p.say, why: hy(p.blurb || ""),
       price: p.free ? "Free" : money(p.price), action: buyHTML(url, p.free)
