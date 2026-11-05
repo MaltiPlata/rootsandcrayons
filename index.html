@@ -170,17 +170,6 @@ section[id]{scroll-margin-top:64px}
 .hsearch__in::placeholder{color:var(--ink-3);font-weight:600}
 .hsearch__in::-webkit-search-cancel-button{cursor:pointer}
 /* Hero search: the big box you can type into the moment the page opens */
-.herosearch{margin-top:26px;max-width:580px}
-.herosearch__label{display:block;font-weight:800;font-size:1.02rem;color:var(--ink);margin-bottom:10px}
-.herosearch__box{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid var(--ink);border-radius:999px;box-shadow:0 6px 0 var(--ink);padding:0 12px 0 20px;min-height:60px;transition:box-shadow .15s,transform .15s}
-.herosearch__box:focus-within{box-shadow:0 6px 0 var(--coral);transform:translateY(-1px)}
-.herosearch__box svg{width:22px;height:22px;flex:none;color:var(--ink)}
-.herosearch__in{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;font:inherit;font-size:1.15rem;font-weight:700;color:var(--ink);padding:14px 0}
-.herosearch__in::placeholder{color:var(--ink-3);font-weight:600}
-.herosearch__chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.herosearch__chips button{font:inherit;font-weight:700;font-size:.95rem;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
-.herosearch__chips button:hover,.herosearch__chips button:focus-visible{background:var(--ink);color:#fff}
-.herosearch .searchbar__count{margin-top:10px;font-weight:700;color:var(--coral-deep);min-height:1.2em}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media (max-width:719px){
   .top__in{flex-wrap:wrap;row-gap:12px}
@@ -369,12 +358,53 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .starter__item{background:#fff;border:3px solid var(--c);border-radius:24px;box-shadow:0 7px 0 var(--c);overflow:hidden;display:flex;flex-direction:column}
 .starter__shot{aspect-ratio:1;background:var(--tint);border-bottom:3px solid var(--c)}
 .starter__shot img{width:100%;height:100%;object-fit:cover;display:block}
+.packs__grid.starter{grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:18px}
 .packs__grid.starter .starter__item.pack{display:flex;flex-direction:column;align-items:stretch;row-gap:0;column-gap:0}
 .packs__grid.starter .starter__item .starter__body{padding:16px 18px 18px}
-.starter__tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;min-height:138px;padding:18px 16px;background:var(--tint);border-bottom:3px solid var(--c)}
-.st-hy{font-family:var(--f-hy);font-weight:700;font-size:clamp(1.3rem,1.08rem + .85vw,1.7rem);line-height:1.12;color:var(--deep);overflow-wrap:anywhere}
-.st-say{font-weight:600;font-size:.86rem;color:var(--deep);opacity:.72}
-.st-en{margin-top:5px;font-family:var(--f-display);font-weight:600;font-size:1.12rem;line-height:1.08;color:var(--ink)}
+.starter__tile{display:grid;place-items:center;padding:24px 16px 26px;border-bottom:3px solid var(--c);
+  background:color-mix(in srgb,var(--c) 15%,#FFFDFB)}
+.starter__name{margin:0;font-family:var(--f-display);font-weight:600;font-size:1.14rem;line-height:1.16;color:var(--ink)}
+.card--mini{--w:clamp(162px,43vw,196px);border-width:.22em;border-radius:1.9em;box-shadow:0 .5em 1.1em rgba(31,29,43,.16);transform:rotate(-1.8deg);transition:transform .18s}
+.starter__item:hover .card--mini,.starter__item:focus-within .card--mini{transform:rotate(0deg) translateY(-4px)}
+.card--mini .card__top{flex-basis:4.4em;padding:0 1.4em;gap:.7em}
+.card--mini .card__top .shape{width:1.6em;height:1.6em}
+.card--mini .card__label,.card--mini .card__num{font-size:1.32em;letter-spacing:.1em}
+.card--mini .card__label{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.card--mini .card__num{flex:none}
+.card--mini .card__body{padding:1em 1.3em 0}
+.card--mini .card__en{font-size:2.1em}
+.card--mini .card__en.is-long{font-size:1.72em}
+.card--mini .card__en.is-xlong{font-size:1.42em}
+.card--mini .card__rule{width:2.7em;height:.3em;margin:.72em 0 .55em}
+.card--mini .card__hy{font-size:3.5em}
+.card--mini .card__hy.is-long{font-size:2.75em}
+.card--mini .card__hy.is-xlong{font-size:2.15em}
+.card--mini .card__say{font-size:1.8em}
+.card--mini .card__logo{width:5em;margin:.45em auto 1em}
+
+/* Back to the top: always reachable, which matters most on a phone */
+.totop{position:fixed;z-index:60;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  width:52px;height:52px;display:grid;place-items:center;padding:0;border:3px solid var(--ink);border-radius:50%;
+  background:var(--gold);color:var(--ink);box-shadow:0 5px 0 var(--ink);cursor:pointer;
+  opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .2s,transform .2s,visibility .2s}
+.totop.is-on{opacity:1;visibility:visible;transform:none}
+.totop:hover,.totop:focus-visible{background:var(--coral);transform:translateY(-2px)}
+.totop svg{width:24px;height:24px}
+
+/* Pick a topic: the dropdown that replaced the search box */
+.pick{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 22px}
+.pick__lab{font-weight:800;font-size:1rem;color:var(--ink)}
+.pick__sel{font:inherit;font-weight:700;font-size:1.02rem;color:var(--ink);background-color:#fff;border:3px solid var(--ink);border-radius:999px;
+  box-shadow:0 5px 0 var(--ink);padding:13px 46px 13px 20px;cursor:pointer;max-width:100%;appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%231F1D2B' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 18px center;background-size:13px}
+.pick__sel:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.top .pick{margin:0}
+.top .pick__sel{box-shadow:0 4px 0 var(--ink);padding:9px 40px 9px 16px;font-size:.95rem}
+.sheet .pick{margin:0 0 18px}
+.sheet .pick__sel{width:100%}
+.is-found{animation:found 1.6s ease}
+@keyframes found{0%,100%{box-shadow:0 7px 0 var(--c)}30%,70%{box-shadow:0 7px 0 var(--c),0 0 0 6px var(--tint)}}
 .bonus{background:var(--purple-wash)}
 .starter__art{display:none}
 .starter__shot.is-art .starter__art{display:grid;place-items:center;height:100%;background:var(--tint)}
@@ -779,10 +809,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     </a>
     <nav class="top__nav" aria-label="Main">
       <button class="menu__btn" type="button" id="browseBtn" aria-expanded="false" aria-controls="sheet">Browse<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="hsearch" role="search" id="headSearch">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-        <label class="sr-only" for="siteSearchTop">Search the packs</label>
-        <input id="siteSearchTop" class="hsearch__in" type="search" autocomplete="off" enterkeyhint="search" placeholder="Search packs">
+      <div class="pick" id="headSearch">
+        <label class="sr-only" for="packPickTop">Jump to a pack</label>
+        <select class="pick__sel" id="packPickTop" data-pick></select>
       </div>
       <a class="btn btn--sm" href="#free">Get the free pack</a>
     </nav>
@@ -795,10 +824,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     <h2 id="sheetTitle">Browse the packs</h2>
     <button class="sheet__x" type="button" id="sheetClose" aria-label="Close">&times;</button>
   </div>
-  <div class="hsearch sheet__search" role="search">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.4" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-    <label class="sr-only" for="siteSearchSheet">Search the packs</label>
-    <input id="siteSearchSheet" class="hsearch__in" type="search" autocomplete="off" enterkeyhint="search" placeholder="Search packs">
+  <div class="pick">
+    <label class="sr-only" for="packPickSheet">Jump to a pack</label>
+    <select class="pick__sel" id="packPickSheet" data-pick></select>
   </div>
   <nav class="sheet__links" aria-label="Sections">
         <a href="#basics">Start with the basics</a>
@@ -834,21 +862,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     <div class="hero__copy">
       <h1 id="hero-title">Armenian your whole family can say.</h1>
       <p class="hero__lead">Printable flashcards for little ones, with the meaning and an easy sound-it-out guide on every card. Start tonight, even if your Armenian is a little rusty.</p>
-      <div class="herosearch" role="search">
-        <label class="herosearch__label" for="siteSearch">Looking for something? Start typing.</label>
-        <div class="herosearch__box">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15.4 15.4 21 21" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-          <input id="siteSearch" class="herosearch__in" type="search" autocomplete="off" enterkeyhint="search" placeholder="animals, colors, dinosaurs…">
-        </div>
-        <div class="herosearch__chips" aria-label="Quick searches">
-          <button type="button" data-q="animals">Animals</button>
-          <button type="button" data-q="colors">Colors</button>
-          <button type="button" data-q="food">Food</button>
-          <button type="button" data-q="dinosaurs">Dinosaurs</button>
-          <button type="button" data-q="holiday">Holidays</button>
-        </div>
-        <p class="searchbar__count" id="searchCount" role="status" aria-live="polite"></p>
-      </div>
       <div class="hero__cta">
         <a class="btn btn--lg" href="#free">Get 12 cards free</a>
         <a class="hero__more" href="#packs">Browse all <span data-fill="packs">30</span> packs, from <span data-fill="from">$3</span></a>
@@ -984,7 +997,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <h2 id="specials-title">Holiday and birthday specials</h2>
       <p>Packs for the holidays all year long, plus printables for the big day. Subscribers hear first, with a free coloring sheet for every holiday.</p>
     </div>
-    <ol class="hols" id="holList"></ol>
+    <ol class="starter" id="holList"></ol>
 
     <div class="bday" id="birthdays">
       <div class="confetti" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -1248,6 +1261,10 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       </div>
       <div class="bundle__tiles" id="bundleTiles" aria-hidden="true"></div>
     </div>
+    <div class="pick">
+      <label class="pick__lab" for="packPick">Looking for something?</label>
+      <select class="pick__sel" id="packPick" data-pick></select>
+    </div>
     <div class="shelf-nav" id="shelfNav" role="group" aria-label="Show packs from"></div>
     <div class="shelves" id="shelves"></div>
     <noscript><p>Turn on JavaScript to see all the packs.</p></noscript>
@@ -1351,6 +1368,10 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     </div>
   </div>
 </footer>
+
+<button class="totop" type="button" id="toTop" aria-label="Back to the top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M5.5 12.5 12 6l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <script>
 /* ==========================================================================
@@ -1606,7 +1627,6 @@ const BIRTHDAY = [
 // The message bar at the top changes itself by date. Dates are year-month-day.
 const SEASONS = [
   {from:"2026-10-01", to:"2026-10-31", color:"orange", html:'Pumpkin season! Pumpkin is <span lang="hy">Դդում</span>, duh-DOOM.', link:"Find Դ", href:"#alphabet", letter:"Դ"},
-  {from:"2026-11-01", to:"2026-11-26", color:"orange", html:'Thanksgiving is coming! Turkey is <span lang="hy">Հնդկահավ</span>, huhnd-ka-HAV.', link:"See the holiday packs", href:"#specials"},
   {from:"2026-11-27", to:"2027-01-06", color:"sky", html:'<span lang="hy">Ամանոր</span> (a-ma-NOR), New Year, is coming! New Year and Christmas words for the whole family.', link:"See the holiday packs", href:"#specials"},
   {from:"2027-01-07", to:"2027-02-14", color:"pink", html:'Armenian valentines for the whole class, in time for <span lang="hy">Տրնդեզ</span> (truhn-DEZ).', link:"See the holiday packs", href:"#specials"},
   {from:"2027-02-15", to:"2027-03-28", color:"green", html:'<span lang="hy">Նովրուզ</span> (nov-ROOZ) sprouts and red eggs for <span lang="hy">Զատիկ</span> (za-TEEK), Easter, on March 28.', link:"See the holiday packs", href:"#specials"},
@@ -1747,16 +1767,49 @@ const SEASONS = [
   });
 
   /* ---- One card design for every grid: Start here, Learning Basics, Big Imaginations and the holidays ---- */
+  // Every tile shows a scaled-down copy of a real card from the pack, so a shopper
+  // sees what they are buying before they read a word of the blurb.
+  function miniCard(o) {
+    const w = String(o.hy || ""), e = String(o.en || "");
+    const size = w.length > 15 ? " is-xlong" : (w.length > 9 ? " is-long" : "");
+    const esize = e.length > 18 ? " is-xlong" : (e.length > 11 ? " is-long" : "");
+    return `
+      <div class="card card--mini" aria-hidden="true">
+        <div class="card__top">
+          <svg class="shape"><use href="#s-${SHAPE_FOR[o.color] || "circle"}"/></svg>
+          <span class="card__label">${esc(o.label || "")}</span>
+          <span class="card__num">${esc(o.num || "")}</span>
+        </div>
+        <div class="card__body">
+          ${e ? `<p class="card__en${esize}">${esc(e)}</p>` : ""}
+          <span class="card__rule"></span>
+          ${w ? `<p class="card__hy${size}" lang="hy">${esc(w)}</p>` : ""}
+          ${o.say ? `<p class="card__say">${esc(o.say)}</p>` : ""}
+        </div>
+        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
+      </div>`;
+  }
+  // The strip across the top of a card: a short version of the pack name
+  function shortLabel(t) {
+    const full = String(t || "").trim();
+    let x = full.replace(/^(My|Around the|At the|At|The)\s+/i, "");
+    x = x.split(/\s+[&\u2013\u2014-]\s+/)[0];
+    x = x.split(/\s+for\s+/i)[0];
+    x = x.replace(/\s*\d+\s*[\u2013\u2014-]\s*\d+\s*$/, "");
+    x = x.replace(/\s*(Flashcards?|Festival|Activity\s*Pack|Pack|Set)\s*$/i, "").trim();
+    if (x.length > 15) {
+      const cut = x.slice(0, 15), sp = cut.lastIndexOf(" ");
+      x = (sp > 5 ? cut.slice(0, sp) : cut).trim();
+    }
+    return x || full;
+  }
   function gcardHTML(o) {
     return `
-    <li class="starter__item ${o.cls || ""} c-${o.color}"${o.find ? ` data-find="${esc(o.find)}"` : ""}>
-      <div class="starter__tile">
-        ${o.tile ? `<span class="st-hy" lang="hy">${esc(o.tile)}</span>` : ""}
-        ${o.say ? `<span class="st-say">${esc(o.say)}</span>` : ""}
-        <h3 class="st-en">${esc(o.title)}</h3>
-      </div>
+    <li class="starter__item ${o.cls || ""} c-${o.color}"${o.find ? ` data-find="${esc(o.find)}"` : ""}${o.pid ? ` data-pid="${esc(o.pid)}"` : ""}>
+      <div class="starter__tile">${miniCard(o)}</div>
       <div class="starter__body">
         ${o.step ? `<span class="starter__step">${esc(o.step)}</span>` : ""}
+        <h3 class="starter__name">${esc(o.title)}</h3>
         <p class="starter__why">${o.why || ""}</p>
         <div class="starter__buy"><span class="price">${o.price || ""}</span>${o.action || ""}</div>
       </div>
@@ -1764,10 +1817,17 @@ const SEASONS = [
   }
   function cardPack(p) {
     const url = buyLink(p.id) || p.url;
+    const sample = (p.samples && p.samples[0]) || null;
+    const feat = (p.feats && p.feats[0]) || null;
     return gcardHTML({
-      cls: "pack", color: p.color, tile: p.hy || "",
+      cls: "pack", pid: p.id, color: p.color,
+      label: shortLabel(p.title),
+      num: p.cards ? String(p.cards).padStart(2, "0") : (p.tile || ""),
+      en: sample ? sample[2] : (feat ? feat[0] : p.title),
+      hy: sample ? sample[0] : (p.hy || ""),
+      say: sample ? sample[1] : (p.say || ""),
       find: [p.title, p.hy, p.say, p.blurb].filter(Boolean).join(" ").toLowerCase(),
-      title: p.title, hy: p.hy, say: p.say, why: hy(p.blurb || ""),
+      title: p.title, why: hy(p.blurb || ""),
       price: p.free ? "Free" : money(p.price), action: buyHTML(url, p.free)
     });
   }
@@ -1791,8 +1851,12 @@ const SEASONS = [
       const action = id === "alphabet"
         ? `<a class="buy" href="#alphabet">Meet the letters</a>`
         : buyHTML(buyLink(x.id) || x.url, x.free);
+      const sm = (x.samples && x.samples[0]) || null;
       return gcardHTML({
-        color: x.color, step, tile: x.hy || x.title, title: x.title, say: x.say,
+        pid: x.id, color: x.color, step, title: x.title,
+        label: shortLabel(x.title),
+        num: x.cards ? String(x.cards).padStart(2, "0") : (x.tile || ""),
+        en: sm ? sm[2] : x.title, hy: sm ? sm[0] : (x.hy || ""), say: sm ? sm[1] : x.say,
         why: esc(why), price: x.free ? "Free" : money(x.price), action
       });
     }).join("");
@@ -1806,62 +1870,54 @@ const SEASONS = [
   const bonusGrid = document.getElementById("bonusGrid");
   if (bonusGrid) bonusGrid.innerHTML = BONUS.map(id => productById[id]).filter(Boolean).map(cardPack).join("");
 
-  /* ---- Search: filters every pack on the page, across all shelves ---- */
-  const searchInputs = ["siteSearch", "siteSearchTop", "siteSearchSheet"].map(id => document.getElementById(id)).filter(Boolean);
-  const searchInput = document.getElementById("siteSearch");
-  const searchCount = document.getElementById("searchCount");
+  /* ---- Pick a topic: the dropdown that took the place of the search box ---- */
+  const topicPicks = [].slice.call(document.querySelectorAll("[data-pick]"));
+  if (topicPicks.length) {
+    const group = (label, items) => `<optgroup label="${esc(label)}">` +
+      items.map(p => `<option value="${esc(p.id)}">${esc(p.title)}</option>`).join("") + `</optgroup>`;
+    const opts = ['<option value="">Pick a topic\u2026</option>']
+      .concat(shelves.map(c => group(c.title, c.items)))
+      .concat([group("Holidays and birthdays", HOLIDAYS)])
+      .join("");
+    topicPicks.forEach(sel => { sel.innerHTML = opts; });
 
-  function runSearch() {
-    const q = searchInput.value.trim().toLowerCase();
-    const cards = shelvesBox.querySelectorAll(".pack");
-    const hols = document.querySelectorAll("#holList .hol");
-    if (!q) {
-      cards.forEach(el => { el.hidden = false; });
-      hols.forEach(el => { el.hidden = false; });
-      shelvesBox.querySelectorAll(".shelf").forEach(el => { el.hidden = el.dataset.shelf !== FIRST_SHELF; });
-      shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.show === FIRST_SHELF)));
-      searchCount.textContent = "";
-      return;
+    function goToPack(id) {
+      if (!id) return;
+      let el = shelvesBox.querySelector('[data-pid="' + id + '"]');
+      if (el) {
+        const shelf = el.closest(".shelf");
+        if (shelf) {
+          shelvesBox.querySelectorAll(".shelf").forEach(x => { x.hidden = x !== shelf; });
+          shelfNav.querySelectorAll("button").forEach(b =>
+            b.setAttribute("aria-pressed", String(b.dataset.show === shelf.dataset.shelf)));
+        }
+      } else {
+        el = document.querySelector('#holList [data-pid="' + id + '"]');
+      }
+      if (!el) return;
+      if (typeof closeSheet === "function") closeSheet();
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.classList.remove("is-found");
+      void el.offsetWidth;
+      el.classList.add("is-found");
     }
-    let hits = 0;
-    [...cards, ...hols].forEach(el => {
-      const match = (el.dataset.find || "").indexOf(q) > -1;
-      el.hidden = !match;
-      if (match) hits++;
-    });
-    shelvesBox.querySelectorAll(".shelf").forEach(sh => {
-      sh.hidden = !sh.querySelector(".pack:not([hidden])");
-    });
-    shelfNav.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", "false"));
-    searchCount.textContent = hits === 0 ? "Nothing matches that yet. Try animals, food or a holiday."
-      : (hits === 1 ? "1 pack matches" : hits + " packs match") + ". Scroll down to see them.";
+
+    topicPicks.forEach(sel => sel.addEventListener("change", () => {
+      const id = sel.value;
+      topicPicks.forEach(x => { x.value = ""; });
+      goToPack(id);
+    }));
   }
 
-  // Both search boxes (hero and header) stay in step
-  function syncSearch(source) {
-    searchInputs.forEach(i => { if (i !== source) i.value = source.value; });
-    runSearch();
+  /* ---- Back to the top, so a long page is never a one-way trip ---- */
+  const toTop = document.getElementById("toTop");
+  if (toTop) {
+    const showTop = () => toTop.classList.toggle("is-on", window.scrollY > 700);
+    window.addEventListener("scroll", showTop, { passive: true });
+    showTop();
+    toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   }
-  searchInputs.forEach(i => {
-    i.addEventListener("input", () => syncSearch(i));
-    i.addEventListener("keydown", e => {
-      if (e.key === "Escape") { searchInputs.forEach(x => { x.value = ""; }); runSearch(); i.blur(); }
-    });
-  });
-  // "/" jumps to the search from anywhere on the page, unless you are already typing somewhere
-  document.addEventListener("keydown", e => {
-    if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
-    const t = e.target;
-    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
-    e.preventDefault();
-    searchInput.focus();
-  });
-  // Quick searches under the hero box
-  document.querySelectorAll("[data-q]").forEach(b => b.addEventListener("click", () => {
-    searchInputs.forEach(i => { i.value = b.dataset.q; });
-    runSearch();
-    document.getElementById("packs").scrollIntoView({ behavior: "smooth", block: "start" });
-  }));
+
   // Browse on phones: a full-screen sheet with the search and the section links
   const browseBtn = document.getElementById("browseBtn");
   const sheet = document.getElementById("sheet");
@@ -1932,21 +1988,15 @@ const SEASONS = [
   document.getElementById("holList").innerHTML = HOLIDAYS.map(h => {
     const url = buyLink(h.id) || h.url;
     const find = [h.title, h.hy, h.say, h.blurb, h.when].filter(Boolean).join(" ").toLowerCase();
-    return `
-    <li class="hol c-${h.color}" data-find="${esc(find)}">
-      <div class="hol__top">
-        <span class="hol__art" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#h-${h.icon}"/></svg></span>
-        <p class="hol__when">${esc(h.when)}</p>
-      </div>
-      <p class="hol__hy" lang="hy">${esc(h.hy)}</p>
-      <p class="hol__say">${esc(h.say)}</p>
-      <h3>${esc(h.title)}</h3>
-      <p class="hol__blurb">${hy(h.blurb)}</p>
-      <div class="hol__foot">
-        <span class="price">${h.price ? money(h.price) : esc(h.priceLabel || "")}</span>
-        ${url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>` : `<span class="status">${esc(h.status)}</span>`}
-      </div>
-    </li>`;
+    return gcardHTML({
+      pid: h.id, color: h.color, step: h.when, find,
+      label: shortLabel(h.title), num: h.cards ? String(h.cards).padStart(2, "0") : "16",
+      en: h.title, hy: h.hy, say: h.say,
+      title: h.title, why: hy(h.blurb),
+      price: h.price ? money(h.price) : esc(h.priceLabel || ""),
+      action: url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>`
+                  : `<span class="status">${esc(h.status)}</span>`
+    });
   }).join("");
   document.getElementById("bdayItems").innerHTML = BIRTHDAY.map(b => {
     const p = b.pack && productById[b.pack];
