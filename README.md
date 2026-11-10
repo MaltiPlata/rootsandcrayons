@@ -16,6 +16,9 @@ The Shop Launch Kit page (in your Claude artifacts) has the emails, store copy a
 ## Changing things later
 
 - **Packs, prices, bundles and holiday packs** come from the pack builder, so the site always matches the shop. After adding a pack or changing a price there, Claude runs `site_data.py`, which rewrites the block between `PRODUCTS (from the pack builder...)` and `end of PRODUCTS`, and adds any new product to `BUY_LINKS` without touching the links already there. Please don't edit that block by hand: the next run replaces it.
+- **Photos on the pack tiles.** When a pack's cards carry real photos, `site_data.py` also saves a small copy of its lead card's photo into `photos/cards/` and the tile shows it. Nothing to do by hand.
+- **The community section** (`#community`) sits above the questions. Its Facebook and Instagram links come from `LINKS` in `CONFIG`.
+- **On a phone,** the pack lists swipe sideways and a bar at the bottom of the screen jumps to Free, Packs, Letters, Story and Join in. Both are plain CSS and a few lines at the end of the script; search for `tabbar` and `swipe`.
 - **The shelves.** Packs sit on shelves by collection (Letters & Reading, All About Me, Big Imaginations and so on), each opening with its bundle. The buttons above them show one shelf at a time.
 - **The message bar at the top:** `SEASONS` picks a message by date. Add next year's dates each fall.
 - **Birthday printables:** `BIRTHDAY`. The Birthday Party pack takes its price and link from the shop data.
