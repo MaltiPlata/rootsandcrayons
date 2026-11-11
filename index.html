@@ -780,6 +780,13 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 .circle__go.is-soon::after{content:" (coming soon)";font-weight:600}
 .circle__note{margin-top:clamp(28px,4vw,44px);max-width:62ch;font-size:1.08rem;line-height:1.55;color:var(--ink-2)}
 .circle__note b{color:var(--ink)}
+.circle__fix{margin-top:clamp(24px,3.5vw,36px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;align-items:start;max-width:820px;
+  background:#fff;border:2px dashed var(--ink-3);border-radius:22px;padding:20px 22px}
+.circle__fix-mark{grid-row:span 3;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--gold-wash);color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:1.5rem}
+.circle__fix h3{font-size:1.25rem;line-height:1.2}
+.circle__fix p{font-size:1.02rem;line-height:1.5;color:var(--ink-2);max-width:62ch}
+.circle__fix-links{display:flex;flex-wrap:wrap;gap:4px 20px}
+@media (max-width:479px){.circle__fix{grid-template-columns:minmax(0,1fr)}.circle__fix-mark{grid-row:auto;width:40px;height:40px;font-size:1.3rem}}
 
 /* ===== Phone: swipe the pack lists sideways, so the page itself stays short ===== */
 .swipe{display:none}
@@ -1419,6 +1426,16 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         <a class="circle__go" href="#free">Start with 12 free cards</a>
       </li>
     </ul>
+    <div class="circle__fix" id="fix">
+      <span class="circle__fix-mark" aria-hidden="true">?</span>
+      <h3>Spotted a mistake?</h3>
+      <p>We check every word, and we still get some wrong. If a spelling, a sound-it-out line or a meaning looks off, tell us which card. We fix it for everyone, so the next download has it right.</p>
+      <p class="circle__fix-links">
+        <a class="circle__go" data-link="facebook" href="#">Message us on Facebook</a>
+        <a class="circle__go" data-link="instagram" href="#">Message us on Instagram</a>
+        <span data-contact hidden><a class="circle__go" data-contact-link href="#"></a></span>
+      </p>
+    </div>
     <p class="circle__note"><b>From our little Armenian community to yours.</b> Subscribers hear first about new packs, and get a free coloring sheet with every holiday.</p>
   </div>
 </section>
