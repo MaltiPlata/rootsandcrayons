@@ -24,7 +24,8 @@ The Shop Launch Kit page (in your Claude artifacts) has the emails, store copy a
 - **Birthday printables:** `BIRTHDAY`. The Birthday Party pack takes its price and link from the shop data.
 - **Alphabet:** one row per letter in `ALPHABET`. To add recordings, put `01.mp3` to `39.mp3` in a folder and set `ALPHABET_AUDIO`.
 
-- **Card pictures on the shop tiles:** `CARD_ART` in `CONFIG` names the drawing each pack shows (the same drawings as the printed cards, in `cards/`). A photo in `photos/cards/` takes its place once that pack has switched to photos.
+- **Photos on the shop tiles:** `CARD_PHOTO` in `CONFIG` is the one place you add a tile photo. Drop the picture in `photos/cards/`, then paste its file name on that pack's line. A pack left as `""` falls back to its drawing. One photo per pack is all a tile needs, so a pack can show a photo here long before every card inside it has been photographed. Portrait 4:5, at least 1200 px wide, JPG under about 400 KB (squoosh.app shrinks them free).
+- **Fallback drawings:** `CARD_ART` names the drawing a pack shows when it has no photo yet (the same drawings as the printed cards, in `cards/`). These load eagerly, so a tile never flashes an empty box.
 - **Languages:** `LANGUAGES` in `CONFIG` fills the picker at the top. When a new language has its own page, add `url: "..."` to its line and set nothing else; until then it leads people to the waitlist.
 
 ## Files
