@@ -31,13 +31,16 @@
 <style>
 /* ===== Tokens: sampled from the Roots & Crayons packs ===== */
 :root{
-  --ink:#2B2B3A; --ink-2:#4B4A5C; --ink-3:#6B6A7B; --line:#E6E4EC; --paper:#FFFFFF;
+  --ink:#2B2B3A; --ink-2:#4B4A5C; --ink-3:#605F75; --line:#E6E4EC; --paper:#FFFFFF;
+  /* Form and button outlines. One pair, so every control matches. */
+  --control:#D9D7E1; --control-hover:#A6A4B4; --control-soft:#A9A7B8;
+  --surface:#F6F5FA; --muted:#8C8B9A;
   --coral:#FF6B5E;  --coral-deep:#B53A2A;  --coral-tint:#FFEDEB;  --coral-edge:#D6483C;
   --orange:#F49C4A; --orange-deep:#A85814; --orange-tint:#FDF2E8; --orange-edge:#C9721F;
   --gold:#E3A928;   --gold-deep:#8A5F00;   --gold-tint:#FBF4E4;   --gold-edge:#B8860B;
-  --green:#5FC97A;  --green-deep:#26743E;  --green-tint:#EBF8EE;  --green-edge:#3E9C57;
+  --green:#5FC97A;  --green-deep:#246E3A;  --green-tint:#EBF8EE;  --green-edge:#3E9C57;
   --teal:#3FC7C0;   --teal-deep:#126E69;   --teal-tint:#E7F8F7;   --teal-edge:#249E97;
-  --sky:#4DB6E8;    --sky-deep:#186C9C;    --sky-tint:#E9F6FC;    --sky-edge:#2E90C0;
+  --sky:#4DB6E8;    --sky-deep:#176693;    --sky-tint:#E9F6FC;    --sky-edge:#2E90C0;
   --purple:#A97BE0; --purple-deep:#7A4FC0; --purple-tint:#F4EEFB; --purple-edge:#8355C0;
   --pink:#EF7BAA;   --pink-deep:#A93A6B;   --pink-tint:#FDEEF4;   --pink-edge:#D0588A;
   /* Washes: strong enough to tell two sections apart at a glance, light enough for dark text.
@@ -83,11 +86,11 @@ a{color:inherit}
 /* ===== Shapes, tiles, buttons ===== */
 .shape{fill:var(--c);stroke:var(--c);stroke-width:1.2;stroke-linejoin:round;flex:none}
 .tile{--s:80px;--r:-5deg;flex:none;display:grid;place-items:center;width:var(--s);height:var(--s);border-radius:26%;
-  background:var(--c);color:#fff;font-family:var(--f-hy);font-weight:800;font-size:calc(var(--s)*.5);line-height:1;
+  background:var(--deep);color:#fff;font-family:var(--f-hy);font-weight:800;font-size:calc(var(--s)*.5);line-height:1;
   padding-bottom:calc(var(--s)*.05);box-shadow:0 calc(var(--s)*.085) 0 var(--edge);transform:rotate(var(--r));user-select:none}
 .tile--multi{font-size:calc(var(--s)*.29);letter-spacing:-.02em}
 /* Tiles that size themselves to their grid cell */
-.ctile{container-type:inline-size;display:grid;place-items:center;aspect-ratio:1;width:100%;border-radius:24%;background:var(--c);color:#fff;
+.ctile{container-type:inline-size;display:grid;place-items:center;aspect-ratio:1;width:100%;border-radius:24%;background:var(--deep);color:#fff;
   font-family:var(--f-hy);font-weight:800;line-height:1;padding:0 0 6%;box-shadow:0 4px 0 var(--edge);user-select:none}
 .ctile > span{font-size:52cqi}
 .ctile > span.is-pair{font-size:36cqi}
@@ -103,13 +106,13 @@ a{color:inherit}
 .btn--sm{font-size:.98rem;padding:13px 16px 10px;border-radius:13px;box-shadow:0 4px 0 var(--be)}
 .btn--sm:active{transform:translateY(3px);box-shadow:0 1px 0 var(--be)}
 .btn--ink{--b:var(--ink);--be:#15151F;color:#fff}
-.pill{font-family:var(--f-body);font-weight:800;font-size:.95rem;line-height:1;color:var(--ink);background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:11px 16px 8px;cursor:pointer;transition:border-color .15s}
+.pill{font-family:var(--f-body);font-weight:800;font-size:.95rem;line-height:1;color:var(--ink);background:#fff;border:2px solid var(--control);border-radius:999px;padding:11px 16px 8px;cursor:pointer;transition:border-color .15s}
 .pill:hover{border-color:var(--ink)}
 .price{font-family:var(--f-display);font-weight:700;font-size:1.65rem;line-height:1;color:var(--ink)}
 .buy{display:inline-flex;align-items:center;font-weight:800;font-size:.98rem;line-height:1;color:var(--ink);text-decoration:none;white-space:nowrap;
   background:#fff;border:2px solid var(--ink);border-radius:999px;padding:11px 16px 8px;transition:background .15s,color .15s}
 a.buy:hover{background:var(--ink);color:#fff}
-.buy--soon{border-style:dashed;border-color:#A9A7B8;color:var(--ink-2);background:transparent}
+.buy--soon{border-style:dashed;border-color:var(--control-soft);color:var(--ink-2);background:transparent}
 .status{display:inline-block;font-weight:800;font-size:.85rem;line-height:1;padding:8px 12px 6px;border-radius:999px;background:#fff;color:var(--deep)}
 
 /* ===== Seasonal bar (changes itself by date) ===== */
@@ -133,8 +136,8 @@ a.buy:hover{background:var(--ink);color:#fff}
 .top__nav{display:flex;align-items:center;gap:12px}
 /* Browse: on phones it opens a full-screen sheet; on desktop a sticky section rail takes over */
 .menu__btn{display:flex;align-items:center;gap:8px;font-family:var(--f-body);font-weight:700;font-size:1rem;color:var(--ink);
-  background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:9px 16px 7px;cursor:pointer;white-space:nowrap}
-.menu__btn:hover{border-color:#A6A4B4}
+  background:#fff;border:2px solid var(--control);border-radius:999px;padding:9px 16px 7px;cursor:pointer;white-space:nowrap}
+.menu__btn:hover{border-color:var(--control-hover)}
 .menu__btn svg{width:12px;height:8px;transition:transform .15s}
 .menu__btn[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .menu__btn[aria-expanded="true"] svg{transform:rotate(180deg)}
@@ -143,7 +146,7 @@ a.buy:hover{background:var(--ink);color:#fff}
   padding:max(18px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(28px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .sheet__top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .sheet__top h2{font-size:1.7rem;line-height:1.1}
-.sheet__x{flex:none;width:48px;height:48px;border-radius:14px;border:2px solid #D9D7E1;background:#fff;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer}
+.sheet__x{flex:none;width:48px;height:48px;border-radius:14px;border:2px solid var(--control);background:#fff;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer}
 .sheet__x:hover{background:var(--coral-tint)}
 .sheet__search{margin-top:22px;max-width:none;width:100%}
 .sheet__search .hsearch__in{font-size:1.1rem;padding:12px 0}
@@ -162,8 +165,8 @@ a.buy:hover{background:var(--ink);color:#fff}
 .rail a[aria-current="true"]{background:var(--ink);color:#fff}
 section[id]{scroll-margin-top:64px}
 /* Header search: always on screen, so a click lands straight in a text box */
-.hsearch{display:flex;align-items:center;gap:8px;flex:0 1 240px;min-width:0;background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:0 14px 0 13px;transition:border-color .15s,box-shadow .15s}
-.hsearch:hover{border-color:#A6A4B4}
+.hsearch{display:flex;align-items:center;gap:8px;flex:0 1 240px;min-width:0;background:#fff;border:2px solid var(--control);border-radius:999px;padding:0 14px 0 13px;transition:border-color .15s,box-shadow .15s}
+.hsearch:hover{border-color:var(--control-hover)}
 .hsearch:focus-within{border-color:var(--ink);box-shadow:0 0 0 4px var(--coral-tint)}
 .hsearch svg{width:18px;height:18px;flex:none;color:var(--ink-3)}
 .hsearch__in{flex:1;min-width:0;width:100%;border:0;outline:0;background:transparent;font:inherit;font-weight:700;font-size:1rem;color:var(--ink);padding:9px 0}
@@ -174,12 +177,12 @@ section[id]{scroll-margin-top:64px}
 /* Language: one plain picker. Armenian today; the list grows as each new language is ready */
 .lang{position:relative;display:flex;align-items:center}
 .lang svg{position:absolute;left:12px;width:18px;height:18px;color:var(--ink-3);pointer-events:none}
-.lang__sel{font:inherit;font-weight:700;font-size:.98rem;color:var(--ink);background:#fff;border:2px solid #D9D7E1;border-radius:999px;
+.lang__sel{font:inherit;font-weight:700;font-size:.98rem;color:var(--ink);background:#fff;border:2px solid var(--control);border-radius:999px;
   min-height:46px;padding:8px 36px 6px 37px;cursor:pointer;appearance:none;-webkit-appearance:none;max-width:100%;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%231F1D2B' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 14px center;background-size:12px}
 .lang__sel{width:9.6em;text-overflow:ellipsis}
-.lang__sel:hover{border-color:#A6A4B4}
+.lang__sel:hover{border-color:var(--control-hover)}
 .lang__sel:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .menu__btn{min-height:46px}
 @media (max-width:899px){.top__nav .btn--sm{display:none}}
@@ -224,9 +227,9 @@ section[id]{scroll-margin-top:64px}
 /* Signup forms */
 .signup__row{display:flex;flex-wrap:wrap;gap:12px}
 .field{flex:1 1 230px;min-width:0;font-family:var(--f-body);font-weight:600;font-size:1.0625rem;line-height:1.2;color:var(--ink);
-  background:#fff;border:2px solid #CFCDD8;border-radius:16px;padding:16px 16px 13px;transition:border-color .15s}
-.field::placeholder{color:#8C8B9A;opacity:1}
-.field:hover{border-color:#A6A4B4}
+  background:#fff;border:2px solid var(--control);border-radius:16px;padding:16px 16px 13px;transition:border-color .15s}
+.field::placeholder{color:var(--muted);opacity:1}
+.field:hover{border-color:var(--control-hover)}
 .field:focus{border-color:var(--ink);outline:3px solid var(--focus);outline-offset:2px}
 .field[aria-invalid="true"]{border-color:var(--coral-deep)}
 select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:pointer;
@@ -239,8 +242,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative;display:block}
 .chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
-.chip span{display:block;padding:9px 15px 6px;border:2px solid #D9D7E1;border-radius:999px;background:#fff;font-weight:700;font-size:.95rem;line-height:1.2;color:var(--ink-2);transition:background .15s,border-color .15s,color .15s}
-.chip:hover span{border-color:#A6A4B4}
+.chip span{display:block;padding:9px 15px 6px;border:2px solid var(--control);border-radius:999px;background:#fff;font-weight:700;font-size:.95rem;line-height:1.2;color:var(--ink-2);transition:background .15s,border-color .15s,color .15s}
+.chip:hover span{border-color:var(--control-hover)}
 .chip input:checked + span{background:var(--ink);border-color:var(--ink);color:#fff}
 .chip input:focus-visible + span{outline:3px solid var(--focus);outline-offset:2px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
@@ -413,6 +416,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 
 /* Tap targets: every button is at least 44px tall, for thumbs of every age */
 .buy,.pill,.chip span{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+/* Every tap target clears 44px, the size a fingertip reliably hits. */
+.btn--sm,.rail__in a,.shelf-nav button{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
 .hero__more a,a.hero__more{display:inline-block;padding-block:9px}
 
 /* How we teach + languages */
@@ -436,11 +441,11 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 /* Pick a topic: the dropdown that replaced the search box */
 .pick{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 22px}
 .pick__lab{font-weight:800;font-size:1rem;color:var(--ink)}
-.pick__sel{font:inherit;font-weight:700;font-size:1.02rem;color:var(--ink);background-color:#fff;border:2px solid #D9D7E1;border-radius:14px;
+.pick__sel{font:inherit;font-weight:700;font-size:1.02rem;color:var(--ink);background-color:#fff;border:2px solid var(--control);border-radius:14px;
   padding:12px 44px 12px 16px;min-height:48px;transition:border-color .15s;cursor:pointer;max-width:100%;appearance:none;-webkit-appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%231F1D2B' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 18px center;background-size:13px}
-.pick__sel:hover{border-color:#A6A4B4}
+.pick__sel:hover{border-color:var(--control-hover)}
 .pick__sel:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--ink)}
 .sheet .pick{margin:22px 0 0;display:grid;gap:8px}
 .sheet .pick__sel{width:100%}
@@ -536,7 +541,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .pack__say{font-weight:600;font-size:.9rem;color:var(--ink-3)}
 .pack__tags{display:flex;flex-wrap:wrap;gap:6px}
 @media (min-width:560px){.pack__tags{margin-top:10px}}
-.tag{font-weight:700;font-size:.82rem;line-height:1;padding:7px 11px 5px;border-radius:999px;background:#fff;color:var(--ink-2);border:1.5px solid #D9D7E1}
+.tag{font-weight:700;font-size:.82rem;line-height:1;padding:7px 11px 5px;border-radius:999px;background:#fff;color:var(--ink-2);border:1.5px solid var(--control)}
 .tag--free{background:var(--ink);border-color:var(--ink);color:#fff}
 .pack__blurb{margin-top:10px;font-size:1.02rem;line-height:1.45;color:var(--ink-2)}
 .words{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -551,8 +556,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .word--feat .word__en{font-size:.95rem}
 /* Shelves: one per collection, each opening with its bundle */
 .shelf-nav{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(44px,5vw,64px) 0 clamp(30px,3.5vw,44px)}
-.shelf-nav button{font-family:var(--f-body);font-weight:700;font-size:.95rem;line-height:1.2;color:var(--ink-2);background:#fff;border:2px solid #D9D7E1;border-radius:999px;padding:9px 15px 6px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
-.shelf-nav button:hover{border-color:#A6A4B4}
+.shelf-nav button{font-family:var(--f-body);font-weight:700;font-size:.95rem;line-height:1.2;color:var(--ink-2);background:#fff;border:2px solid var(--control);border-radius:999px;padding:9px 15px 6px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.shelf-nav button:hover{border-color:var(--control-hover)}
 .shelf-nav button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .shelf-nav small{font-size:.8em;font-weight:800;margin-left:.4em;opacity:.65}
 .shelves{display:grid;gap:clamp(60px,7vw,92px)}
@@ -715,7 +720,7 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .scene--ring .card:nth-child(1){transform:rotate(-14deg) translate(-12%,4%)}
 .scene--ring .card:nth-child(2){transform:rotate(-4deg)}
 .scene--ring .card:nth-child(3){transform:rotate(8deg) translate(12%,5%)}
-.ring{position:absolute;z-index:3;top:13%;left:17%;width:17cqi;height:17cqi;border-radius:50%;border:2.4cqi solid #A9A7B8}
+.ring{position:absolute;z-index:3;top:13%;left:17%;width:17cqi;height:17cqi;border-radius:50%;border:2.4cqi solid var(--control-soft)}
 .scene--routine{align-content:center;gap:5cqi}
 .scene--routine .row{display:flex;gap:3cqi;justify-content:center}
 .scene--routine .card{--w:27cqi}
@@ -1586,10 +1591,55 @@ const CONFIG = {
   DOWNLOAD_URL: "",
 
   // 4. Optional: your contact email, shown in the FAQ and footer.
-  CONTACT_EMAIL: "",
+  CONTACT_EMAIL: "hello@rootsandcrayons.com",
 
-  // Card pictures for the shop tiles: the same drawings as the printed cards (cards/ folder).
-  // A pack's photo (photos/cards/) takes their place once the pack has switched to photos.
+  // THE PHOTO ON EACH SHOP TILE. This is the only place you add one.
+  //
+  // Drop a photo in photos/cards/, then paste its file name on that pack's line.
+  // A pack with a photo here shows the photo. A pack left empty ("") falls back
+  // to the drawing in CARD_ART below.
+  //
+  // One photo per pack is all a tile needs, so a pack can show a photo here long
+  // before every card inside that pack has been photographed.
+  // Size: portrait 4:5, at least 1200 px wide, JPG under about 400 KB (squoosh.app).
+  CARD_PHOTO: {
+    // --- have a photo ---
+    "family":       "photos/cards/family-mom.jpg",
+    "body":         "photos/cards/body-eyebrows.jpg",
+    "food":         "photos/cards/food-bread.jpg",
+    "house":        "photos/cards/house-door.jpg",
+    "animals":      "photos/cards/animals-dog.jpg",
+    "weather":      "photos/cards/weather-sun.jpg",
+    "vehicles":     "photos/cards/vehicles-fire-truck.jpg",
+    "birthday":     "photos/cards/birthday-cake.jpg",
+    "thanksgiving": "photos/cards/thanksgiving-thanksgiving.jpg",
+
+    // --- still showing a drawing: paste a file name to switch one over ---
+    "alphabet":     "",
+    "read-write":   "photos/cards/read-write-grandma.jpg",
+    "feelings":     "photos/cards/feelings-happy.jpg",
+    "parent":       "",
+    "manners":      "",
+    "calendar":     "",
+    "numbers":      "",
+    "grocery":      "",
+    "park":         "",
+    "hiking":       "photos/cards/hiking-mountain.jpg",
+    "space":        "",
+    "magic":        "",
+    "dinosaurs":    "",
+    "sea":          "",
+    "screen":       "",
+    "music":        "",
+    "winter":       "",
+    "trndez":       "",
+    "spring":       "",
+    "vardavar":     "",
+    "school":       "",
+    "alphabet-day": ""
+  },
+
+  // Fallback drawings, used only for a pack with no photo above (cards/ folder).
   CARD_ART: {
     "alphabet": "cards/sun.svg", "read-write": "cards/grandma.svg", "feelings": "cards/happy.svg",
     "family": "cards/mom.svg", "body": "cards/eyebrows.svg", "food": "cards/bread.svg", "house": "cards/door.svg",
@@ -1967,6 +2017,11 @@ const SEASONS = [
   /* ---- One card design for every grid: Start here, Learning Basics, Big Imaginations and the holidays ---- */
   // Every tile shows a scaled-down copy of a real card from the pack, so a shopper
   // sees what they are buying before they read a word of the blurb.
+  // The photo set for a pack in CARD_PHOTO, if there is one. Blank means "use the drawing".
+  function cardPhoto(id) {
+    const v = (CONFIG.CARD_PHOTO || {})[id];
+    return (typeof v === "string" && v.trim()) ? v.trim() : "";
+  }
   function miniCard(o) {
     const w = String(o.hy || ""), e = String(o.en || "");
     const size = w.length > 15 ? " is-xlong" : (w.length > 9 ? " is-long" : "");
@@ -2026,7 +2081,7 @@ const SEASONS = [
       en: sample ? sample[2] : (feat ? feat[0] : p.title),
       hy: sample ? sample[0] : (p.hy || ""),
       say: sample ? sample[1] : (p.say || ""),
-      pic: sample && sample[3], art: (CONFIG.CARD_ART || {})[p.id],
+      pic: cardPhoto(p.id) || (sample && sample[3]), art: (CONFIG.CARD_ART || {})[p.id],
       find: [p.title, p.hy, p.say, p.blurb].filter(Boolean).join(" ").toLowerCase(),
       title: p.title, why: hy(p.blurb || ""),
       price: p.free ? "Free" : money(p.price), action: buyHTML(url, p.free)
@@ -2057,7 +2112,7 @@ const SEASONS = [
         pid: x.id, color: x.color, step, title: x.title,
         label: shortLabel(x.title),
         num: x.cards ? String(x.cards).padStart(2, "0") : (x.tile || ""),
-        en: sm ? sm[2] : x.title, hy: sm ? sm[0] : (x.hy || ""), say: sm ? sm[1] : x.say, pic: sm && sm[3], art: (CONFIG.CARD_ART || {})[x.id],
+        en: sm ? sm[2] : x.title, hy: sm ? sm[0] : (x.hy || ""), say: sm ? sm[1] : x.say, pic: cardPhoto(x.id) || (sm && sm[3]), art: (CONFIG.CARD_ART || {})[x.id],
         why: esc(why), price: x.free ? "Free" : money(x.price), action
       });
     }).join("");
@@ -2254,7 +2309,7 @@ const SEASONS = [
     return gcardHTML({
       pid: h.id, color: h.color, step: h.when, find,
       label: shortLabel(h.title), num: h.cards ? String(h.cards).padStart(2, "0") : "16",
-      en: h.title, hy: h.hy, say: h.say, pic: h.photo, art: (CONFIG.CARD_ART || {})[h.id],
+      en: h.title, hy: h.hy, say: h.say, pic: cardPhoto(h.id) || h.photo, art: (CONFIG.CARD_ART || {})[h.id],
       title: h.title, why: hy(h.blurb),
       price: h.price ? money(h.price) : esc(h.priceLabel || ""),
       action: url ? `<a class="buy" href="${esc(url)}" target="_blank" rel="noopener">${buyLabel(url)}</a>`
