@@ -610,6 +610,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .bword:nth-child(2){transform:rotate(2deg) translateY(-4px)}
 .bword:nth-child(3){transform:rotate(-2deg)}
 .bword__emoji{font-size:2rem;line-height:1.1;margin-bottom:4px}
+/* Real photographs in place of emoji, which render differently on every device. */
+.bword__pic{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;background:var(--tint);margin-bottom:7px}
 .bword b{font-family:var(--f-display);font-weight:600;font-size:1rem}
 .bword [lang="hy"]{font-family:var(--f-hy);font-weight:700;font-size:1.05rem;color:var(--deep)}
 .bword i{font-style:normal;font-weight:600;font-size:.78rem;color:var(--ink-3)}
@@ -862,6 +864,12 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 @media print{.season,.top__nav,.signup,.deck__bar,.foot .social{display:none}}
+
+/* Real cards, rendered from the printed packs (photos/realcards). They replace the drawn replicas. */
+.card.rcard{display:block;height:auto;aspect-ratio:520/699;border:0;border-radius:0;background:none;overflow:visible;padding:0;filter:drop-shadow(0 .5em .9em rgba(31,29,43,.16))}
+.card.rcard.rc-ink{display:none}
+.is-ink .card.rcard.rc-ink{display:block}.is-ink .card.rcard.rc-color{display:none}
+.bwords .bword.rcard{flex:1 1 92px;max-width:132px;width:auto;padding:0;border:0;box-shadow:none;background:none;filter:drop-shadow(0 4px 6px rgba(31,29,43,.18))}
 </style>
 </head>
 <body>
@@ -1058,21 +1066,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       </form>
     </div>
     <div class="fan" aria-hidden="true">
-      <div class="card c-sky">
-        <div class="card__top"><svg class="shape"><use href="#s-square"/></svg><span class="card__label">Feelings</span><span class="card__num">02</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-sad"/></svg><p class="card__en">Sad</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տխուր</p><p class="card__say">t-KHUR</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-      <div class="card c-gold">
-        <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Feelings</span><span class="card__num">01</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-happy"/></svg><p class="card__en">Happy</p><span class="card__rule"></span><p class="card__hy" lang="hy">Ուրախ</p><p class="card__say">u-RAKH</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
-      <div class="card c-coral">
-        <div class="card__top"><svg class="shape"><use href="#s-circle"/></svg><span class="card__label">Feelings</span><span class="card__num">12</span></div>
-        <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-loved"/></svg><p class="card__en">Loved</p><span class="card__rule"></span><p class="card__hy" lang="hy">Սիրված</p><p class="card__say">sir-VATS</p></div>
-        <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-      </div>
+      <img class="card rcard" src="photos/realcards/feelings-sad.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
+      <img class="card rcard" src="photos/realcards/feelings-happy.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
+      <img class="card rcard" src="photos/realcards/feelings-hungry.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -1149,12 +1145,9 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
               <h3 class="bday__title">Birthdays, the Armenian way</h3>
               <p class="bday__hy" lang="hy">Ծնունդդ շնորհավոր</p>
               <p class="bday__say">tsuh-NOON-duht shnor-ha-VOR, happy birthday!</p>
-              <div class="bwords">
-                <div class="bword c-coral"><span class="bword__emoji">🕯️</span><b>Candle</b><span lang="hy">Մոմ</span><i>mom</i></div>
-                <div class="bword c-sky"><span class="bword__emoji">🎁</span><b>Gift</b><span lang="hy">Նվեր</span><i>nuh-VER</i></div>
-                <div class="bword c-green"><span class="bword__emoji">🎈</span><b>Balloon</b><span lang="hy">Փուչիկ</span><i>poo-CHEEK</i></div>
+              <div class="bwords"><img class="card rcard bword" src="photos/realcards/birthday-candles.webp" alt="Candles card: Մոմեր, mo-MER" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard bword" src="photos/realcards/birthday-present.webp" alt="Present card: Նվեր, nuh-VER" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard bword" src="photos/realcards/birthday-balloon.webp" alt="Balloon card: Փուչիկ, poo-CHEEK" width="520" height="699" loading="lazy" decoding="async">
               </div>
-              <p class="bday__fact">Fun fact: the Armenian word for candle is <span lang="hy">մոմ</span> (mom), said just like &ldquo;mom.&rdquo;</p>
+              <p class="bday__fact">Fun fact: the Armenian word for candle is <span lang="hy">մոմ</span> (mom), said just like &ldquo;mom.&rdquo; Lots of candles are <span lang="hy">մոմեր</span> (mo-MER).</p>
             </div>
           </div>
           <ul class="bday__items" id="bdayItems"></ul>
@@ -1262,35 +1255,11 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       </div>
 
       <div class="ink__cards" id="inkCards" role="img" aria-label="Four sample cards in full color: Happy, Grandma, Red and I love you">
-        <div class="ink__cell">
-          <div class="card c-gold">
-            <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Feelings</span><span class="card__num">01</span></div>
-            <div class="card__body"><svg class="card__face" viewBox="0 0 100 100"><use href="#f-happy"/></svg><p class="card__en">Happy</p><span class="card__rule"></span><p class="card__hy" lang="hy">Ուրախ</p><p class="card__say">u-RAKH</p></div>
-            <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-          </div>
-        </div>
-        <div class="ink__cell">
-          <div class="card c-sky">
-            <div class="card__top"><svg class="shape"><use href="#s-square"/></svg><span class="card__label">Family</span><span class="card__num">03</span></div>
-            <div class="card__body"><div class="card__photo"><svg><use href="#i-photo"/></svg><span class="color-only">your photo here</span><span class="ink-only">photo or drawing</span></div><p class="card__en">Grandma</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տատիկ</p><p class="card__say">TA-tik</p></div>
-            <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-          </div>
-        </div>
-        <div class="ink__cell">
-          <div class="card c-gold">
-            <div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Colors</span><span class="card__num">01</span></div>
-            <div class="card__body"><div class="card__swatch" style="--sw:#FF5A4E"><span>color me in</span></div><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p><p class="card__say">kar-MIR</p></div>
-            <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-          </div>
-        </div>
-        <div class="ink__cell">
-          <div class="card c-pink">
-            <div class="card__top"><svg class="shape"><use href="#s-heart"/></svg><span class="card__label">Love</span><span class="card__num">31</span></div>
-            <div class="card__body"><p class="card__en">I love you</p><span class="card__rule"></span><p class="card__hy is-long" lang="hy">Սիրում եմ քեզ</p><p class="card__say">si-RUM em kez</p></div>
-            <p class="card__note">any time at all</p>
-            <svg class="card__logo" viewBox="0 0 1104 527"><use href="#logo" width="1104" height="527"/></svg>
-          </div>
-        </div>
+        <div class="ink__cell"><img class="card rcard rc-color" src="photos/realcards/feelings-happy.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard rc-ink" src="photos/realcards/feelings-happy-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async"></div>
+        <div class="ink__cell"><img class="card rcard rc-color" src="photos/realcards/family-grandma.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard rc-ink" src="photos/realcards/family-grandma-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async"></div>
+        <div class="ink__cell"><img class="card rcard rc-color" src="photos/realcards/colors-red.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard rc-ink" src="photos/realcards/colors-red-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async"></div>
+        <div class="ink__cell"><img class="card rcard rc-color" src="photos/realcards/parent-i-love-you.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard rc-ink" src="photos/realcards/parent-i-love-you-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async"></div>
+      
       </div>
     </div>
 
@@ -1301,8 +1270,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-coral" data-alt="Everyday Parent Phrases cards held to a fridge with magnets">
             <div class="snap__frame">
               <div class="scene scene--fridge" aria-hidden="true">
-                <span class="magnet"></span>
-                <div class="card c-coral"><div class="card__top"><svg class="shape"><use href="#s-circle"/></svg><span class="card__label">Go &amp; stop</span></div><div class="card__body"><p class="card__en">Come here</p><span class="card__rule"></span><p class="card__hy is-long" lang="hy">Արի՛ այստեղ</p><p class="card__say">ari ays-TEGH</p></div></div>
+                <img class="card rcard" src="photos/realcards/parent-come-here.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><span class="magnet"></span>
               </div>
               <span class="snap__spot"></span>
             </div>
@@ -1313,10 +1281,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-sky" data-alt="Flashcards punched and clipped on a ring">
             <div class="snap__frame">
               <div class="scene scene--ring" aria-hidden="true">
-                <div class="card c-green"><div class="card__top"><svg class="shape"><use href="#s-pill"/></svg></div><div class="card__body"><p class="card__en">Dog</p><span class="card__rule"></span><p class="card__hy" lang="hy">Շուն</p><p class="card__say">shoon</p></div></div>
-                <div class="card c-orange"><div class="card__top"><svg class="shape"><use href="#s-triangle"/></svg></div><div class="card__body"><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p><p class="card__say">kar-MIR</p></div></div>
-                <div class="card c-sky"><div class="card__top"><svg class="shape"><use href="#s-square"/></svg></div><div class="card__body"><p class="card__en">Door</p><span class="card__rule"></span><p class="card__hy" lang="hy">Դուռ</p><p class="card__say">doorr</p></div></div>
-                <span class="ring"></span>
+                <img class="card rcard" src="photos/realcards/animals-dog.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard" src="photos/realcards/colors-red.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard" src="photos/realcards/house-door.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><span class="ring"></span>
               </div>
               <span class="snap__spot"></span>
             </div>
@@ -1327,16 +1292,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-gold" data-alt="Daily Routine cards lined up as a chart on a wall">
             <div class="snap__frame">
               <div class="scene scene--routine" aria-hidden="true">
-                <div class="row">
-                  <div class="card c-gold"><div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg></div><div class="card__body"><p class="card__en">Wake up</p><span class="card__rule"></span></div></div>
-                  <div class="card c-gold"><div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg></div><div class="card__body"><p class="card__en">Get dressed</p><span class="card__rule"></span></div></div>
-                  <div class="card c-sky"><div class="card__top"><svg class="shape"><use href="#s-square"/></svg></div><div class="card__body"><p class="card__en">Play</p><span class="card__rule"></span></div></div>
-                </div>
-                <div class="row">
-                  <div class="card c-coral"><div class="card__top"><svg class="shape"><use href="#s-circle"/></svg></div><div class="card__body"><p class="card__en">Dinner</p><span class="card__rule"></span></div></div>
-                  <div class="card c-purple"><div class="card__top"><svg class="shape"><use href="#s-oval"/></svg></div><div class="card__body"><p class="card__en">Bath</p><span class="card__rule"></span></div></div>
-                  <div class="card c-purple"><div class="card__top"><svg class="shape"><use href="#s-oval"/></svg></div><div class="card__body"><p class="card__en">Sleep</p><span class="card__rule"></span></div></div>
-                </div>
+                <div class="row"><img class="card rcard" src="photos/realcards/routine-wake-up.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard" src="photos/realcards/routine-get-dressed.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard" src="photos/realcards/routine-play.webp" alt="" width="520" height="699" loading="lazy" decoding="async"></div><div class="row"><img class="card rcard" src="photos/realcards/routine-eat-dinner.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard" src="photos/realcards/routine-take-a-bath.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><img class="card rcard" src="photos/realcards/routine-goodnight.webp" alt="" width="520" height="699" loading="lazy" decoding="async"></div>
               </div>
               <span class="snap__spot"></span>
             </div>
@@ -1347,7 +1303,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-purple" data-alt="My Family cards with real family photos in the boxes">
             <div class="snap__frame">
               <div class="scene scene--family" aria-hidden="true">
-                <div class="card c-purple"><div class="card__top"><svg class="shape"><use href="#s-oval"/></svg><span class="card__label">Family</span></div><div class="card__body"><div class="card__photo"><svg><use href="#i-photo"/></svg></div><p class="card__en">Grandma</p><span class="card__rule"></span><p class="card__hy" lang="hy">Տատիկ</p><p class="card__say">TA-tik</p></div></div>
+                <img class="card rcard" src="photos/realcards/family-grandma.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
               </div>
               <span class="snap__spot"></span>
             </div>
@@ -1358,8 +1314,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
           <figure class="snap c-teal" data-alt="A child coloring an ink-saver flashcard with crayons">
             <div class="snap__frame">
               <div class="scene scene--coloring is-ink" aria-hidden="true">
-                <div class="card c-gold"><div class="card__top"><svg class="shape"><use href="#s-diamond"/></svg><span class="card__label">Colors</span></div><div class="card__body"><div class="card__swatch" style="--sw:#fff"><span>color me in</span></div><p class="card__en">Red</p><span class="card__rule"></span><p class="card__hy" lang="hy">Կարմիր</p><p class="card__say">kar-MIR</p></div></div>
-                <svg class="crayon" viewBox="0 0 120 24"><path d="M18 3h90a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H18Z" style="fill:var(--coral)"/><rect x="44" y="3" width="38" height="18" style="fill:var(--coral-edge)"/><path d="M18 3 3 12l15 9Z" style="fill:#FFB3AB"/><path d="M8.2 8.9 3 12l5.2 3.1Z" style="fill:var(--coral)"/></svg>
+                <img class="card rcard" src="photos/realcards/colors-red-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async"><svg class="crayon" viewBox="0 0 120 24"><path d="M18 3h90a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H18Z" style="fill:var(--coral)"/><rect x="44" y="3" width="38" height="18" style="fill:var(--coral-edge)"/><path d="M18 3 3 12l15 9Z" style="fill:#FFB3AB"/><path d="M8.2 8.9 3 12l5.2 3.1Z" style="fill:var(--coral)"/></svg>
               </div>
               <span class="snap__spot"></span>
             </div>
@@ -1375,10 +1330,10 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   <div class="wrap hello__in">
     <div class="hello__copy">
       <p class="hello__hy"><span lang="hy">Մեր պատմությունը</span> · mer pat-moo-TYOO-nuh, our story</p>
-      <h2 id="hello-title">From our family table to yours</h2>
-      <p>When I married into an Armenian family, I also married into its legacy: a culture shaped by resilience and scattered across a global diaspora. It was not the heritage I was born into, but I felt a deep responsibility to help keep it alive for our child.</p>
-      <p>I created these cards to learn right alongside my little one. They are designed so anyone, whether you are reconnecting with your roots or learning for the very first time, can speak each word with confidence.</p>
-      <p>What started as a promise in our home is now a gift for families everywhere, helping this culture thrive for generations to come. Thank you for welcoming these words into yours.</p>
+      <h2 id="hello-title">Keeping the culture alive, one pack at a time</h2>
+      <p>I am enamored with keeping the culture alive, especially when there is a deep history of genocide. I know there is a responsibility to do the extra work to preserve the culture for the current generation and the ones beyond.</p>
+      <p>I have brought together more than 10 years of experience in advertising and my love for the culture to create these cards for diaspora families, so you can use them and grow your family tree from this day forward.</p>
+      <p>My ultimate goal is to share the language, the history and everything else the culture has to offer, one pack at a time.</p>
       <p class="hello__sig">Roots &amp; Crayons<span>From our little Armenian community to yours</span></p>
     </div>
   </div>
@@ -1614,29 +1569,29 @@ const CONFIG = {
     "birthday":     "photos/cards/birthday-cake.jpg",
     "thanksgiving": "photos/cards/thanksgiving-thanksgiving.jpg",
 
-    // --- still showing a drawing: paste a file name to switch one over ---
-    "alphabet":     "",
+    // --- more packs (every pack now has a photo) ---
+    "alphabet":     "photos/cards/alphabet-sun.jpg",
     "read-write":   "photos/cards/read-write-grandma.jpg",
     "feelings":     "photos/cards/feelings-happy.jpg",
-    "parent":       "",
-    "manners":      "",
-    "calendar":     "",
-    "numbers":      "",
-    "grocery":      "",
-    "park":         "",
+    "parent":       "photos/cards/parent-come-here.jpg",
+    "manners":      "photos/cards/manners-please.jpg",
+    "calendar":     "photos/cards/calendar-monday.jpg",
+    "numbers":      "photos/cards/numbers-one.jpg",
+    "grocery":      "photos/cards/grocery-cart.jpg",
+    "park":         "photos/cards/park-swing.jpg",
     "hiking":       "photos/cards/hiking-mountain.jpg",
-    "space":        "",
-    "magic":        "",
-    "dinosaurs":    "",
-    "sea":          "",
-    "screen":       "",
-    "music":        "",
-    "winter":       "",
-    "trndez":       "",
-    "spring":       "",
-    "vardavar":     "",
-    "school":       "",
-    "alphabet-day": ""
+    "space":        "photos/cards/space-rocket.jpg",
+    "magic":        "photos/cards/magic-unicorn.jpg",
+    "dinosaurs":    "photos/cards/dinosaurs-t-rex.jpg",
+    "sea":          "photos/cards/sea-whale.jpg",
+    "screen":       "photos/cards/screen-popcorn.jpg",
+    "music":        "photos/cards/music-duduk.jpg",
+    "winter":       "photos/cards/winter-newyear.jpg",
+    "trndez":       "photos/cards/trndez-campfire.jpg",
+    "spring":       "photos/cards/spring-red-eggs.jpg",
+    "vardavar":     "photos/cards/vardavar-pool.jpg",
+    "school":       "photos/cards/school-backpack.jpg",
+    "alphabet-day": "photos/cards/alphabet-day-letter.jpg"
   },
 
   // Fallback drawings, used only for a pack with no photo above (cards/ folder).
@@ -1720,13 +1675,19 @@ const CONFIG = {
     ararat:   "photos/culture/ararat-yerevan-sunset.jpg",
     balconies:"photos/culture/yerevan-balconies.jpg",
     flags:    "photos/culture/armenian-flags.jpg",
-    fridge:   "photos/fridge.jpg",
-    ring:     "photos/ring.jpg",
-    routine:  "photos/routine.jpg",
-    family:   "photos/family.jpg",
-    coloring: "photos/coloring.jpg",
-    table:    "photos/table.jpg",
-    birthday: "photos/birthday.jpg"
+    // "Ways families use them": these seven want photographs of the cards in
+    // real use. The files that were here were copies of photos/culture/ under
+    // the wrong names (coloring.jpg was the pomegranate, fridge.jpg was Ararat),
+    // so each slot showed something unrelated to its caption. Left empty, the
+    // drawn scenes show instead, and those do depict the cards correctly.
+    // Drop a real photo in photos/ under these names to take over a slot.
+    fridge:   "",   // Parent Phrases cards on the fridge, held with magnets
+    ring:     "",   // cards punched in one corner on a binder ring
+    routine:  "",   // Daily Routine cards lined up as a chart
+    family:   "",   // My Family cards with real family photos in the boxes
+    coloring: "",   // small hands colouring an ink-saver card with crayons
+    table:    "",   // your kitchen table: cards, crayons, little hands
+    birthday: ""    // a birthday table with the Birthday Party banner up
   },
 
   // 8. Optional: recordings of each letter. Put 01.mp3 to 39.mp3 in a folder and name it here,
@@ -1768,28 +1729,28 @@ const PACKS = [
   {"id": "alphabet", "kind": "pack", "collection": "letters", "title": "Alphabet Flashcards", "hy": "Այբուբեն", "say": "ay-bu-BEN", "tile": "Ա", "color": "teal", "cards": 39, "price": 8.99, "blurb": "All 39 letters, each with its name, its sound and a first word.", "samples": [["Արև", "a-REV", "sun"], ["Բադ", "bad", "duck"], ["Կատու", "kah-TOO", "cat"]]},
   {"id": "read-write", "kind": "book", "collection": "letters", "title": "Read & Write: First Words", "tile": "Բ", "color": "coral", "price": 8.99, "blurb": "A phonics path: learn a few letters at a time, then read and write real words.", "tags": ["Workbook", "8 steps"], "hy": "Կարդում եմ, գրում եմ", "say": "kar-DOOM em, guh-ROOM em", "samples": [["տատ", "tat", "grandma"], ["հաց", "hats", "bread"], ["կով", "kov", "cow"]]},
   {"id": "little-learners", "kind": "book", "collection": "letters", "title": "Little Learners Activity Pack", "tile": "Աա", "color": "green", "price": 8.99, "blurb": "Letter tracing, coloring pages and homework sheets for ages 0 to 5.", "tags": ["Ages 0 to 5", "Trace, color, homework"], "hy": "Գրենք ու ներկենք", "say": "guh-RENK oo ner-KENK", "feats": [["Trace", "every letter"], ["Color", "big pictures"], ["Homework", "match, count, paste"]]},
-  {"id": "feelings", "kind": "pack", "collection": "me", "title": "Feelings & Emotions", "hy": "Զգացմունքներ", "say": "zgats-moonk-NER", "tile": "Զ", "color": "gold", "cards": 12, "price": 0, "blurb": "Help little ones name the big feelings in Armenian.", "samples": [["Ուրախ", "u-RAKH", "happy"], ["Տխուր", "t-KHUR", "sad"], ["Հանգիստ", "han-GIST", "calm"]], "free": true},
-  {"id": "family", "kind": "pack", "collection": "me", "title": "My Family", "hy": "Իմ ընտանիքը", "say": "eem un-ta-nee-KUH", "tile": "Ը", "color": "purple", "cards": 12, "price": 4.99, "blurb": "The people around the table, from mama to papik.", "samples": [["Մայրիկ", "MAY-rik", "mom", "photos/cards/family-mom.jpg"], ["Տատիկ", "TA-tik", "grandma"], ["Պապիկ", "PA-pik", "grandpa"]], "photos": true},
-  {"id": "body", "kind": "pack", "collection": "me", "title": "My Body & Face", "hy": "Դեմք ու մարմին", "say": "demk oo mar-MEEN", "tile": "Մ", "color": "pink", "cards": 28, "price": 6.99, "blurb": "Point-and-name flashcards, from eyebrows to toes.", "samples": [["Հոնքեր", "hon-KER", "eyebrows", "photos/cards/body-eyebrows.jpg"], ["Քիթ", "kit", "nose"], ["Ոտքի մատներ", "vot-KI mat-NER", "toes"]], "photos": true},
-  {"id": "parent", "kind": "pack", "collection": "home", "title": "Everyday Parent Phrases", "hy": "Ծնողի ամենօրյա խոսքերը", "say": "tsuh-no-GHEE ah-men-or-YAH khos-keh-RUH", "tile": "Ա", "color": "coral", "cards": 40, "price": 8.99, "blurb": "40 phrases you already say every day, now in Armenian.", "samples": [["Արի՛ այստեղ", "ari ays-TEGH", "come here"], ["Բռնի՛ր ձեռքս", "br-NIR dzerks", "hold my hand"], ["Սիրում եմ քեզ", "si-RUM em kez", "I love you"]]},
-  {"id": "food", "kind": "pack", "collection": "home", "title": "Mealtime & Daily Routine", "hy": "Ուտելիք ու օրվա ընթացք", "say": "oo-te-LEEK oo or-VAH uhn-TATSK", "tile": "Ֆ", "color": "coral", "cards": 36, "price": 8.99, "blurb": "The foods on the plate and the words around the table, then wake-up to bedtime, step by step.", "samples": [["Հաց", "hats", "bread", "photos/cards/food-bread.jpg"], ["Ջուր", "joor", "water"], ["Բարի գիշեր", "ba-ri gi-SHER", "goodnight"]], "photos": true},
-  {"id": "manners", "kind": "pack", "collection": "home", "title": "Manners & Kind Words", "hy": "Քաղաքավարություն", "say": "kah-ghah-kah-vah-roo-TYOON", "tile": "Շ", "color": "purple", "cards": 12, "price": 4.99, "blurb": "The little words that make a big difference.", "samples": [["Խնդրում եմ", "khn-DRUM em", "please"], ["Շնորհակալ եմ", "shnor-ha-KAL em", "thank you"], ["Ապրե՛ս", "ap-RES", "well done"]]},
-  {"id": "house", "kind": "pack", "collection": "home", "title": "Around the House", "hy": "Տան մեջ", "say": "tan mej", "tile": "Տ", "color": "sky", "cards": 20, "price": 6.99, "blurb": "The rooms and everyday things kids see all day.", "samples": [["Դուռ", "door", "door", "photos/cards/house-door.jpg"], ["Աթոռ", "a-TOR", "chair"], ["Գիրք", "girk", "book"]], "photos": true},
-  {"id": "animals", "kind": "pack", "collection": "basics", "title": "Animals & Sounds", "hy": "Կենդանիներ ու ձայներ", "say": "ken-da-nee-NER oo dzayn-NER", "tile": "Կ", "color": "green", "cards": 18, "price": 5.99, "blurb": "Name the animal, then make its sound in Armenian.", "samples": [["Շուն", "shoon", "dog", "photos/cards/animals-dog.jpg"], ["Կատու", "kah-TOO", "cat"], ["Կով", "kov", "cow"]], "photos": true},
-  {"id": "weather", "kind": "pack", "collection": "basics", "title": "Weather & What to Wear", "hy": "Եղանակ ու հագուստ", "say": "ye-gha-NAK oo ha-GOOST", "tile": "Ե", "color": "sky", "cards": 32, "price": 8.99, "blurb": "Sun, rain, snow and the four seasons, and what to wear for each one.", "samples": [["Արև", "a-REV", "sun", "photos/cards/weather-sun.jpg"], ["Անձրև", "an-dzuh-REV", "rain"], ["Բաճկոն", "bach-KON", "jacket"]], "plus": "Plus a weather board, a weekly weather chart and a what-to-wear board."},
+  {"id": "feelings", "kind": "pack", "collection": "me", "title": "Feelings & Emotions", "hy": "Զգացմունքներ", "say": "zgats-moonk-NER", "tile": "Զ", "color": "gold", "cards": 15, "price": 0, "blurb": "Help little ones name the big feelings in Armenian.", "samples": [["Ուրախ", "u-RAKH", "happy"], ["Տխուր", "t-KHUR", "sad"], ["Հանգիստ", "han-GIST", "calm"]], "free": true},
+  {"id": "family", "kind": "pack", "collection": "me", "title": "My Family", "hy": "Իմ ընտանիքը", "say": "eem un-ta-nee-KUH", "tile": "Ը", "color": "purple", "cards": 14, "price": 4.99, "blurb": "The people around the table, from mama to papik.", "samples": [["Մայրիկ", "MAY-rik", "mom", "photos/cards/family-mom.jpg"], ["Տատիկ", "TA-tik", "grandma"], ["Պապիկ", "PA-pik", "grandpa"]], "photos": true},
+  {"id": "body", "kind": "pack", "collection": "me", "title": "My Body & Face", "hy": "Դեմք ու մարմին", "say": "demk oo mar-MEEN", "tile": "Մ", "color": "pink", "cards": 28, "price": 6.99, "blurb": "Point-and-name flashcards, from eyebrows to toes.", "samples": [["Հոնքեր", "hon-KER", "eyebrows", "photos/cards/body-eyebrows.jpg"], ["Քիթ", "kit", "nose"], ["Ոտքի մատներ", "vot-KI mat-NER", "toes", "photos/cards/body-toes.jpg"]], "photos": true},
+  {"id": "parent", "kind": "pack", "collection": "home", "title": "Everyday Parent Phrases", "hy": "Ծնողի ամենօրյա խոսքերը", "say": "tsuh-no-GHEE ah-men-or-YAH khos-keh-RUH", "tile": "Ա", "color": "coral", "cards": 40, "price": 8.99, "blurb": "40 phrases you already say every day, now in Armenian.", "samples": [["Արի՛ այստեղ", "ari ays-TEGH", "come here", "photos/cards/parent-come-here.jpg"], ["Բռնի՛ր ձեռքս", "br-NIR dzerks", "hold my hand"], ["Սիրում եմ քեզ", "si-RUM em kez", "I love you"]]},
+  {"id": "food", "kind": "pack", "collection": "home", "title": "Mealtime & Daily Routine", "hy": "Ուտելիք ու օրվա ընթացք", "say": "oo-te-LEEK oo or-VAH uhn-TATSK", "tile": "Ֆ", "color": "coral", "cards": 36, "price": 8.99, "blurb": "The foods on the plate and the words around the table, then wake-up to bedtime, step by step.", "samples": [["Հաց", "hats", "bread", "photos/cards/food-bread.jpg"], ["Ջուր", "joor", "water", "photos/cards/food-water.jpg"], ["Բարի գիշեր", "ba-ri gi-SHER", "goodnight"]], "photos": true},
+  {"id": "manners", "kind": "pack", "collection": "home", "title": "Manners & Kind Words", "hy": "Քաղաքավարություն", "say": "kah-ghah-kah-vah-roo-TYOON", "tile": "Շ", "color": "purple", "cards": 12, "price": 4.99, "blurb": "The little words that make a big difference.", "samples": [["Խնդրում եմ", "khn-DRUM em", "please", "photos/cards/manners-please.jpg"], ["Շնորհակալ եմ", "shnor-ha-KAL em", "thank you"], ["Ապրե՛ս", "ap-RES", "well done"]]},
+  {"id": "house", "kind": "pack", "collection": "home", "title": "Around the House", "hy": "Տան մեջ", "say": "tan mej", "tile": "Տ", "color": "sky", "cards": 20, "price": 6.99, "blurb": "The rooms and everyday things kids see all day.", "samples": [["Դուռ", "door", "door", "photos/cards/house-door.jpg"], ["Աթոռ", "a-TOR", "chair", "photos/cards/house-chair.jpg"], ["Գիրք", "girk", "book", "photos/cards/house-book.jpg"]], "photos": true},
+  {"id": "animals", "kind": "pack", "collection": "basics", "title": "Animals & Sounds", "hy": "Կենդանիներ ու ձայներ", "say": "ken-da-nee-NER oo dzayn-NER", "tile": "Կ", "color": "green", "cards": 18, "price": 5.99, "blurb": "Name the animal, then make its sound in Armenian.", "samples": [["Շուն", "shoon", "dog", "photos/cards/animals-dog.jpg"], ["Կատու", "kah-TOO", "cat", "photos/cards/animals-cat.jpg"], ["Կով", "kov", "cow", "photos/cards/animals-cow.jpg"]], "photos": true},
+  {"id": "weather", "kind": "pack", "collection": "basics", "title": "Weather & What to Wear", "hy": "Եղանակ ու հագուստ", "say": "ye-gha-NAK oo ha-GOOST", "tile": "Ե", "color": "sky", "cards": 32, "price": 8.99, "blurb": "Sun, rain, snow and the four seasons, and what to wear for each one.", "samples": [["Արև", "a-REV", "sun", "photos/cards/weather-sun.jpg"], ["Անձրև", "an-dzuh-REV", "rain", "photos/cards/weather-rain.jpg"], ["Բաճկոն", "bach-KON", "jacket", "photos/cards/clothes-jacket.jpg"]], "plus": "Plus a weather board, a weekly weather chart and a what-to-wear board."},
   {"id": "calendar", "kind": "pack", "collection": "basics", "title": "Days & Months", "hy": "Օրեր ու ամիսներ", "say": "o-RER oo a-mees-NER", "tile": "Հ", "color": "purple", "cards": 28, "price": 6.99, "blurb": "The days of the week, the twelve months, and today, yesterday and tomorrow.", "samples": [["Երկուշաբթի", "yer-koo-shap-TEE", "Monday"], ["Այսօր", "ays-OR", "today"], ["Վաղը", "VA-ghuh", "tomorrow"]], "plus": "Plus a Today board and a month calendar to fill in."},
   {"id": "numbers", "kind": "pack", "collection": "basics", "title": "Numbers, Colors & Shapes", "hy": "Թվեր, գույներ ու ձևեր", "say": "tuh-VER, gooy-NER oo tseh-VER", "tile": "Թ", "color": "green", "cards": 36, "price": 8.99, "blurb": "Count to twenty with a ten frame on every card, then every color of the rainbow and the first shapes.", "samples": [["մեկ", "mek", "one"], ["Կարմիր", "kar-MIR", "red"], ["Աստղ", "astgh", "star"]], "plus": "Plus a 1–20 number chart."},
-  {"id": "grocery", "kind": "pack", "collection": "out", "title": "The Store & The Library", "hy": "Խանութ ու գրադարան", "say": "kha-NOOT oo guh-ra-da-RAN", "tile": "Խ", "color": "gold", "cards": 32, "price": 8.99, "blurb": "Cart, basket and how much is it, then books, stories and read it again.", "samples": [["Սայլակ", "say-LAK", "cart"], ["Գիրք", "geerk", "book"], ["Հեքիաթ", "he-kee-AT", "fairy tale"]], "plus": "Plus a store scavenger hunt and a try-something-new chart."},
-  {"id": "park", "kind": "pack", "collection": "out", "title": "Park, Pool & Beach", "hy": "Այգի, լողափ ու լողավազան", "say": "ay-GEE, lo-GHAP oo lo-gha-va-ZAN", "tile": "Ճ", "color": "green", "cards": 32, "price": 8.99, "blurb": "Slide, swing, sand and a ball at the park, then sand castles, waves and swim rings for summer.", "samples": [["Ճոճանակ", "cho-cha-NAK", "swing"], ["Ալիքներ", "a-leek-NER", "waves"], ["Ավազե դղյակ", "a-va-ZE duh-GHYAK", "sand castle"]], "plus": "Plus an I-spy sheet for the park."},
-  {"id": "hiking", "kind": "pack", "collection": "out", "title": "Hiking & Camping", "hy": "Արշավ ու ճամբար", "say": "ar-SHAV oo cham-BAR", "tile": "Ծ", "color": "teal", "cards": 32, "price": 8.99, "blurb": "Trails, rocks, rivers and squirrels, then tents, campfires and khorovats on the fire.", "samples": [["Սար", "sar", "mountain"], ["Գետ", "get", "river"], ["Վրան", "vuh-RAN", "tent"]], "plus": "Plus nature bingo and nature letters to build with sticks and stones."},
-  {"id": "space", "kind": "pack", "collection": "imagine", "title": "Space & Stars", "hy": "Տիեզերք ու աստղեր", "say": "tee-ye-ZERK oo ast-GHER", "tile": "Տ", "color": "purple", "cards": 16, "price": 5.99, "blurb": "Rockets, planets and the Milky Way: words for little stargazers.", "samples": [["Հրթիռ", "hur-TEERR", "rocket"], ["Տիեզերագնաց", "tee-ye-ze-rag-NATS", "astronaut"], ["Երեք, երկու, մեկ... թռա՛նք", "ye-REK, yer-KOO, mek... tuh-RRANK", "3, 2, 1... blast off!"]], "plus": "Plus a poster of the planets, each with its name."},
-  {"id": "magic", "kind": "pack", "collection": "imagine", "title": "Magic & Fairy Tales", "hy": "Կախարդանք ու հեքիաթներ", "say": "ka-khar-DANK oo he-kyat-NER", "tile": "Կ", "color": "pink", "cards": 16, "price": 5.99, "blurb": "Unicorns, fairies, gnomes and dragons, and how Armenian fairy tales begin and end.", "samples": [["Միաեղջյուր", "mee-a-yegh-JYOOR", "unicorn"], ["Վիշապ", "vee-SHAP", "dragon"], ["Լինում է, չի լինում...", "lee-NOOM e, chee lee-NOOM", "once upon a time..."]], "plus": "Plus a make-your-own fairy tale page."},
-  {"id": "dinosaurs", "kind": "pack", "collection": "imagine", "title": "Dinosaurs", "hy": "Դինոզավրեր", "say": "dee-no-zav-RER", "tile": "Դ", "color": "green", "cards": 16, "price": 5.99, "blurb": "T. rex, triceratops, fossils and volcanoes: big words for dinosaur fans.", "samples": [["Տիրանոզավր", "tee-ra-no-ZAVR", "T. rex"], ["Հրաբուխ", "hra-BOOKH", "volcano"], ["Մռնչա՛ դինոզավրի պես", "muh-rruhn-CHA dee-no-zav-REE pes", "roar like a dinosaur!"]], "plus": "Plus dinosaur bingo."},
-  {"id": "sea", "kind": "pack", "collection": "imagine", "title": "Under the Sea", "hy": "Ծովի խորքում", "say": "tso-VEE khor-KOOM", "tile": "Ծ", "color": "teal", "cards": 16, "price": 5.99, "blurb": "Whales, octopuses, sharks and seahorses: a dive into the deep blue sea.", "samples": [["Կետ", "ket", "whale"], ["Ութոտնուկ", "oo-tot-NOOK", "octopus"], ["Ծովաձի", "tso-va-DZEE", "seahorse"]], "plus": "Plus ocean bingo."},
+  {"id": "grocery", "kind": "pack", "collection": "out", "title": "The Store & The Library", "hy": "Խանութ ու գրադարան", "say": "kha-NOOT oo guh-ra-da-RAN", "tile": "Խ", "color": "gold", "cards": 32, "price": 8.99, "blurb": "Cart, basket and how much is it, then books, stories and read it again.", "samples": [["Սայլակ", "say-LAK", "cart", "photos/cards/grocery-cart.jpg"], ["Գիրք", "geerk", "book", "photos/cards/library-book.jpg"], ["Հեքիաթ", "he-kee-AT", "fairy tale", "photos/cards/library-fairy-tale.jpg"]], "plus": "Plus a store scavenger hunt and a try-something-new chart."},
+  {"id": "park", "kind": "pack", "collection": "out", "title": "Park, Pool & Beach", "hy": "Այգի, լողափ ու լողավազան", "say": "ay-GEE, lo-GHAP oo lo-gha-va-ZAN", "tile": "Ճ", "color": "green", "cards": 32, "price": 8.99, "blurb": "Slide, swing, sand and a ball at the park, then sand castles, waves and swim rings for summer.", "samples": [["Ճոճանակ", "cho-cha-NAK", "swing", "photos/cards/park-swing.jpg"], ["Ալիքներ", "a-leek-NER", "waves", "photos/cards/beach-waves.jpg"], ["Ավազե դղյակ", "a-va-ZE duh-GHYAK", "sand castle", "photos/cards/beach-sand-castle.jpg"]], "plus": "Plus an I-spy sheet for the park."},
+  {"id": "hiking", "kind": "pack", "collection": "out", "title": "Hiking & Camping", "hy": "Արշավ ու ճամբար", "say": "ar-SHAV oo cham-BAR", "tile": "Ծ", "color": "teal", "cards": 32, "price": 8.99, "blurb": "Trails, rocks, rivers and squirrels, then tents, campfires and khorovats on the fire.", "samples": [["Սար", "sar", "mountain", "photos/cards/hiking-mountain.jpg"], ["Գետ", "get", "river", "photos/cards/hiking-river.jpg"], ["Վրան", "vuh-RAN", "tent", "photos/cards/camping-tent.jpg"]], "plus": "Plus nature bingo and nature letters to build with sticks and stones."},
+  {"id": "space", "kind": "pack", "collection": "imagine", "title": "Space & Stars", "hy": "Տիեզերք ու աստղեր", "say": "tee-ye-ZERK oo ast-GHER", "tile": "Տ", "color": "purple", "cards": 16, "price": 5.99, "blurb": "Rockets, planets and the Milky Way: words for little stargazers.", "samples": [["Հրթիռ", "hur-TEERR", "rocket", "photos/cards/space-rocket.jpg"], ["Տիեզերագնաց", "tee-ye-ze-rag-NATS", "astronaut", "photos/cards/space-astronaut.jpg"], ["Երեք, երկու, մեկ... թռա՛նք", "ye-REK, yer-KOO, mek... tuh-RRANK", "3, 2, 1... blast off!"]], "plus": "Plus a poster of the planets, each with its name."},
+  {"id": "magic", "kind": "pack", "collection": "imagine", "title": "Magic & Fairy Tales", "hy": "Կախարդանք ու հեքիաթներ", "say": "ka-khar-DANK oo he-kyat-NER", "tile": "Կ", "color": "pink", "cards": 16, "price": 5.99, "blurb": "Unicorns, fairies, gnomes and dragons, and how Armenian fairy tales begin and end.", "samples": [["Միաեղջյուր", "mee-a-yegh-JYOOR", "unicorn", "photos/cards/magic-unicorn.jpg"], ["Վիշապ", "vee-SHAP", "dragon", "photos/cards/magic-dragon.jpg"], ["Լինում է, չի լինում...", "lee-NOOM e, chee lee-NOOM", "once upon a time..."]], "plus": "Plus a make-your-own fairy tale page."},
+  {"id": "dinosaurs", "kind": "pack", "collection": "imagine", "title": "Dinosaurs", "hy": "Դինոզավրեր", "say": "dee-no-zav-RER", "tile": "Դ", "color": "green", "cards": 16, "price": 5.99, "blurb": "T. rex, triceratops, fossils and volcanoes: big words for dinosaur fans.", "samples": [["Տիրանոզավր", "tee-ra-no-ZAVR", "T. rex", "photos/cards/dinosaurs-t-rex.jpg"], ["Հրաբուխ", "hra-BOOKH", "volcano", "photos/cards/dinosaurs-volcano.jpg"], ["Մռնչա՛ դինոզավրի պես", "muh-rruhn-CHA dee-no-zav-REE pes", "roar like a dinosaur!"]], "plus": "Plus dinosaur bingo."},
+  {"id": "sea", "kind": "pack", "collection": "imagine", "title": "Under the Sea", "hy": "Ծովի խորքում", "say": "tso-VEE khor-KOOM", "tile": "Ծ", "color": "teal", "cards": 16, "price": 5.99, "blurb": "Whales, octopuses, sharks and seahorses: a dive into the deep blue sea.", "samples": [["Կետ", "ket", "whale", "photos/cards/sea-whale.jpg"], ["Ութոտնուկ", "oo-tot-NOOK", "octopus", "photos/cards/sea-octopus.jpg"], ["Ծովաձի", "tso-va-DZEE", "seahorse", "photos/cards/sea-seahorse.jpg"]], "plus": "Plus ocean bingo."},
   {"id": "screen", "kind": "pack", "collection": "play", "title": "Shows & Screen Time", "hy": "Մուլտեր ու ֆիլմեր", "say": "mool-TER oo feel-MER", "tile": "Մ", "color": "sky", "cards": 20, "price": 6.99, "blurb": "Cartoons, movies and the play, pause and stop buttons, plus the phrases that make screen time easy.", "samples": [["Միացրո՛ւ", "mee-ats-ROO", "play"], ["Կանգնեցրո՛ւ", "kang-nets-ROO", "pause"], ["Մի սերիա է՞լ", "mee SE-ree-a el", "one more episode?"]], "plus": "Plus screen time tickets to cut out."},
-  {"id": "vehicles", "kind": "pack", "collection": "play", "title": "Things That Go", "hy": "Տրանսպորտ", "say": "trans-PORT", "tile": "Մ", "color": "coral", "cards": 16, "price": 5.99, "blurb": "Cars, diggers, fire trucks and trains: everything with wheels, wings and engines.", "samples": [["Հրշեջ մեքենա", "hur-SHEJ me-ke-NA", "fire truck", "photos/cards/vehicles-fire-truck.jpg"], ["Էքսկավատոր", "eks-ka-va-TOR", "digger"], ["Ամրագոտիդ կապի՛ր", "am-ra-go-TEED ka-PEER", "buckle up!"]], "plus": "Plus road trip bingo."},
-  {"id": "music", "kind": "pack", "collection": "play", "title": "Music & Dance", "hy": "Երաժշտություն ու պար", "say": "ye-razh-shtoo-TYOON oo par", "tile": "Ե", "color": "orange", "cards": 16, "price": 5.99, "blurb": "Drums, songs and dancing, plus the duduk, the dhol, the kanun and the Kochari.", "samples": [["Դուդուկ", "doo-DOOK", "duduk"], ["Պար", "par", "dance"], ["Ծափ տո՛ւր", "tsap toor", "clap your hands!"]]},
-  {"id": "birthday", "kind": "pack", "collection": "play", "title": "Birthday Party", "hy": "Ծննդյան խնջույք", "say": "tsuh-nuhn-DYAN khuhn-JOOYK", "tile": "Ծ", "color": "gold", "cards": 16, "price": 5.99, "blurb": "Cake, candles and presents, the birthday words, and a Happy Birthday banner to hang.", "samples": [["Տորթ", "tort", "cake", "photos/cards/birthday-cake.jpg"], ["Մոմեր", "mo-MER", "candles"], ["Երազանք պահի՛ր", "ye-ra-ZANK pa-HEER", "make a wish!"]]}
+  {"id": "vehicles", "kind": "pack", "collection": "play", "title": "Things That Go", "hy": "Տրանսպորտ", "say": "trans-PORT", "tile": "Մ", "color": "coral", "cards": 16, "price": 5.99, "blurb": "Cars, diggers, fire trucks and trains: everything with wheels, wings and engines.", "samples": [["Հրշեջ մեքենա", "hur-SHEJ me-ke-NA", "fire truck", "photos/cards/vehicles-fire-truck.jpg"], ["Էքսկավատոր", "eks-ka-va-TOR", "digger", "photos/cards/vehicles-digger.jpg"], ["Ամրագոտիդ կապի՛ր", "am-ra-go-TEED ka-PEER", "buckle up!"]], "plus": "Plus road trip bingo."},
+  {"id": "music", "kind": "pack", "collection": "play", "title": "Music & Dance", "hy": "Երաժշտություն ու պար", "say": "ye-razh-shtoo-TYOON oo par", "tile": "Ե", "color": "orange", "cards": 16, "price": 5.99, "blurb": "Drums, songs and dancing, plus the duduk, the dhol, the kanun and the Kochari.", "samples": [["Դուդուկ", "doo-DOOK", "duduk", "photos/cards/music-duduk.jpg"], ["Պար", "par", "dance", "photos/cards/music-dance.jpg"], ["Ծափ տո՛ւր", "tsap toor", "clap your hands!"]]},
+  {"id": "birthday", "kind": "pack", "collection": "play", "title": "Birthday Party", "hy": "Ծննդյան խնջույք", "say": "tsuh-nuhn-DYAN khuhn-JOOYK", "tile": "Ծ", "color": "gold", "cards": 16, "price": 5.99, "blurb": "Cake, candles and presents, the birthday words, and a Happy Birthday banner to hang.", "samples": [["Տորթ", "tort", "cake", "photos/cards/birthday-cake.jpg"], ["Մոմեր", "mo-MER", "candles", "photos/cards/birthday-candles.jpg"], ["Երազանք պահի՛ր", "ye-ra-ZANK pa-HEER", "make a wish!", "photos/cards/birthday-make-a-wish.jpg"]]}
 ];
 // Holiday packs, in calendar order. A buy button appears once its link is in BUY_LINKS (or url is set).
 const HOLIDAYS = [
