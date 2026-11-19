@@ -1615,36 +1615,37 @@ const CONFIG = {
 
   // 5. BUY LINKS. Create each product in Kit (Earn > Products), then paste its link here.
   //    Etsy listing links work too. Empty ones fall back to your Etsy shop, then show "Coming soon".
+  //    LINKS.etsy is empty until the Etsy shop has listings, so a pack with no link shows "Coming soon".
   //    The Shop Launch Kit builds this whole block for you as you list. Holiday packs show "Coming in ..." until they have a link.
   BUY_LINKS: {
-    alphabet: "https://rootsandcrayons.kit.com/products/alphabet-flashcards",
-    "read-write": "",
-    "little-learners": "",
+    alphabet: "",
+    "read-write": "https://rootsandcrayons.kit.com/products/read-write-first-words-armenian-printabl",
+    "little-learners": "https://rootsandcrayons.kit.com/products/little-learners-activity-pack-armenian-p",
     family: "https://rootsandcrayons.kit.com/products/my-family-armenian-printable",
     body: "https://rootsandcrayons.kit.com/products/mybody",
     parent: "https://rootsandcrayons.kit.com/products/everyday-parent-phrases",
-    food: "",
+    food: "https://rootsandcrayons.kit.com/products/mealtime-daily-routine",
     manners: "https://rootsandcrayons.kit.com/products/manners-kind-words-armenian-printable",
     house: "https://rootsandcrayons.kit.com/products/around-the-house-armenian-printable",
-    animals: "https://rootsandcrayons.kit.com/products/animals-sounds-armenian-printable",
-    weather: "",
-    calendar: "",
-    numbers: "",
-    grocery: "",
-    park: "",
-    hiking: "",
-    space: "",
-    magic: "",
-    dinosaurs: "",
-    sea: "",
-    screen: "",
-    vehicles: "",
-    music: "",
-    birthday: "",
-    thanksgiving: "",
-    winter: "",
-    spring: "",
-    school: "",
+    animals: "",
+    weather: "https://rootsandcrayons.kit.com/products/weather-what-to-wear",
+    calendar: "https://rootsandcrayons.kit.com/products/days-months-armenian-printable",
+    numbers: "https://rootsandcrayons.kit.com/products/numbers-colors-shapes",
+    grocery: "https://rootsandcrayons.kit.com/products/the-store-the-library",
+    park: "https://rootsandcrayons.kit.com/products/park-pool-beach",
+    hiking: "https://rootsandcrayons.kit.com/products/hiking-camping",
+    space: "https://rootsandcrayons.kit.com/products/space-stars-armenian-printable",
+    magic: "https://rootsandcrayons.kit.com/products/magic-fairy-tales-armenian-printable",
+    dinosaurs: "https://rootsandcrayons.kit.com/products/dinosaurs-armenian-printable",
+    sea: "https://rootsandcrayons.kit.com/products/under-the-sea-armenian-printable",
+    screen: "https://rootsandcrayons.kit.com/products/shows-screen-time-armenian-printable",
+    vehicles: "https://rootsandcrayons.kit.com/products/things-that-go-armenian-printable",
+    music: "https://rootsandcrayons.kit.com/products/music-dance-armenian-printable",
+    birthday: "https://rootsandcrayons.kit.com/products/birthday-party-armenian-printable",
+    thanksgiving: "https://rootsandcrayons.kit.com/products/thanksgiving-armenian-printable",
+    winter: "https://rootsandcrayons.kit.com/products/winter-holidays-armenian-printable",
+    spring: "https://rootsandcrayons.kit.com/products/spring-nowruz-easter-armenian-printable",
+    school: "https://rootsandcrayons.kit.com/products/back-to-school-armenian-printable",
     everything: "https://rootsandcrayons.kit.com/products/everything-bundle-armenian-printables",
     "start-reading": "",
     "at-home": "",
@@ -1658,7 +1659,7 @@ const CONFIG = {
 
   // 6. Your profiles. Anything left empty shows as "Coming soon".
   LINKS: {
-    etsy: "https://www.etsy.com/shop/RootsAndCrayons",
+    etsy: "",
     instagram: "https://www.instagram.com/rootsandcrayons",
     pinterest: "https://www.pinterest.com/RootsAndCrayons/",
     facebook: "https://www.facebook.com/profile.php?id=61596286979016"
@@ -1983,6 +1984,20 @@ const SEASONS = [
     const v = (CONFIG.CARD_PHOTO || {})[id];
     return (typeof v === "string" && v.trim()) ? v.trim() : "";
   }
+  // A tile photo that hasn't been uploaded yet falls back to the pack's drawing
+  // instead of showing a broken image.
+  document.addEventListener("error", ev => {
+    const img = ev.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains("card__pic")) return;
+    const art = img.dataset.art;
+    if (!art) { img.remove(); return; }
+    const wrap = document.createElement("span");
+    wrap.className = "card__art";
+    const pic = new Image(100, 100);
+    pic.alt = ""; pic.decoding = "async"; pic.src = art;
+    wrap.appendChild(pic);
+    img.replaceWith(wrap);
+  }, true);
   function miniCard(o) {
     const w = String(o.hy || ""), e = String(o.en || "");
     const size = w.length > 15 ? " is-xlong" : (w.length > 9 ? " is-long" : "");
@@ -1995,7 +2010,7 @@ const SEASONS = [
           <span class="card__num">${esc(o.num || "")}</span>
         </div>
         <div class="card__body">
-          ${o.pic ? `<img class="card__pic" src="${esc(o.pic)}" alt="" width="448" height="222" loading="lazy" decoding="async">`
+          ${o.pic ? `<img class="card__pic" src="${esc(o.pic)}"${o.art ? ` data-art="${esc(o.art)}"` : ""} alt="" width="448" height="222" loading="lazy" decoding="async">`
             : (o.art ? `<span class="card__art"><img src="${esc(o.art)}" alt="" width="100" height="100" decoding="async"></span>` : "")}
           ${e ? `<p class="card__en${esize}">${esc(e)}</p>` : ""}
           <span class="card__rule"></span>
