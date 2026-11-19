@@ -1983,6 +1983,20 @@ const SEASONS = [
     const v = (CONFIG.CARD_PHOTO || {})[id];
     return (typeof v === "string" && v.trim()) ? v.trim() : "";
   }
+  // A tile photo that hasn't been uploaded yet falls back to the pack's drawing
+  // instead of showing a broken image.
+  document.addEventListener("error", ev => {
+    const img = ev.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains("card__pic")) return;
+    const art = img.dataset.art;
+    if (!art) { img.remove(); return; }
+    const wrap = document.createElement("span");
+    wrap.className = "card__art";
+    const pic = new Image(100, 100);
+    pic.alt = ""; pic.decoding = "async"; pic.src = art;
+    wrap.appendChild(pic);
+    img.replaceWith(wrap);
+  }, true);
   function miniCard(o) {
     const w = String(o.hy || ""), e = String(o.en || "");
     const size = w.length > 15 ? " is-xlong" : (w.length > 9 ? " is-long" : "");
@@ -1995,7 +2009,7 @@ const SEASONS = [
           <span class="card__num">${esc(o.num || "")}</span>
         </div>
         <div class="card__body">
-          ${o.pic ? `<img class="card__pic" src="${esc(o.pic)}" alt="" width="448" height="222" loading="lazy" decoding="async">`
+          ${o.pic ? `<img class="card__pic" src="${esc(o.pic)}"${o.art ? ` data-art="${esc(o.art)}"` : ""} alt="" width="448" height="222" loading="lazy" decoding="async">`
             : (o.art ? `<span class="card__art"><img src="${esc(o.art)}" alt="" width="100" height="100" decoding="async"></span>` : "")}
           ${e ? `<p class="card__en${esize}">${esc(e)}</p>` : ""}
           <span class="card__rule"></span>
