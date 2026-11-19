@@ -205,7 +205,9 @@ section[id]{scroll-margin-top:64px}
 .hero__kicker{display:inline-block;margin-bottom:16px;padding:7px 14px 5px;border-radius:999px;background:rgba(255,255,255,.88);
   font-weight:800;font-size:.92rem;letter-spacing:.02em;color:var(--ink)}
 .hero__lead{margin-top:18px;font-size:clamp(1.125rem,1.02rem + .35vw,1.3rem);color:var(--ink-2);max-width:36ch}
-.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:22px}
+.hero__cta{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.signup--hero{max-width:520px}
+.signup--hero .signup__fine{color:var(--ink-3)}
 .btn--lg{font-size:1.1rem;padding:15px 28px}
 .hero__more{font-weight:700;font-size:1.05rem}
 .hero__more a{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--coral)}
@@ -764,8 +766,6 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .closer__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:center}
 @media (min-width:960px){.closer__grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
 .closer h2{max-width:14ch}
-.closer__proof{display:flex;gap:12px;margin-top:24px;overflow:hidden;border-radius:12px}
-.closer__proof img{flex:1 1 0;min-width:0;height:auto;object-fit:cover;aspect-ratio:4/3}
 .closer__lead{margin-top:14px;font-size:1.15rem;color:var(--ink-2);max-width:44ch}
 .closer .signup{margin-top:28px;max-width:580px}
 .fan{position:relative;height:calc(var(--fw)*700/520 + 40px);--fw:clamp(150px,30vw,218px);max-width:520px;width:100%;margin-inline:auto}
@@ -986,7 +986,24 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <h1 id="hero-title">Armenian your whole family can say.</h1>
       <p class="hero__lead">Printable flashcards for little ones, with the meaning and an easy sound-it-out guide on every card. Start tonight, even if your Armenian is a little rusty.</p>
       <div class="hero__cta">
-        <a class="btn btn--lg" href="#free">Start with free cards</a>
+        <form class="signup signup--hero" data-signup="pack" novalidate>
+          <div class="signup__fields">
+            <div class="signup__row">
+              <label class="sr" for="email-hero">Email address</label>
+              <input class="field" id="email-hero" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" aria-describedby="msg-hero" required>
+              <button class="btn btn--lg" type="submit">Get the free Feelings pack</button>
+            </div>
+            <p class="signup__msg" id="msg-hero" role="alert"></p>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="signup__fine">Free download, straight to your inbox. No spam.</p>
+          </div>
+          <div class="done" tabindex="-1">
+            <p class="done__hy"><span lang="hy">Ապրե՛ս</span><span class="done__say">ap-RES</span></p>
+            <p class="done__text">Check your inbox and tap the button in our email to get your Feelings pack. Peek in Promotions if you don't see it.</p>
+            <a class="btn done__dl" href="#" hidden>Download it now</a>
+            <p class="done__note" hidden>Preview mode: nothing was sent.</p>
+          </div>
+        </form>
         <a class="hero__more" href="#packs">Browse all <span data-fill="packs">23</span> packs, from <span data-fill="from">$4.99</span></a>
       </div>
     </div>
@@ -1070,11 +1087,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     <div class="fan" aria-hidden="true">
       <img class="card rcard" src="photos/realcards/feelings-sad.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
       <img class="card rcard" src="photos/realcards/feelings-happy.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
-      <img class="card rcard" src="photos/realcards/feelings-happy-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
-    </div>
-    <div class="closer__proof" aria-hidden="true">
-      <img src="photos/fridge.jpg" alt="" width="400" height="300" loading="lazy" decoding="async" style="border-radius:12px">
-      <img src="photos/table.jpg" alt="" width="400" height="300" loading="lazy" decoding="async" style="border-radius:12px">
+      <img class="card rcard" src="photos/realcards/feelings-hungry.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
