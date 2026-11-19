@@ -764,6 +764,8 @@ select.field{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:p
 .closer__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:center}
 @media (min-width:960px){.closer__grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
 .closer h2{max-width:14ch}
+.closer__proof{display:flex;gap:12px;margin-top:24px;overflow:hidden;border-radius:12px}
+.closer__proof img{flex:1 1 0;min-width:0;height:auto;object-fit:cover;aspect-ratio:4/3}
 .closer__lead{margin-top:14px;font-size:1.15rem;color:var(--ink-2);max-width:44ch}
 .closer .signup{margin-top:28px;max-width:580px}
 .fan{position:relative;height:calc(var(--fw)*700/520 + 40px);--fw:clamp(150px,30vw,218px);max-width:520px;width:100%;margin-inline:auto}
@@ -984,7 +986,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <h1 id="hero-title">Armenian your whole family can say.</h1>
       <p class="hero__lead">Printable flashcards for little ones, with the meaning and an easy sound-it-out guide on every card. Start tonight, even if your Armenian is a little rusty.</p>
       <div class="hero__cta">
-        <a class="btn btn--lg" href="#free">Get 12 cards free</a>
+        <a class="btn btn--lg" href="#free">Start with free cards</a>
         <a class="hero__more" href="#packs">Browse all <span data-fill="packs">23</span> packs, from <span data-fill="from">$4.99</span></a>
       </div>
     </div>
@@ -1036,8 +1038,8 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
 <section class="section closer" id="free" aria-labelledby="closer-title">
   <div class="wrap closer__grid">
     <div>
-      <h2 id="closer-title">Start with 12 free cards tonight</h2>
-      <p class="closer__lead">The whole Feelings pack, in color and ink-saver, straight to your inbox. Print it after dinner and play before bed.</p>
+      <h2 id="closer-title">Start with free cards tonight</h2>
+      <p class="closer__lead">The whole Feelings pack, in color and ink-saver, straight to your inbox. Print it after dinner and play before bed. Each card shows the Armenian, the English and exactly how to say it, so you learn alongside your child.</p>
       <form class="signup" data-signup="pack" novalidate>
         <div class="signup__fields">
           <div class="signup__row">
@@ -1068,7 +1070,11 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
     <div class="fan" aria-hidden="true">
       <img class="card rcard" src="photos/realcards/feelings-sad.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
       <img class="card rcard" src="photos/realcards/feelings-happy.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
-      <img class="card rcard" src="photos/realcards/feelings-hungry.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
+      <img class="card rcard" src="photos/realcards/feelings-happy-ink.webp" alt="" width="520" height="699" loading="lazy" decoding="async">
+    </div>
+    <div class="closer__proof" aria-hidden="true">
+      <img src="photos/fridge.jpg" alt="" width="400" height="300" loading="lazy" decoding="async" style="border-radius:12px">
+      <img src="photos/table.jpg" alt="" width="400" height="300" loading="lazy" decoding="async" style="border-radius:12px">
     </div>
   </div>
 </section>
@@ -1104,7 +1110,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
   <div class="wrap">
     <div class="section__head c-teal">
       <p class="basics__eyebrow">Start here</p>
-      <h2 id="basics-title">The six to buy first</h2>
+      <h2 id="basics-title">The best packs to start with</h2>
       <p class="section__hy"><span lang="hy">Առաջին գիտելիքներ</span><span>a-ra-JEEN gee-te-leek-NER, first things to know</span></p>
       <p>These are the sets every flashcard shop sells, so you can compare ours side by side. Ours
         spell out how to say every word, which is the part that usually goes missing.</p>
@@ -1446,7 +1452,7 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
         <svg class="shape" aria-hidden="true"><use href="#s-heart"/></svg>
         <h3>Pass it down the family</h3>
         <p>Print a second set for the cousins. Mail a deck to Papik. Bring the cards to Saturday school. A word lasts when more than one person in the family is saying it.</p>
-        <a class="circle__go" href="#free">Start with 12 free cards</a>
+        <a class="circle__go" href="#free">Start with free cards</a>
       </li>
     </ul>
     <div class="circle__fix" id="fix">
@@ -1501,7 +1507,6 @@ a.soc:active{transform:translateY(4px);box-shadow:0 2px 0 var(--edge)}
       <li><a class="soc c-pink" data-link="instagram" href="#"><svg class="shape" aria-hidden="true"><use href="#s-heart"/></svg><span class="soc__name">Instagram</span><span class="soc__desc">Sneak peeks and little lessons</span><span class="soc__soon">Coming soon</span></a></li>
       <li><a class="soc c-coral" data-link="pinterest" href="#"><svg class="shape" aria-hidden="true"><use href="#s-circle"/></svg><span class="soc__name">Pinterest</span><span class="soc__desc">Printables and ideas to save</span><span class="soc__soon">Coming soon</span></a></li>
       <li><a class="soc c-sky" data-link="facebook" href="#"><svg class="shape" aria-hidden="true"><use href="#s-square"/></svg><span class="soc__name">Facebook</span><span class="soc__desc">Share photos and ask us anything</span><span class="soc__soon">Coming soon</span></a></li>
-      <li><a class="soc c-orange" data-link="etsy" href="#"><svg class="shape" aria-hidden="true"><use href="#s-triangle"/></svg><span class="soc__name">Etsy shop</span><span class="soc__desc">Every pack, instant download</span><span class="soc__soon">Coming soon</span></a></li>
     </ul>
     <div class="foot__base">
       <span class="foot__brand"><svg viewBox="0 0 1104 527" role="img" aria-label="Roots and Crayons"><use href="#logo" width="1104" height="527"/></svg></span>
@@ -1569,29 +1574,10 @@ const CONFIG = {
     "birthday":     "photos/cards/birthday-cake.jpg",
     "thanksgiving": "photos/cards/thanksgiving-thanksgiving.jpg",
 
-    // --- more packs (every pack now has a photo) ---
-    "alphabet":     "photos/cards/alphabet-sun.jpg",
+    // --- more packs get a photo here as they're shot ---
     "read-write":   "photos/cards/read-write-grandma.jpg",
     "feelings":     "photos/cards/feelings-happy.jpg",
-    "parent":       "photos/cards/parent-come-here.jpg",
-    "manners":      "photos/cards/manners-please.jpg",
-    "calendar":     "photos/cards/calendar-monday.jpg",
-    "numbers":      "photos/cards/numbers-one.jpg",
-    "grocery":      "photos/cards/grocery-cart.jpg",
-    "park":         "photos/cards/park-swing.jpg",
-    "hiking":       "photos/cards/hiking-mountain.jpg",
-    "space":        "photos/cards/space-rocket.jpg",
-    "magic":        "photos/cards/magic-unicorn.jpg",
-    "dinosaurs":    "photos/cards/dinosaurs-t-rex.jpg",
-    "sea":          "photos/cards/sea-whale.jpg",
-    "screen":       "photos/cards/screen-popcorn.jpg",
-    "music":        "photos/cards/music-duduk.jpg",
-    "winter":       "photos/cards/winter-newyear.jpg",
-    "trndez":       "photos/cards/trndez-campfire.jpg",
-    "spring":       "photos/cards/spring-red-eggs.jpg",
-    "vardavar":     "photos/cards/vardavar-pool.jpg",
-    "school":       "photos/cards/school-backpack.jpg",
-    "alphabet-day": "photos/cards/alphabet-day-letter.jpg"
+    "hiking":       "photos/cards/hiking-mountain.jpg"
   },
 
   // Fallback drawings, used only for a pack with no photo above (cards/ folder).
@@ -1614,8 +1600,7 @@ const CONFIG = {
   ],
 
   // 5. BUY LINKS. Create each product in Kit (Earn > Products), then paste its link here.
-  //    Etsy listing links work too. Empty ones fall back to your Etsy shop, then show "Coming soon".
-  //    LINKS.etsy is empty until the Etsy shop has listings, so a pack with no link shows "Coming soon".
+  //    A pack with no link shows "Coming soon".
   //    The Shop Launch Kit builds this whole block for you as you list. Holiday packs show "Coming in ..." until they have a link.
   BUY_LINKS: {
     alphabet: "",
@@ -1659,7 +1644,6 @@ const CONFIG = {
 
   // 6. Your profiles. Anything left empty shows as "Coming soon".
   LINKS: {
-    etsy: "",
     instagram: "https://www.instagram.com/rootsandcrayons",
     pinterest: "https://www.pinterest.com/RootsAndCrayons/",
     facebook: "https://www.facebook.com/profile.php?id=61596286979016"
@@ -1704,13 +1688,13 @@ const SHAPE_FOR = {coral:"circle", orange:"triangle", sky:"square", gold:"diamon
 /* ==== PRODUCTS (from the pack builder: run site_data.py, don't edit by hand) ==== */
 // Shelves on the page, in order. A shelf's bundle is offered at the top of it.
 const COLLECTIONS = [
-  {"id": "letters", "title": "Letters & Reading", "color": "coral", "blurb": "Start here: the alphabet, then real words to read and write.", "bundle": "start-reading"},
   {"id": "me", "title": "All About Me", "color": "pink", "blurb": "Feelings, family, and a face and body from head to toe.", "bundle": ""},
   {"id": "home", "title": "At Home", "color": "gold", "blurb": "The words of an ordinary day: meals, routines and kind words.", "bundle": "at-home"},
   {"id": "basics", "title": "Learning Basics", "color": "sky", "blurb": "What preschool and kindergarten cover: animals, colors, numbers, weather, clothes and the calendar.", "bundle": "learning-basics"},
-  {"id": "out", "title": "Out & About", "color": "green", "blurb": "Take the words along: to the store, the park, the library, the trail, the campsite and the beach.", "bundle": "out-about"},
-  {"id": "imagine", "title": "Big Imaginations", "color": "purple", "blurb": "Space, magic, dinosaurs and the deep blue sea: words for big dreamers.", "bundle": "imagine"},
   {"id": "play", "title": "Play & Celebrate", "color": "orange", "blurb": "Wheels, music, shows and birthday parties: the words of fun.", "bundle": "play"},
+  {"id": "out", "title": "Out & About", "color": "green", "blurb": "Take the words along: to the store, the park, the library, the trail, the campsite and the beach.", "bundle": "out-about"},
+  {"id": "letters", "title": "Letters & Reading", "color": "coral", "blurb": "The alphabet, then real words to read and write.", "bundle": "start-reading"},
+  {"id": "imagine", "title": "Big Imaginations", "color": "purple", "blurb": "Space, magic, dinosaurs and the deep blue sea: words for big dreamers.", "bundle": "imagine"},
   {"id": "traditions", "title": "Traditions & Holidays", "color": "purple", "blurb": "Sayings, holidays and the stories behind them.", "bundle": "", "more": ["See the holiday packs", "#specials"]}
 ];
 // Bundles (the first one is the big "everything" banner). packs lists packs and workbooks by id.
@@ -1857,10 +1841,10 @@ const SEASONS = [
   const colorClass = el => [...el.classList].find(c => c.startsWith("c-"));
   const fill = (key, value) => document.querySelectorAll(`[data-fill="${key}"]`).forEach(el => { el.textContent = value; });
   const paid = PACKS.filter(p => !p.free);
-  const shopFallback = CONFIG.LINKS.etsy;
+  const shopFallback = "";
   const buyLink = id => (CONFIG.BUY_LINKS && CONFIG.BUY_LINKS[id]) || "";
   const external = a => { a.target = "_blank"; a.rel = "noopener"; };
-  const buyLabel = url => /etsy\./i.test(url) ? "Buy on Etsy" : "Buy now";
+  const buyLabel = url => "Buy now";
 
   /* ---- Totals that show up in the copy ---- */
   const cardPacks = PACKS.filter(p => p.kind !== "book");
@@ -1877,7 +1861,7 @@ const SEASONS = [
   document.getElementById("year").textContent = new Date().getFullYear();
 
   /* ---- Social and shop links: fill from CONFIG, or show "Coming soon" ---- */
-  ["etsy", "instagram", "pinterest", "facebook"].forEach(key => {
+  ["instagram", "pinterest", "facebook"].forEach(key => {
     const url = CONFIG.LINKS[key];
     document.querySelectorAll(`[data-link="${key}"]`).forEach(a => {
       if (url) { a.href = url; external(a); }
@@ -1962,7 +1946,7 @@ const SEASONS = [
   const shelfNav = document.getElementById("shelfNav");
   // The shelf area opens on one shelf, not all of them: 34 packs at once is what made this page
   // feel endless. Learning Basics first, because that is what a shopper compares on.
-  const FIRST_SHELF = shelves.some(c => c.id === "basics") ? "basics" : (shelves[0] && shelves[0].id);
+  const FIRST_SHELF = shelves.some(c => c.id === "me") ? "me" : (shelves[0] && shelves[0].id);
   const ordered = shelves.slice().sort((a, b) => (a.id === FIRST_SHELF ? -1 : 0) - (b.id === FIRST_SHELF ? -1 : 0));
   shelfNav.innerHTML = ordered.map(c =>
       `<button type="button" data-show="${c.id}" aria-pressed="${String(c.id === FIRST_SHELF)}">${esc(c.title)}<small>${c.items.length}</small></button>`).join("")
@@ -2066,12 +2050,14 @@ const SEASONS = [
 
   /* ---- The six starter sets, Free first and the alphabet last ---- */
   const STARTER = [
-    ["feelings", "Free", "Twelve big feelings. It costs nothing, so you can see how the cards work before you spend."],
-    ["family",   "Step 1", "Mama to papik. You can drop in photos of your own family, so the faces are the real ones."],
-    ["animals",  "Step 2", "Name the animal, then make its sound. The pack children ask for again and again."],
-    ["numbers",  "Step 3", "One to twenty with a ten frame on every card, plus every color and the first shapes."],
-    ["parent",   "Step 4", "Forty phrases you already say every day, now in Armenian. The one that changes the house."],
-    ["alphabet", "Step 5", "39 letters, each with its name, its sound and a first word. Meet them below, then print the set."]
+    ["feelings", "Free", "Fifteen big feelings in Armenian. It costs nothing, so you can see how the cards work before you buy."],
+    ["family",   "Step 1", "Mama to papik, with real photos. You can swap in your own family, so the faces match."],
+    ["food",     "Step 2", "The foods on the plate and the words around the table, from breakfast to bedtime."],
+    ["animals",  "Step 3", "Name the animal, then make its sound. The pack children ask for again and again."],
+    ["house",    "Step 4", "The rooms and everyday things kids see all day, with real photos of each one."],
+    ["parent",   "Step 5", "Forty phrases you already say every day, now in Armenian. The one that changes the house."],
+    ["body",     "Step 6", "Point-and-name flashcards from eyebrows to toes, with real photos on every card."],
+    ["alphabet", "Step 7", "39 letters, each with its name, its sound and a first word. Meet them below, then print the set."]
   ];
   const starterGrid = document.getElementById("starterGrid");
   if (starterGrid) {
